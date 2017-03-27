@@ -1,0 +1,4 @@
+output/
+pelican-plugins/
+.ipynb_checkpoints/
+__pycache__/
