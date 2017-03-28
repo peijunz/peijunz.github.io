@@ -35,7 +35,7 @@ SOCIAL = (('github', 'http://github.com/peijunz'),
 DEFAULT_PAGINATION = 6
 MULTI_NEIGHBORS = 5
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATH = ['./pelican-plugins']
 PLUGINS = ['render_math', 'ipynb2pelican', 'neighbors']
