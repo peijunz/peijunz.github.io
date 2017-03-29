@@ -5,12 +5,12 @@ Personal Information
 :slug: aboutme
 :tags: ustc
 
-.. figure:: {attach}_static/peijunz.jpg
+.. figure:: {attach}/res/peijunz.jpg
     :alt: My photo in the visa
     :align: right
     :width: 300px
 
-For more comprehensive information please `download my CV <{attach}_static/peijunz-cv.pdf>`_. 
+For more comprehensive information please `download my CV <{attach}/res/peijunz-cv.pdf>`_. 
 
 General Information
 ---------------------

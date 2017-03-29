@@ -16,14 +16,14 @@ Noise reduction
 ``````````````````````
 In the beginning, we could not get stable interference fringes because of the small but crucial vibration of the optical platform. To overcome this problem, we improved the insulation of rotating ground glass and designed more flexible devices to control the glass. The original data were a series of photos taken by the CCD. Realizing that the noise in the photos would render the results unreliable, I used wavelet transformation to filter the noise of high frequency. After that, we were able to compute the contrast in different lines which are parallel to the central line.
 
-.. .. figure:: _static/origin.png
+.. .. figure:: /res/origin.png
 ..     :alt: original photo with noise
 ..     :align: left
 ..     :scale: 50%
 ..     
 ..     Original photo with noise
 ..     
-.. .. figure:: _static/nonoise.png
+.. .. figure:: /res/nonoise.png
 ..     :alt: Noise reduced 
 ..     :align: left
 ..     :scale: 50%
@@ -34,7 +34,7 @@ Data fitting
 ```````````````````
 Unlike what was claimed to be Gaussian in the bibliography, we noticed a sharp peak in the middle of the curve of contrast distribution, for most photos. Then, I proposed a crude statistical model to explain the properties of the contrast curve, which fits the trend and shape of the curve quite well. 
 
-.. figure:: {attach}_static/fit.png
+.. figure:: {attach}/res/fit.png
     :alt: fit
     :align: center
     :width: 500px
@@ -62,7 +62,7 @@ Yijian used truncated matrices to get an accurate enough approximate solution in
 
 To estimate the increasing trend when perturbation increase, I used some techniques learnt in the Statistical Mechanics course and many other approximation methods. The estimation can be completed with a little information about the distribution, which can be easily calculated by MC simulation of eigenvalues of small random matrices. I also absorbed the truncation method from Yijian in my derivation. Then I proved the trend of NPT width :math:`w`, when the :math:`\lambda` increase, should be about :math:`w\propto\lambda\sqrt{\ln\lambda}`, with a slight deviation term :math:`\sqrt{\ln\lambda}` from the former unsubstantial assertion :math:`w\propto\lambda`. 
 
-.. figure:: {attach}_static/large.png
+.. figure:: {attach}/res/large.png
     :alt:   large
     :align: center
     :width: 500
@@ -96,27 +96,27 @@ There are many interactions between colloidal particles, such as DLVO interactio
 
 The hinge of calculating the depletion potential is to calculate the intersection area of extended borders. One of the difficulties is to **find extended borders** for given borders. To make the problem simpler, I supposed the border consists of several arcs. The efficiency of the program is inversely proportional to the number of segments of each colloid. Another difficulty is to **get the intersection area** of two extended borders. To solve the problem, we first consider two borders as a unity. Then we split the unity into several groups of closed curves without intersection with any other loop. The area of each region can be calculated by Green's Theorem. Among these loops we suppose the areas of :math:`C_1, C_2,\ldots C_m` are all positive. If :math:`C_k` is the one with the largest area, we can prove that the area of intersection should be :math:`A_{\mathrm{inter}}=\sum_{i=0}^m A(C_i)-A(C_k)`. In this way, we are able to compute the potential at **arbitrary** accuracy! We can find the contacting point for given angles by bisection method and later calculate the potential at that point for combinations of rotation angle and revolution angle :math:`(x, y)`. Using the contour plot of the contacting potential energy in the coordinate (x,y), we can easily analyse the stability of tip-to-tip, side-to-side and other assembly. I tried many kinds of shapes, like I, III, VII and etc.. There are some slides_ showing the potential plot of shape VII.
 
-.. figure:: {attach}_static/shape1.png
+.. figure:: {attach}/res/shape1.png
     :alt:   shape
     :width: 300px
     :align: left
-    :target: {attach}_static/shape1.svg
+    :target: {attach}/res/shape1.svg
     
     Shape I
     
-.. figure:: {attach}_static/shape3.png
+.. figure:: {attach}/res/shape3.png
     :alt:   shape
     :width: 300px
     :align: left
-    :target: {attach}_static/shape3.svg
+    :target: {attach}/res/shape3.svg
     
     Shape III
 
-.. figure:: {attach}_static/shape7.png
+.. figure:: {attach}/res/shape7.png
     :alt:   shape
     :width: 300px
     :align: left
-    :target: {attach}_static/shape7.svg
+    :target: {attach}/res/shape7.svg
     
     Shape VII
 

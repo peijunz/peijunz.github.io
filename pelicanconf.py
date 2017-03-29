@@ -42,4 +42,4 @@ MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATH = ['./pelican-plugins']
 PLUGINS = ['render_math', 'ipynb2pelican']
 IGNORE_FILES = ['.ipynb_checkpoints']
-STATIC_PATHS = ['images', 'pdfs', 'Homepage/_static']
+STATIC_PATHS = ['res']
