@@ -5,6 +5,7 @@ from pyembed.rst import PyEmbedRst
 PyEmbedRst().register()
 
 AUTHOR = 'Peijun Zhu'
+AUTHOR_URL = 'aboutme.html'
 SITENAME = "Peijun's Thoughts"
 SITEURL = ''
 
@@ -31,14 +32,14 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 # Social widget
 SOCIAL = (('github', 'http://github.com/peijunz'),
           ('facebook', 'https://www.facebook.com/people/Peijun-Zhu/100011384055583'),)
-
-DEFAULT_PAGINATION = 6
-MULTI_NEIGHBORS = 5
+MENUITEMS = (('All', '/archives.html'), ('Tags', '/tags.html'))
+DEFAULT_PAGINATION = 8
+DISPLAY_PAGES_ON_MENU = False
+#THEME = './pelican-themes/dev-random2'
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+#RELATIVE_URLS = True
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATH = ['./pelican-plugins']
-PLUGINS = ['render_math', 'ipynb2pelican', 'neighbors']
-
+PLUGINS = ['render_math', 'ipynb2pelican']
 IGNORE_FILES = ['.ipynb_checkpoints']
 STATIC_PATHS = ['images', 'pdfs', 'Homepage/_static']

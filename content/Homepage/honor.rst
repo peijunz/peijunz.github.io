@@ -1,8 +1,9 @@
+Scholarships & Honors
+#####################
+
 :date: 2016-10-10
 :slug: hornor
 
-Scholarships & Honors
-=====================
 .. Scholarships & Honors
 .. ------------------------
 

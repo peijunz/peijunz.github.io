@@ -1,8 +1,8 @@
-:date: 2016-10-08
-:slug: study
+Undergrad Study
+##############################
 
-Scholastic & English abilities
-==========================================
+:date: 2016-10-08
+:tags: ustc
 
 GPA, Weighted Mean and Ranking
 ------------------------------------

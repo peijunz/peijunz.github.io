@@ -1,8 +1,8 @@
+Research Experience
+###################
+
 :date: 2016-10-09
 :slug: research
-
-Research Experience
-====================
 
 Partial Coherent Light
 -------------------------------------
