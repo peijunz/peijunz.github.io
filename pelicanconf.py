@@ -6,6 +6,7 @@ PyEmbedRst().register()
 
 AUTHOR = 'Peijun Zhu'
 AUTHOR_URL = 'aboutme.html'
+SITETITLE = 'Peijun Zhu'
 SITENAME = "Peijun's Thoughts"
 
 SITEURL = 'http://localhost:8000'
