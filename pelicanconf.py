@@ -29,7 +29,7 @@ AUTHOR_FEED_RSS = None
 #TRANSLATION_FEED_ATOM = None
 #AUTHOR_FEED_ATOM = None
 #AUTHOR_FEED_RSS = None
-
+FAVICON = 'res/favicon.ico'
 SITELOGO = '/peijunz.jpg'
 SITESUBTITLE = 'PhD Student@Physics'
 DISQUS_SITENAME = "peijunz"
@@ -62,13 +62,13 @@ SITEMAP = {
     }
 }
 USE_LESS = True
-DEFAULT_PAGINATION = 8
+DEFAULT_PAGINATION = 10
 DISPLAY_PAGES_ON_MENU = False
 THEME = './pelican-themes/Flex'
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATH = ['./pelican-plugins']
-PLUGINS = ['render_math', 'ipynb2pelican']
+PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code']
 IGNORE_FILES = ['.ipynb_checkpoints']
-STATIC_PATHS = ['res']
+STATIC_PATHS = ['res', 'code']

@@ -1,7 +1,7 @@
 Personal Information
 ####################
 
-:date: 2016-10-30
+:date: 2015-10-30
 :slug: aboutme
 :tags: ustc
 

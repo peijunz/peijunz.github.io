@@ -1,7 +1,7 @@
 Undergrad Study
 ##############################
 
-:date: 2016-10-08
+:date: 2015-10-08
 :tags: ustc
 
 GPA, Weighted Mean and Ranking

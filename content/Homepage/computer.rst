@@ -1,7 +1,7 @@
 Computer Skills
 ###############
 
-:date: 2016-10-03
+:date: 2015-10-03
 :slug: computer
 
 I am also very interested in tinkering computer. Besides the knowledge learnt in classes, I have mastered many other skills such as LaTeX, Python, Git, etc. to make my life easier and study more efficient. In my daily life, I always use the Linux OS, which is spiritually free and highly customizable. I have learned the KISS (Keep It Simple, Stupid) philosophy from Linux. I am deeply impressed by the free software movement initiated by `RMS <https://en.wikipedia.org/wiki/Richard_Stallman>`_.
