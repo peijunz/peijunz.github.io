@@ -1,5 +1,6 @@
 output/
 pelican-plugins/
+*.pid
 pelican-themes/
 .ipynb_checkpoints/
 __pycache__/
