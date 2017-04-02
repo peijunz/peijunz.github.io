@@ -33,6 +33,7 @@ FAVICON = 'res/favicon.ico'
 SITELOGO = '/peijunz.jpg'
 SITESUBTITLE = 'PhD Student@Physics'
 DISQUS_SITENAME = "peijunz"
+GOOGLE_ANALYTICS='UA-96594625-1'
 # Blogroll
 LINKS = (('About', '/aboutme.html'),
          ('Contact', 'mailto:pez33@pitt.edu'),
