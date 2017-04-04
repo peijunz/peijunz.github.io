@@ -77,6 +77,8 @@ THEME = './pelican-themes/Flex'
 #RELATIVE_URLS = True
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATH = ['./pelican-plugins']
-PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code', 'sitemap', ]
+PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
+           'sitemap', 'modified_from_mtime']
+ALWAYS_MODIFIED=True
 IGNORE_FILES = ['.ipynb_checkpoints']
 STATIC_PATHS = ['res', 'code']

@@ -4,3 +4,6 @@
 [submodule "content/MLAPP"]
 	path = content/MLAPP
 	url = git@github.com:peijunz/mlapp.git
+[submodule "pelican-plugins/modified_from_mtime"]
+	path = pelican-plugins/modified_from_mtime
+	url = git@github.com:peijunz/modified_from_mtime.git
