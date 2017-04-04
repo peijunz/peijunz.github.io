@@ -62,7 +62,14 @@ SITEMAP = {
         'pages': 'monthly',
     }
 }
-USE_LESS = True
+CC_LICENSE = {
+    'name': 'Creative Commons Attribution-ShareAlike',
+    'version': '4.0',
+    'slug': 'by-sa'
+}
+GITHUB_CORNER_URL = "https://github.com/peijunz"
+USE_LESS = False
+PYGMENTS_STYLE = 'default'
 DEFAULT_PAGINATION = 10
 DISPLAY_PAGES_ON_MENU = False
 THEME = './pelican-themes/Flex'
@@ -70,6 +77,6 @@ THEME = './pelican-themes/Flex'
 #RELATIVE_URLS = True
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATH = ['./pelican-plugins']
-PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code']
+PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code', 'sitemap', ]
 IGNORE_FILES = ['.ipynb_checkpoints']
 STATIC_PATHS = ['res', 'code']
