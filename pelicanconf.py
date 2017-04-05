@@ -30,7 +30,8 @@ AUTHOR_FEED_RSS = None
 #AUTHOR_FEED_ATOM = None
 #AUTHOR_FEED_RSS = None
 FAVICON = 'res/favicon.ico'
-SITELOGO = '/peijunz.jpg'
+#SITELOGO = '/peijunz.jpg'
+SITELOGO = '/res/site.png'
 SITESUBTITLE = 'PhD Student@Physics'
 DISQUS_SITENAME = "peijunz"
 GOOGLE_ANALYTICS='UA-96594625-1'
@@ -42,7 +43,7 @@ LINKS = (('About', '/aboutme.html'),
 # Social widget
 SOCIAL = (('github', 'http://github.com/peijunz'),
           ('facebook', 'https://www.facebook.com/people/Peijun-Zhu/100011384055583'),
-	          ('rss', '//peijunz.github.io/feeds/all.atom.xml'))
+	          ('rss', '//peijun.me/feeds/all.atom.xml'))
 MAIN_MENU = True
 HOME_HIDE_TAGS = True
 MENUITEMS = (('Archives', '/archives.html'),
@@ -67,7 +68,7 @@ CC_LICENSE = {
     'version': '4.0',
     'slug': 'by-sa'
 }
-GITHUB_CORNER_URL = "https://github.com/peijunz"
+#GITHUB_CORNER_URL = "https://github.com/peijunz"
 USE_LESS = False
 PYGMENTS_STYLE = 'default'
 DEFAULT_PAGINATION = 10
@@ -81,4 +82,5 @@ PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
            'sitemap', 'modified_from_mtime']
 ALWAYS_MODIFIED=True
 IGNORE_FILES = ['.ipynb_checkpoints']
-STATIC_PATHS = ['res', 'code']
+STATIC_PATHS = ['res', 'code', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
