@@ -2,7 +2,8 @@ Research Experience
 ###################
 
 :date: 2015-10-09
-:slug: research, ustc
+:slug: research-ustc
+:tags: reasearch, ustc
 
 Partial Coherent Light
 -------------------------------------
@@ -90,9 +91,7 @@ Self-assembly of colloidal particles
 ``````````````````````````````````````
 There are many interactions between colloidal particles, such as DLVO interaction, depletion interaction, capillary interaction, etc.. I researched about the probable self-assembly of 2D colloidal particles dominated by depletion interaction. The aim is to find a structure to assemble the kagome lattice. The kagome lattice can exhibit sub-extensive numbers of zero-frequency floppy modes when it is of finite size, such as the property shown in the `video <http://www-personal.umich.edu/~maox/research/TTMM/TTMM.html>`_. I developed a program written in SciPy to calculate the potential between two colloidal particles. The source code can be downloaded `here <https://bitbucket.org/zpj/kagome-lattice/downloads>`_
 
-.. note:: Here is a sozi `slide <{filename}shape-show.sozi.html>`_ demonstrates the interaction between triangular colloids. Left/Right Click to go forward/backward. Mouse wheel move forward/backward to zoom in/out. Shift+Mouse wheel to rotate. Or you can read more about `how to play <http://sozi.baierouge.fr/pages/40-play.html>`_. 
-
-The hinge of calculating the depletion potential is to calculate the intersection area of extended borders. One of the difficulties is to **find extended borders** for given borders. To make the problem simpler, I supposed the border consists of several arcs. The efficiency of the program is inversely proportional to the number of segments of each colloid. Another difficulty is to **get the intersection area** of two extended borders. To solve the problem, we first consider two borders as a unity. Then we split the unity into several groups of closed curves without intersection with any other loop. The area of each region can be calculated by Green's Theorem. Among these loops we suppose the areas of :math:`C_1, C_2,\ldots C_m` are all positive. If :math:`C_k` is the one with the largest area, we can prove that the area of intersection should be :math:`A_{\mathrm{inter}}=\sum_{i=0}^m A(C_i)-A(C_k)`. In this way, we are able to compute the potential at **arbitrary** accuracy! We can find the contacting point for given angles by bisection method and later calculate the potential at that point for combinations of rotation angle and revolution angle :math:`(x, y)`. Using the contour plot of the contacting potential energy in the coordinate (x,y), we can easily analyse the stability of tip-to-tip, side-to-side and other assembly. I tried many kinds of shapes, like I, III, VII and etc.. 
+The hinge of calculating the depletion potential is to calculate the intersection area of extended borders. One of the difficulties is to **find extended borders** for given borders. To make the problem simpler, I supposed the border consists of several arcs. The efficiency of the program is inversely proportional to the number of segments of each colloid. Another difficulty is to **get the intersection area** of two extended borders. To solve the problem, we first consider two borders as a unity. Then we split the unity into several groups of closed curves without intersection with any other loop. The area of each region can be calculated by Green's Theorem. Among these loops we suppose the areas of :math:`C_1, C_2,\ldots C_m` are all positive. If :math:`C_k` is the one with the largest area, we can prove that the area of intersection should be :math:`A_{\mathrm{inter}}=\sum_{i=0}^m A(C_i)-A(C_k)`. In this way, we are able to compute the potential at **arbitrary** accuracy! We can find the contacting point for given angles by bisection method and later calculate the potential at that point for combinations of rotation angle and revolution angle :math:`(x, y)`. Using the contour plot of the contacting potential energy in the coordinate (x,y), we can easily analyse the stability of tip-to-tip, side-to-side and other assembly. I tried many kinds of shapes, like I, III, VII and etc.. There are some slides_ showing the potential plot of shape VII.
 
 .. figure:: {attach}/res/shape1.png
     :alt:   shape
@@ -121,7 +120,15 @@ The hinge of calculating the depletion potential is to calculate the intersectio
 
 Molecular dynamic simulation is needed for further verification. I suppose that the potential should be calculated by interpolation of the values calculated in some near points to save time, at the price of memory. However, as the experiment seems to have not reached the scale in which the depletion interaction becomes dominant, I did not continue to do the dynamic simulation. There are also other ways of self-assembly driven by capillary interaction. This interaction can be implemented more easily in experiments. However it is more complicated and the calculation is more difficult than the depletion interaction.
 
+.. _slides:
 
+.. note:: Left/Right Click to go forward/backward. Mouse wheel move forward/backward to zoom in/out. Shift+Mouse wheel to rotate. Or you can read more about `how to play <http://sozi.baierouge.fr/pages/40-play.html>`_
+
+.. raw:: html
+
+    <div style="margin-top:10px;" align='center'>
+      <iframe width="600" height="400" src="/colloid/shape-show.sozi.html"></iframe>
+    </div>
 
 Mechanical diode
 `````````````````````````````````````````

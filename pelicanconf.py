@@ -82,5 +82,4 @@ PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
            'sitemap', 'modified_from_mtime','related_posts']
 ALWAYS_MODIFIED=True
 IGNORE_FILES = ['.ipynb_checkpoints']
-STATIC_PATHS = ['res', 'code', 'extra/CNAME']
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
+STATIC_PATHS = ['res', 'code']
