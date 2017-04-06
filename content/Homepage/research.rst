@@ -126,8 +126,8 @@ Molecular dynamic simulation is needed for further verification. I suppose that 
 
 .. raw:: html
 
-    <div style="margin-top:10px;" align='center'>
-      <iframe width="600" height="400" src="/colloid/shape-show.sozi.html"></iframe>
+    <div class="figure align-center">
+      <iframe style="width: 480px;height: 320px;max-width: 100%;" src="/colloid/shape-show.sozi.html"></iframe>
     </div>
 
 Mechanical diode
