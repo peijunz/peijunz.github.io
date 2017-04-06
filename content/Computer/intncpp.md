@@ -1,4 +1,4 @@
-title: Use C++ Template to find int of least byte width
+title: Use C++ Template Programming to find int of least byte width
 date: 2016-05-01
 tags: C++
 

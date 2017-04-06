@@ -29,7 +29,7 @@ AUTHOR_FEED_RSS = None
 #TRANSLATION_FEED_ATOM = None
 #AUTHOR_FEED_ATOM = None
 #AUTHOR_FEED_RSS = None
-FAVICON = 'res/favicon.ico'
+FAVICON = '/res/favicon.ico'
 #SITELOGO = '/peijunz.jpg'
 SITELOGO = '/res/site.png'
 SITESUBTITLE = 'PhD Student@Physics'
@@ -79,7 +79,7 @@ THEME = './pelican-themes/Flex'
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATH = ['./pelican-plugins']
 PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
-           'sitemap', 'modified_from_mtime']
+           'sitemap', 'modified_from_mtime','related_posts']
 ALWAYS_MODIFIED=True
 IGNORE_FILES = ['.ipynb_checkpoints']
 STATIC_PATHS = ['res', 'code', 'extra/CNAME']

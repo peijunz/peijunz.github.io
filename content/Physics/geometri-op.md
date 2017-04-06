@@ -1,5 +1,6 @@
 title: Geometrical Optics in Continuum
 date: 2017-01-05
+tags: Calculus of Variations
 
 Fermat’s Principle
 ==================

@@ -2,7 +2,7 @@ Scholarships & Honors
 #####################
 
 :date: 2015-10-10
-:slug: hornor
+:slug: ustc
 
 .. Scholarships & Honors
 .. ------------------------

@@ -2,7 +2,7 @@ Research Experience
 ###################
 
 :date: 2015-10-09
-:slug: research
+:slug: research, ustc
 
 Partial Coherent Light
 -------------------------------------
