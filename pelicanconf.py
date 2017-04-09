@@ -6,9 +6,9 @@ PyEmbedRst().register()
 
 AUTHOR = 'Peijun Zhu'
 AUTHOR_URL = 'aboutme.html'
-SITETITLE = 'Peijun Zhu'
+#SITETITLE = 'Peijun Zhu'
 SITENAME = "Peijun's Thoughts"
-
+ABOUTURL="/aboutme.html"
 SITEURL = 'http://localhost:8000'
 
 PATH = 'content'
@@ -32,13 +32,10 @@ AUTHOR_FEED_RSS = None
 FAVICON = '/res/favicon.ico'
 #SITELOGO = '/peijunz.jpg'
 SITELOGO = '/res/site.png'
-SITESUBTITLE = 'PhD Student@Physics'
 DISQUS_SITENAME = "peijunz"
 GOOGLE_ANALYTICS='UA-96594625-1'
 # Blogroll
-LINKS = (('About', '/aboutme.html'),
-         ('Contact', 'mailto:pez33@pitt.edu'),
-    ('ipynb2pelican', 'https://github.com/peijunz/ipynb2pelican'),)
+#LINKS = (('ipynb2pelican', 'https://github.com/peijunz/ipynb2pelican'),)
 
 # Social widget
 SOCIAL = (('github', 'http://github.com/peijunz'),
@@ -48,7 +45,8 @@ MAIN_MENU = True
 HOME_HIDE_TAGS = True
 MENUITEMS = (('Archives', '/archives.html'),
              ('Categories', '/categories.html'),
-             ('Tags', '/tags.html'))
+             ('Tags', '/tags.html'),
+             ('Blog', '/blogging-with-jupyter-and-pelican.html'))
 COPYRIGHT_YEAR = 2017
 SITEMAP = {
     'format': 'xml',
@@ -69,7 +67,7 @@ CC_LICENSE = {
     'slug': 'by-sa'
 }
 #GITHUB_CORNER_URL = "https://github.com/peijunz"
-USE_LESS = False
+#USE_LESS = False
 PYGMENTS_STYLE = 'default'
 DEFAULT_PAGINATION = 10
 DISPLAY_PAGES_ON_MENU = False

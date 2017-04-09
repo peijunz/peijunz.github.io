@@ -93,27 +93,24 @@ There are many interactions between colloidal particles, such as DLVO interactio
 
 The hinge of calculating the depletion potential is to calculate the intersection area of extended borders. One of the difficulties is to **find extended borders** for given borders. To make the problem simpler, I supposed the border consists of several arcs. The efficiency of the program is inversely proportional to the number of segments of each colloid. Another difficulty is to **get the intersection area** of two extended borders. To solve the problem, we first consider two borders as a unity. Then we split the unity into several groups of closed curves without intersection with any other loop. The area of each region can be calculated by Green's Theorem. Among these loops we suppose the areas of :math:`C_1, C_2,\ldots C_m` are all positive. If :math:`C_k` is the one with the largest area, we can prove that the area of intersection should be :math:`A_{\mathrm{inter}}=\sum_{i=0}^m A(C_i)-A(C_k)`. In this way, we are able to compute the potential at **arbitrary** accuracy! We can find the contacting point for given angles by bisection method and later calculate the potential at that point for combinations of rotation angle and revolution angle :math:`(x, y)`. Using the contour plot of the contacting potential energy in the coordinate (x,y), we can easily analyse the stability of tip-to-tip, side-to-side and other assembly. I tried many kinds of shapes, like I, III, VII and etc.. There are some slides_ showing the potential plot of shape VII.
 
-.. figure:: {attach}/res/shape1.png
+.. figure:: {attach}/res/shape1.svg
     :alt:   shape
-    :width: 300px
+    :width: 400px
     :align: left
-    :target: {attach}/res/shape1.svg
     
     Shape I
     
-.. figure:: {attach}/res/shape3.png
+.. figure:: {attach}/res/shape3.svg
     :alt:   shape
-    :width: 300px
+    :width: 400px
     :align: left
-    :target: {attach}/res/shape3.svg
     
     Shape III
 
-.. figure:: {attach}/res/shape7.png
+.. figure:: {attach}/res/shape7.svg
     :alt:   shape
-    :width: 300px
+    :width: 400px
     :align: left
-    :target: {attach}/res/shape7.svg
     
     Shape VII
 
