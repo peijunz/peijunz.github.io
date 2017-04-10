@@ -1,6 +1,8 @@
+---
 title: Invariance of Euler-Lagrange Equations
 date: 2016-10-30
 tags: Mechanics, Calculus of Variations
+---
 
 $\newcommand{bm}{\mathbf}
 \newcommand{\dd}{\mathrm{d}}

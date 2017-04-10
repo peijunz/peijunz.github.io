@@ -68,6 +68,7 @@ CC_LICENSE = {
 }
 #GITHUB_CORNER_URL = "https://github.com/peijunz"
 #USE_LESS = False
+DEFAULT_DATE = 'fs'
 PYGMENTS_STYLE = 'default'
 DEFAULT_PAGINATION = 10
 DISPLAY_PAGES_ON_MENU = False

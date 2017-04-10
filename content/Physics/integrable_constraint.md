@@ -1,6 +1,8 @@
+---
 title: Integrable Constraint
 date: 2013-12-12
 tags: Mechanics, math
+---
 
 $\newcommand{bm}{\mathbf}\newcommand{\dd}{\mathrm{d}}\newcommand{\pp}{\mathrm{p}}$
 In N dimension, $$\begin{aligned}

@@ -1,7 +1,9 @@
+---
 title: 班级讲座——LaTeX排版介绍
 date: 2013-12-06
 tags: LaTeX, ustc
 slug: LaTeX-intro-lecture
+---
 
 这是在班级LaTeX讲座上的[幻灯片]({attach}/res/intro-latex.pdf)，内容涵盖:
 

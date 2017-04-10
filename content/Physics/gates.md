@@ -1,5 +1,7 @@
+---
 title: One way quantum computer
 date: 2017-02-18
+---
 
 There are some discrepancies between the results here and the paper. But
 the results are basically the same. I don’t know why `:-(`

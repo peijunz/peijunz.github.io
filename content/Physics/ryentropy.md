@@ -1,5 +1,7 @@
+---
 title: Renyi entropy of the wormholes
 date: 2017-01-17
+---
 
 $\newcommand{bm}{\mathbf}\newcommand{\di}{\,\mathrm{d}}
 \newcommand{\dd}{\mathrm{d}}$Rényi entropy is defined as: $$\begin{aligned}
