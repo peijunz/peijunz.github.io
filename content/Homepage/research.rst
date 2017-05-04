@@ -11,7 +11,10 @@ Partial Coherent Light
 :Advisor: Anting Wang, Quan Zhang
 :Time: Sep. 2014---Jan. 2015
 
-We studied the spatial coherent properties of partial coherent light by experiments, which was later awarded the First Grade Prize in Physical Experiment Contest. Our equipment was based on the partial coherent light source and the modified Michelson’s inter-ferometer. 
+We studied the spatial coherent properties of partial coherent light by experiments, which was later awarded the First Grade Prize in Physical Experiment Contest. Our equipment was based on the partial coherent light source and the modified Michelson’s inter-ferometer.  
+
+参见 `《物理实验》杂志 <http://www.wlsyzz.com/doku.php?id=wenzhang:16z:qzh>`_
+
 
 Noise reduction
 ``````````````````````
