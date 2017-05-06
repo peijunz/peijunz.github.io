@@ -5,7 +5,7 @@ from pyembed.rst import PyEmbedRst
 PyEmbedRst().register()
 
 AUTHOR = 'Peijun Zhu'
-AUTHOR_URL = 'aboutme.html'
+# AUTHOR_URL = 'aboutme.html'
 #SITETITLE = 'Peijun Zhu'
 SITENAME = "Peijun's Thoughts"
 ABOUTURL="/aboutme.html"
