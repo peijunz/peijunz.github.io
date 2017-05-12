@@ -10,14 +10,39 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://peijun.me'
+COPYRIGHT_YEAR = 2017
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.6,
+        'indexes': 0.6,
+        'pages': 0.5,
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly',
+    }
+}
+CC_LICENSE = {
+    'name': 'Creative Commons Attribution-ShareAlike',
+    'version': '4.0',
+    'slug': 'by-sa'
+}
+DISQUS_SITENAME = "peijunz"
+GOOGLE_ANALYTICS='UA-96594625-1'
+MATHJAX_CDN=None
+SITEURL = 'http://www.peijun.me'
 RELATIVE_URLS = False
 USE_LESS = False
+
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
-
+CACHE_CONTENT = False
+LOAD_CONTENT_CACHE = False
 DELETE_OUTPUT_DIRECTORY = True
-
+ALWAYS_MODIFIED=True
+PLUGINS += ['sitemap', 'modified_from_mtime','related_posts']
 # Following items are often useful when publishing
 
 #DISQUS_SITENAME = ""

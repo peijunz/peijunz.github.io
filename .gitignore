@@ -1,3 +1,5 @@
+cache/
+percolation/
 output/
 pelican-plugins/
 *.pid
