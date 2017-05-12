@@ -7,3 +7,6 @@
 [submodule "content/MLAPP"]
 	path = content/MLAPP
 	url = git@github.com:peijunz/mlapp.git
+[submodule "pelican-themes/Flex"]
+	path = pelican-themes/Flex
+	url = git@github.com:peijunz/Flex.git
