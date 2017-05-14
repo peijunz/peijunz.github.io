@@ -4,8 +4,7 @@ date: 2016-10-01
 tags: Mechanics
 ---
 
-Nowtonian
-=========
+## Nowtonian
 $\newcommand{bm}{\mathbf}
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\pp}{\partial}
@@ -21,8 +20,7 @@ $$\delta W=\sum_i\delta W_i,\quad\delta K=\sum_i\delta K_i$$ and
 obviously$$\delta W=\delta K$$ As the constraints will not do work, we
 can rewrite $$\delta W=\sum_i\bm F_i\cdot\delta\bm x_i$$
 
-Lagrangian
-==========
+## Lagrangian
 
 ### Statics $\delta K=0$
 

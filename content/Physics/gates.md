@@ -6,8 +6,8 @@ date: 2017-02-18
 There are some discrepancies between the results here and the paper. But
 the results are basically the same. I don’t know why `:-(`
 
-Rotation Gates
-==============
+## Rotation Gates
+
 $\def\bra#1{\mathinner{\langle{#1}|}}
 \def\ket#1{\mathinner{|{#1}\rangle}}
 \def\braket#1{\mathinner{\langle{#1}\rangle}}
@@ -35,8 +35,7 @@ verify that the rotation matrix $\mathcal{R}$ is equivalent to
 $\exp(-\ii \zeta X/2)\exp(-\ii \eta Z/2)\exp(-\ii \xi X/2)$. Hadamard
 gate is simply a special case.
 
-CNOT Gates
-==========
+## CNOT Gates
 
 This part corresponds to PRL.86.5188(Page 3, upper left corner), so we
 are using a different $S$:

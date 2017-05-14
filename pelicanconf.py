@@ -6,7 +6,7 @@ PyEmbedRst().register()
 
 AUTHOR = 'Peijun Zhu'
 # AUTHOR_URL = 'aboutme.html'
-#SITETITLE = 'Peijun Zhu'
+SITETITLE = 'Peijun Zhu'
 SITENAME = "Peijun's Journal"
 ABOUTURL="/aboutme.html"
 SITEURL = 'http://localhost:8000'
@@ -34,11 +34,11 @@ SITELOGO = '/res/site.png'
 
 # Social widget
 SOCIAL = (
-    ('google', 'https://plus.google.com/109997738689761453578'),
+#    ('google', 'https://plus.google.com/109997738689761453578'),
     ('rss', 'http://www.peijun.me/feeds/all.atom.xml'),
     ('puzzle-piece', 'https://greasyfork.org/en/users/72080-%E6%B2%9B%E4%BF%8A%E6%9C%B1'),
-    ('envelope-o', 'pez33@pitt.edu'),
-    ('facebook', 'https://www.facebook.com/people/Peijun-Zhu/100011384055583'),
+    ('envelope-o', 'mailto:pez33@pitt.edu'),
+#    ('facebook', 'https://www.facebook.com/people/Peijun-Zhu/100011384055583'),
     ('github', 'http://github.com/peijunz'),
     )
 MAIN_MENU = True
@@ -66,3 +66,4 @@ STATIC_PATHS = ['res', 'code']
 CACHE_CONTENT = True
 LOAD_CONTENT_CACHE = True
 MATHJAX_CDN="/static/MathJax.js"
+DISABLE_URL_HASH=True

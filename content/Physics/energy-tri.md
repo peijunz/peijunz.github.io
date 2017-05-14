@@ -4,8 +4,8 @@ date: 2014-01-15
 tags: Calculus of Variations
 ---
 
-Energy of a triangle
-====================
+## Energy of a triangle
+
 $\newcommand{bm}{\mathbf}
 \newcommand{\pp}{\partial}$
 For a triangle $ABC$, assume the points have potential
@@ -27,8 +27,7 @@ $$\frac{b}{c\sin A}-\cot A=\frac{b-c\cos A}{c\sin A}=\frac{a\cos C}{a\sin C}=\co
 $$\frac{\pp E_\triangle}{\pp \varphi_a}\propto \varphi_{ab}\cot C+\varphi_{ac}\cot B
  \label{comp}$$
 
-Stationary point equation for energy minimum
-============================================
+## Stationary point equation for energy minimum
 
 Let $E$ be the total energy and use $i$ to mark all triangles containing
 $A$. $B_i, C_i$ are other points in triangle $i$. In the stationary

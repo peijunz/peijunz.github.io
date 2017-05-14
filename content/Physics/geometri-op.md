@@ -4,8 +4,8 @@ date: 2017-01-05
 tags: Calculus of Variations
 ---
 
-Fermat’s Principle
-==================
+## Fermat’s Principle
+
 $\newcommand{bm}{\mathbf}
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\pp}{\partial}$
@@ -22,18 +22,15 @@ Euler-Lagrange Equation is $$\begin{aligned}
 \frac{\dd \bm p}{\dd \ell}&=\nabla n=\bm F\end{aligned}$$ Generalized
 Momentum $\bm p$ is independent of the choice of $t$, and
 
-Examples
-========
+## Examples
 
-Rectangular Coordinates
------------------------
+### Rectangular Coordinates
 
 $$n(x,y,z)=f(x,y),\quad\bm F=\frac{\pp f}{\pp x}\hat x+\frac{\pp f}{\pp y}\hat y$$
 
 It is obvious that $p_z$ are conserved.
 
-Central Gradient
-----------------
+### Central Gradient
 
 Define $\bm L=\bm r\times \bm p$, $$\begin{aligned}
     \frac{\dd \bm L}{\dd \ell}&=\frac{\dd\bm r}{\dd \ell}\times\bm p+\bm r\times\frac{\dd\bm p}{\dd \ell}

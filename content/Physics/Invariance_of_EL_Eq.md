@@ -16,15 +16,13 @@ we want to prove it the hard way—using E-L equations.
 The original E-L Equations are:
 $$\left(\frac{\dd}{\dd t}\frac{\pp}{\pp \dot q_i}-\frac{\pp}{\pp q_i}\right)L=0$$
 
-Commutator $\left [\dfrac{\dd}{\dd t}, \dfrac{\pp}{\pp q_i}\right ]f(\bm q, t)=0$
-=================================================================================
+## Commutator $\left [\dfrac{\dd}{\dd t}, \dfrac{\pp}{\pp q_i}\right ]f(\bm q, t)=0$
 
-#### Proof
+### Proof
 
 $$\left[\frac{\dd}{\dd t},\frac{\pp}{\pp q_i}\right]f(\bm q, t) = \left[\dot q_i\frac{\pp}{\pp q_i}+\frac{\pp}{\pp t},\frac{\pp}{\pp q_i}\right]f(\bm q, t)=0$$
 
-Condition $L'=L+\dfrac{\dd f(\bm q, t)}{\dd t}$
-===============================================
+## Condition $L'=L+\dfrac{\dd f(\bm q, t)}{\dd t}$
 
 $$\begin{aligned}
 \left(\frac{\dd}{\dd t}\frac{\pp}{\pp \dot q_i}-\frac{\pp}{\pp q_i}\right)L'
@@ -33,8 +31,7 @@ $$\begin{aligned}
 &=\left[\frac{\dd}{\dd t},\frac{\pp}{\pp q_i}\right]f\\
 &=0\end{aligned}$$
 
-Condition $\bm q\to\bm Q$
-=========================
+## Condition $\bm q\to\bm Q$
 
 We we change generalized coordinates $\bm q\to\bm Q$, the Lagrangian:
 $$L(\bm q, \dot{\bm q}, t)\to L'(\bm Q, \dot{\bm Q}, t)=L\big[\bm q(\bm Q, t), \dot{\bm q}(\bm Q, \dot{\bm Q}, t), t\big]$$
