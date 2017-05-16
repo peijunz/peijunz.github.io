@@ -36,9 +36,9 @@ SITELOGO = '/res/site.png'
 SOCIAL = (
 #    ('google', 'https://plus.google.com/109997738689761453578'),
     ('rss', 'http://www.peijun.me/feeds/all.atom.xml'),
-    ('puzzle-piece', 'https://greasyfork.org/en/users/72080-%E6%B2%9B%E4%BF%8A%E6%9C%B1'),
+    #('puzzle-piece', 'https://greasyfork.org/en/users/72080-%E6%B2%9B%E4%BF%8A%E6%9C%B1'),
     ('envelope-o', 'mailto:pez33@pitt.edu'),
-#    ('facebook', 'https://www.facebook.com/people/Peijun-Zhu/100011384055583'),
+    ('facebook', 'https://www.facebook.com/people/Peijun-Zhu/100011384055583'),
     ('github', 'http://github.com/peijunz'),
     )
 MAIN_MENU = True
@@ -46,7 +46,8 @@ HOME_HIDE_TAGS = True
 MENUITEMS = (('Archives', '/archives.html'),
              ('Categories', '/categories.html'),
              ('Tags', '/tags.html'),
-             ('Blog', '/blogging-with-jupyter-and-pelican.html'))
+#             ('Blog', '/blogging-with-jupyter-and-pelican.html')
+)
 #GITHUB_CORNER_URL = "https://github.com/peijunz"
 #USE_LESS = False
 #DISABLE_URL_HASH = True
@@ -59,11 +60,18 @@ THEME = './pelican-themes/Flex'
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 MARKUP = ('md', 'ipynb', 'rst')
-PLUGIN_PATH = ['./pelican-plugins']
-PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code']
+PLUGIN_PATHS = ['./pelican-plugins']
+PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
+           'pelican-toc']
 IGNORE_FILES = ['.ipynb_checkpoints']
 STATIC_PATHS = ['res', 'code']
 CACHE_CONTENT = True
 LOAD_CONTENT_CACHE = True
 MATHJAX_CDN="/static/MathJax.js"
 DISABLE_URL_HASH=True
+TOC = {
+    'TOC_HEADERS' : '^h[2-4]',
+    'TOC_RUN'     : 'true'
+}
+
+CUSTOM_JS="https://rawgit.com/peijunz/90da9dc4c7d753f9c5b128d45a23fecb/raw/add_blog_buttons.js"

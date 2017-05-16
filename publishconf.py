@@ -43,6 +43,7 @@ LOAD_CONTENT_CACHE = False
 DELETE_OUTPUT_DIRECTORY = True
 ALWAYS_MODIFIED=True
 PLUGINS += ['sitemap', 'modified_from_mtime','related_posts']
+#CUSTOM_JS="https://cdn.rawgit.com/peijunz/90da9dc4c7d753f9c5b128d45a23fecb/raw/add_blog_buttons.js"
 # Following items are often useful when publishing
 
 #DISQUS_SITENAME = ""
