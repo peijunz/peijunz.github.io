@@ -6,7 +6,7 @@ tags: Calculus of Variations
 
 ## Fermat’s Principle
 <span class="mathmacros" style="display:none;">
-$\newcommand{bm}{\mathbf}\newcommand{\dd}{\mathrm{d}}\newcommand{\pp}{\partial}$
+$\newcommand{\bm}{\mathbf}\newcommand{\dd}{\mathrm{d}}\newcommand{\pp}{\partial}$
 </span>
 
 Fermat’s Principle is $$\delta s=\delta\int n\dd \ell=0$$ If we choose

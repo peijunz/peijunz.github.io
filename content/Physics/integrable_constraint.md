@@ -5,7 +5,7 @@ tags: Mechanics, math
 ---
 
 <span class="mathmacros" style="display:none;">
-$\newcommand{bm}{\mathbf}\newcommand{\dd}{\mathrm{d}}\newcommand{\pp}{\mathrm{p}}$
+$\newcommand{\bm}{\mathbf}\newcommand{\dd}{\mathrm{d}}\newcommand{\pp}{\mathrm{p}}$
 </span>
 In N dimension, $$\begin{aligned}
 \bm f\times\bm g&\rightarrow f_a\times g_b=[f_ag_b]_{ab}\\

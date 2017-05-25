@@ -7,7 +7,7 @@ tags: Calculus of Variations
 ## Energy of a triangle
 
 <span class="mathmacros" style="display:none;">
-$\newcommand{bm}{\mathbf}
+$\newcommand{\bm}{\mathbf}
 \newcommand{\pp}{\partial}$</span>
 For a triangle $ABC$, assume the points have potential
 $\varphi_a,\varphi_b,\varphi_c$. As shown in Fig. ???,

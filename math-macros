@@ -9,6 +9,7 @@ $\def\bra#1{\mathinner{\langle{#1}|}}
 \renewcommand{\nl}{\\&\phantom{{}={}}}% Newline In aligned equations
 \newcommand{\pfr}[2]{\frac{\pp #1}{\pp #2}}      % Partial derivative
 \newcommand{\dfr}[2]{\frac{\dd #1}{\dd #2}}      % Total derivative
+\newcommand{\pp}{\partial}
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\det}{det}
 \DeclareMathOperator{\tr}{tr}
@@ -16,9 +17,9 @@ $\def\bra#1{\mathinner{\langle{#1}|}}
 \DeclareMathOperator{\adj}{adj}
 \DeclareMathOperator{\ii}{i}
 \DeclareMathOperator{\dd}{d}
-\DeclareMathOperator{\pp}{p}
 \DeclareMathOperator{\rhs}{RHS}
 \DeclareMathOperator{\lhs}{LHS}
+\newcommand{\nl}{\\&\phantom{={}}}
 \DeclareMathOperator{\E}{E}
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\Beta}{B}

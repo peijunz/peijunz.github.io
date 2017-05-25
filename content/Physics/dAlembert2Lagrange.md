@@ -6,7 +6,7 @@ tags: Mechanics
 
 ## Nowtonian
 <span class="mathmacros" style="display:none;">
-$\newcommand{bm}{\mathbf}
+$\newcommand{\bm}{\mathbf}
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\pp}{\partial}
 \newcommand{\mdef}{\overset{\mathrm{def}}{=}}$
