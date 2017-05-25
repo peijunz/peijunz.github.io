@@ -5,10 +5,12 @@ tags: Mechanics
 ---
 
 ## Nowtonian
+<span class="mathmacros" style="display:none;">
 $\newcommand{bm}{\mathbf}
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\pp}{\partial}
 \newcommand{\mdef}{\overset{\mathrm{def}}{=}}$
+</span>
 Assume $\bm F$ is active force and $\bm R$ is constraint force. Then for
 $i$th body we have Newton’s Second Law:
 $$\bm F^\mathrm{tot}_i=\bm F_i+\bm R_i=m\bm a_i$$ With a virtual

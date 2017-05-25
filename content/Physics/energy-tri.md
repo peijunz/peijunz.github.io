@@ -6,8 +6,9 @@ tags: Calculus of Variations
 
 ## Energy of a triangle
 
+<span class="mathmacros" style="display:none;">
 $\newcommand{bm}{\mathbf}
-\newcommand{\pp}{\partial}$
+\newcommand{\pp}{\partial}$</span>
 For a triangle $ABC$, assume the points have potential
 $\varphi_a,\varphi_b,\varphi_c$. As shown in Fig. ???,
 $AB'\perp AC, AC'\perp AB$, combine the components of $\nabla\varphi$,

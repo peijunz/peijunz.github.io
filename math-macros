@@ -1,0 +1,26 @@
+<span class="mathmacros" style="display:none;">
+$\def\bra#1{\mathinner{\langle{#1}|}}
+\def\ket#1{\mathinner{|{#1}\rangle}}
+\def\braket#1{\mathinner{\langle{#1}\rangle}}
+\newcommand{\mdef}{\overset{\mathrm{def}}{=}}
+\newcommand{bm}{\mathbf}
+\newcommand{\inv}[1]{#1^{-1}}   % Inverse Matrix
+\newcommand{\invt}[1]{#1^{-T}}  % Inverse Transposed Matrix
+\renewcommand{\nl}{\\&\phantom{{}={}}}% Newline In aligned equations
+\newcommand{\pfr}[2]{\frac{\pp #1}{\pp #2}}      % Partial derivative
+\newcommand{\dfr}[2]{\frac{\dd #1}{\dd #2}}      % Total derivative
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\ii}{i}
+\DeclareMathOperator{\dd}{d}
+\DeclareMathOperator{\pp}{p}
+\DeclareMathOperator{\rhs}{RHS}
+\DeclareMathOperator{\lhs}{LHS}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Beta}{B}
+\DeclareMathOperator{\Bdist}{Beta}$
+</span>

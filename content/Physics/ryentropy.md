@@ -3,12 +3,16 @@ title: Renyi entropy of the wormholes
 date: 2017-01-17
 ---
 
-$\newcommand{bm}{\mathbf}\newcommand{\di}{\,\mathrm{d}}
-\newcommand{\dd}{\mathrm{d}}$Rényi entropy is defined as: $$\begin{aligned}
+<span class="mathmacros" style="display:none;">
+$\newcommand{bm}{\mathbf}\newcommand{\dd}{\mathrm{d}}$
+</span>
+Rényi entropy is defined as: 
+$$\begin{aligned}
     S_n(\alpha)&:=\frac{1}{1-\alpha}\log\left({\sum_{a_{1\to n}}}\sum_{\mu=1}^{N}\left(\frac{p_{a_1a_2\cdots a_n}}{N}\right)^\alpha\right) \\
     &=\frac{1}{1-\alpha}\log\left(\frac{1}{\mathcal{D}^{2\alpha(n-1)}}{{{\sum_{a_{1\to n}}}N_{a_1a_2\cdots a_n}{\prod_{i=1}^n d_{a_i}^\alpha}}}\right) \\
     &=\frac{1}{1-\alpha}\left[\log\left({{{\sum_{a_{1\to n}}}N_{a_1a_2\cdots a_n}{\prod_{i=1}^n d_{a_i}^\alpha}}}\right)-\alpha(n-1)\log \mathcal{D}^2\right]\\
-    &=\frac{\alpha(n-1)\log \mathcal{D}^2-\log t_n(\alpha)}{\alpha-1}\end{aligned}$$
+    &=\frac{\alpha(n-1)\log \mathcal{D}^2-\log t_n(\alpha)}{\alpha-1}
+\end{aligned}$$
 We are using $$\begin{aligned}
     t_n(\alpha)&:={{{\sum_{a_{1\to n}}}N_{a_1a_2\cdots a_n}{\prod_{i=1}^n d_{a_i}^\alpha}}}\\
     &= {\sum_{a_{1\to n}}}{\sum_{x_{1\to n-1}}}N_{x_0a_1}^{x_1}N_{x_1a_2}^{x_2}\cdots N_{x_{n-1}a_n}^{x_n}{\prod_{i=1}^n d_{a_i}^\alpha},\quad x_0=x_n=1\\

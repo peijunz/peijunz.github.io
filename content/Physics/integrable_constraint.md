@@ -4,7 +4,9 @@ date: 2013-12-12
 tags: Mechanics, math
 ---
 
+<span class="mathmacros" style="display:none;">
 $\newcommand{bm}{\mathbf}\newcommand{\dd}{\mathrm{d}}\newcommand{\pp}{\mathrm{p}}$
+</span>
 In N dimension, $$\begin{aligned}
 \bm f\times\bm g&\rightarrow f_a\times g_b=[f_ag_b]_{ab}\\
 \bm f\cdot\bm g\times\bm h&\rightarrow(f_a, g_b, h_c)=[f_ag_bh_c]_{abc}

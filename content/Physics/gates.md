@@ -4,15 +4,17 @@ date: 2017-02-18
 ---
 
 There are some discrepancies between the results here and the paper. But
-the results are basically the same. I don’t know why `:-(`
+the results are basically the same. 
 
-## Rotation Gates
-
+<span class="mathmacros" style="display:none;">
 $\def\bra#1{\mathinner{\langle{#1}|}}
 \def\ket#1{\mathinner{|{#1}\rangle}}
 \def\braket#1{\mathinner{\langle{#1}\rangle}}
 \newcommand{\ii}{\mathrm{i}}
-\newcommand{\tr}{\mathrm{tr}}$
+\newcommand{\tr}{\mathrm{tr}}$</span>
+
+## Rotation Gates
+
 This part corresond to the Gates in paper 0301052v2.
 $$S_{ab}=\frac{1+Z_a}{2}+\frac{1-Z_a}{2}Z_b=U_a+D_aZ_b$$
 

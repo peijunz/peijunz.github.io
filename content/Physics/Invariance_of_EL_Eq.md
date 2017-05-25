@@ -4,9 +4,11 @@ date: 2016-10-30
 tags: Mechanics, Calculus of Variations
 ---
 
+<span class="mathmacros" style="display:none;">
 $\newcommand{bm}{\mathbf}
 \newcommand{\dd}{\mathrm{d}}
-\newcommand{\pp}{\partial}$E-L is deduced from the Hamilton’s principle
+\newcommand{\pp}{\partial}$</span>
+E-L is deduced from the Hamilton’s principle
 $$\delta S=\delta\int L(\bm q, \dot{\bm q}, t)dt=0$$
 
 It is easy to find that, for $L'=L+\dd f(\bm q, t)/\dd t$ or change of

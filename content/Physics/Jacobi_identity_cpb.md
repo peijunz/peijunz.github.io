@@ -4,9 +4,11 @@ date: 2016-10-30
 tags: Mechanics
 ---
 
+<span class="mathmacros" style="display:none;">
 $\newcommand{\pp}{\partial}
 \newcommand{\sgn}{\mathrm{sgn}}
-\newcommand{\mdef}{\overset{\mathrm{def}}{=}}$Definition of Classical Possion Bracket:
+\newcommand{\mdef}{\overset{\mathrm{def}}{=}}$</span>
+Definition of Classical Possion Bracket:
 $$[f, g]=\sum_{i=1, 2,\ldots, n}\frac{\pp(f, g)}{\pp(p_i, q_i)}=\sum_{i=1, 2,\ldots, n}\left(\frac{\pp f}{\pp p_i}\frac{\pp g}{\pp q_i}-\frac{\pp f}{\pp q_i}\frac{\pp g}{\pp p_i}\right)$$
 
 If we define $p_{-i}\mdef q_{i}$, and

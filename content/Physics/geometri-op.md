@@ -5,10 +5,10 @@ tags: Calculus of Variations
 ---
 
 ## Fermat’s Principle
+<span class="mathmacros" style="display:none;">
+$\newcommand{bm}{\mathbf}\newcommand{\dd}{\mathrm{d}}\newcommand{\pp}{\partial}$
+</span>
 
-$\newcommand{bm}{\mathbf}
-\newcommand{\dd}{\mathrm{d}}
-\newcommand{\pp}{\partial}$
 Fermat’s Principle is $$\delta s=\delta\int n\dd \ell=0$$ If we choose
 the path connecting two points to be
 $$\bm r=\bm r(t),\quad t_0\leq t\leq t_1$$ We can write
