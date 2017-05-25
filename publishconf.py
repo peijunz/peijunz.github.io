@@ -38,8 +38,8 @@ USE_LESS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
-CACHE_CONTENT = False
-LOAD_CONTENT_CACHE = False
+#CACHE_CONTENT = False
+#LOAD_CONTENT_CACHE = False
 DELETE_OUTPUT_DIRECTORY = True
 ALWAYS_MODIFIED=True
 PLUGINS += ['sitemap', 'modified_from_mtime','related_posts']

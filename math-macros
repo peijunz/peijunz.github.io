@@ -3,7 +3,7 @@ $\def\bra#1{\mathinner{\langle{#1}|}}
 \def\ket#1{\mathinner{|{#1}\rangle}}
 \def\braket#1{\mathinner{\langle{#1}\rangle}}
 \newcommand{\mdef}{\overset{\mathrm{def}}{=}}
-\newcommand{bm}{\mathbf}
+\newcommand{\bm}{\mathbf}
 \newcommand{\inv}[1]{#1^{-1}}   % Inverse Matrix
 \newcommand{\invt}[1]{#1^{-T}}  % Inverse Transposed Matrix
 \renewcommand{\nl}{\\&\phantom{{}={}}}% Newline In aligned equations
