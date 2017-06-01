@@ -31,6 +31,8 @@ CC_LICENSE = {
 }
 DISQUS_SITENAME = "peijunz"
 GOOGLE_ANALYTICS='UA-96594625-1'
+#ADD_THIS_ID = 'ra-592e4f7b8a3ce59f'
+
 MATHJAX_CDN=None
 SITEURL = 'http://www.peijun.me'
 RELATIVE_URLS = False
@@ -48,3 +50,4 @@ PLUGINS += ['sitemap', 'modified_from_mtime','related_posts']
 
 #DISQUS_SITENAME = ""
 #GOOGLE_ANALYTICS = ""
+BUSUANZI=True

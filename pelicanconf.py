@@ -62,7 +62,7 @@ THEME = './pelican-themes/Flex'
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATHS = ['./pelican-plugins']
 PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
-           'pelican-toc']
+           'pelican-toc', 'neighbors']
 IGNORE_FILES = ['.ipynb_checkpoints']
 STATIC_PATHS = ['res', 'code']
 CACHE_CONTENT = True
