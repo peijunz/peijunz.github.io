@@ -24,11 +24,7 @@ SITEMAP = {
         'pages': 'monthly',
     }
 }
-CC_LICENSE = {
-    'name': 'Creative Commons Attribution-ShareAlike',
-    'version': '4.0',
-    'slug': 'by-sa'
-}
+CC_LICENSE = "BY-SA"
 DISQUS_SITENAME = "peijunz"
 GOOGLE_ANALYTICS='UA-96594625-1'
 #ADD_THIS_ID = 'ra-592e4f7b8a3ce59f'

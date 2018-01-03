@@ -1,0 +1,17 @@
+svg{
+    max-width: 100%;
+    height: auto;
+}
+
+a.anchor-link {
+    visibility: hidden;
+}
+
+h1:hover > a.anchor-link,
+h2:hover > a.anchor-link,
+h3:hover > a.anchor-link,
+h4:hover > a.anchor-link,
+h5:hover > a.anchor-link,
+h6:hover > a.anchor-link{
+    visibility: visible;
+}
