@@ -1,6 +1,7 @@
 ---
 title: Energy of Electrostatic Field in a Triangle
 date: 2014-01-15
+lang: en
 tags: Calculus of Variations
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Geometrical Optics in Continuum
 date: 2017-01-05
+lang: en
 tags: Calculus of Variations
 ---
 

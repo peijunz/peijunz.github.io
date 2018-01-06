@@ -1,6 +1,7 @@
 ---
 title: From d’Alembert to Lagrange
 date: 2016-10-01
+lang: en
 tags: Mechanics
 ---
 

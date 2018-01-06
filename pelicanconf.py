@@ -55,8 +55,8 @@ SOCIAL = (
 DISPLAY_TAGS_INLINE = True
 MAIN_MENU = True
 HOME_HIDE_TAGS = True
-MENUITEMS = (('Archives', '/archives.html'),
-#             ('Categories', '/categories.html'),
+MENUITEMS = (('所有文章', '/archives.html'),
+             ('目录', '/categories.html'),
 #             ('Tags', '/tags.html'),
 #             ('Blog', '/blogging-with-jupyter-and-pelican.html')
 )
@@ -69,7 +69,11 @@ DEFAULT_PAGINATION = 10
 DISPLAY_PAGES_ON_MENU = False
 #THEME = './pelican-themes/Flex'
 THEME = './pelican-themes/pelican-bootstrap3'
-OUTPUT_SOURCES = False
+
+STATIC_PATHS = ['res', 'code']
+
+OUTPUT_SOURCES = True
+OUTPUT_SOURCES_EXTENSION = '.txt'
 BOOTSTRAP_THEME = "cosmo"
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
@@ -79,9 +83,8 @@ DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search')
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATHS = ['./pelican-plugins']
 PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
-           'pelican-toc', 'neighbors', 'i18n_subsites', 'tag_cloud', 'tipue_search']
+           'pelican-toc', 'i18n_subsites', 'tag_cloud', 'tipue_search']
 IGNORE_FILES = ['.ipynb_checkpoints']
-STATIC_PATHS = ['res', 'code']
 CACHE_CONTENT = True
 LOAD_CONTENT_CACHE = True
 MATHJAX_CDN="/static/MathJax.js"

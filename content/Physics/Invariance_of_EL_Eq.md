@@ -1,6 +1,7 @@
 ---
 title: Invariance of Euler-Lagrange Equations
 date: 2016-10-30
+lang: en
 tags: Mechanics, Calculus of Variations
 ---
 

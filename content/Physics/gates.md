@@ -1,6 +1,7 @@
 ---
 title: One way quantum computer
 date: 2017-02-18
+lang: en
 summary: The one-way or measurement based quantum computer (MBQC) is a method of quantum computing that first prepares an entangled resource state, usually a cluster state or graph state, then performs single qubit measurements on it. It is "one-way" because the resource state is destroyed by the measurements.
 ---
 

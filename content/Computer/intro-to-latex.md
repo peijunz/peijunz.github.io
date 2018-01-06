@@ -1,6 +1,7 @@
 ---
 title: 班级讲座——LaTeX排版介绍
 date: 2013-12-06
+lang: zh
 tags: LaTeX
 slug: LaTeX-intro-lecture
 ---

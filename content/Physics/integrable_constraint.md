@@ -1,6 +1,7 @@
 ---
 title: Integrable Constraint
 date: 2013-12-12
+lang: en
 tags: Mechanics, math
 ---
 

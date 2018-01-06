@@ -1,6 +1,7 @@
 ---
 title: Renyi entropy of the wormholes
 date: 2017-01-17
+lang: en
 summary: In information theory, the Rényi entropy generalizes the Hartley entropy, the Shannon entropy, the collision entropy and the min entropy. Entropies quantify the diversity, uncertainty, or randomness of a system. The Rényi entropy is named after Alfréd Rényi.
 ---
 
