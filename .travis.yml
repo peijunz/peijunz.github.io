@@ -31,7 +31,9 @@ script:
     - git config --global user.email "$GIT_EMAIL"
     - git config --global user.name "$GIT_NAME"
     - git config --global push.default simple
-    - mkdir themes
+    - rm -r themes plugins
+    - mkdir themes plugins
+    - ls *
     - svn export https://github.com/peijunz/pelican-themes/trunk/pelican-bootstrap3 themes/pelican-bootstrap3
     - git clone --depth=1 https://github.com/peijunz/pelican-plugins plugins
     - cd plugins
