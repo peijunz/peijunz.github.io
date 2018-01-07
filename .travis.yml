@@ -33,7 +33,7 @@ script:
 - make publish
 after_success:
 - ghp-import -m "Generate Pelican site" -b master output
-- git push "https://${GH_TOKEN}@github.com/peijunz/peijunz.github.io.git" master
+- git push -f "https://${GH_TOKEN}@github.com/peijunz/peijunz.github.io.git" master
 env:
   global:
     secure: VbeRsBxESxyPgnntQUPoBXVKll3BMQu9AWUZDqax+WxSKsiw0XVXRmH8ySuNL2NHlEUqHULX4HrcDDZ7eDZn71PtD20o9KIHiUEqv0G2D7mUYG+A2SNkEuv2LrMJ+7Ix0jHpFBmaE3JQhy65I7CO8tNeYVngCeTYanqRHZsGEjcYjL9pMUtmeQCcCFBjFPkrcATrnl5bLCzjW1eQ2PjhwmZbXPjplkPFhgiVeSE9ygFbMg2XBaTxlkp/FX3ld3ZfaAzE0bWpnwUsGdWX5qLkQbb9o6oQBrZXkrjzeBvsOFgPiBceRH8MS6zUFMooYid9hDBjVbbfckVeUis1G6ljgyrM12Ty/OPsxpgTa5oddLfZ7Jf8Z1KSqG8+vAmRU3Bi5jyEmcN84TmsFsRZe/1M2qVxPpzm0hB81a8yE/VGVPmtWYvXq4ZTggV1PTg+1Mcn5KMUTsMzGLUdWaeYccAt7CmeLzy6yzNstiHek5B3IKqMWULPXzZZr4f9o23ZPwk0P7qy2WgWTP6ThU6T6LKG6+eR/eo+PwM8nUDYXh3FhAnpDuXsS0GdfGAPh5UUphKn43FNutOw6lM1BSAFx8WnI9TRsFGVd0lhrhFU1b3/kWX20xq5USxw8DtmVf+yZdeUofJ0n/UDLH7+8upbvi0VKks8sGYQLq7QH0jwXAviTwM=
