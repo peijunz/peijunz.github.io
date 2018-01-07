@@ -13,7 +13,14 @@ cache:
     - pip
 
 before_install:
-    - sudo apt-get update
+    - sudo apt-get 
+
+git:
+    submodules: false
+
+before_install:
+    - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+    - git submodule update --init --recursive
 
 install:
     - sudo pip install pelican jinja2 py3babel babel beautifulsoup4 markdown nbconvert subversion
@@ -25,7 +32,7 @@ script:
     - git config --global push.default simple
     - mkdir themes
     - svn export https://github.com/peijunz/pelican-themes/trunk/pelican-bootstrap3 themes/pelican-bootstrap3
-    - git clone https://github.com/peijunz/pelican-plugins plugins
+    - git clone --depth=1 https://github.com/peijunz/pelican-plugins plugins
     - cd plugins
     - git submodule update --init pelican-toc;\
     - git submodule update --init ipynb2pelican;\
