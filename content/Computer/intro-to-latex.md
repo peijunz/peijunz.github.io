@@ -6,7 +6,7 @@ tags: LaTeX
 slug: LaTeX-intro-lecture
 ---
 
-这是在班级LaTeX讲座上的[LaTeX简介]({attach}/res/intro-latex.pdf)幻灯片，内容涵盖:
+这是在班级LaTeX讲座上的[LaTeX简介]({attach}/static/intro-latex.pdf)幻灯片，内容涵盖:
 
 + LaTeX基本历史
 + LaTeX基本结构
