@@ -37,6 +37,7 @@ script:
     - git submodule update --init pelican-toc
     - git submodule update --init ipynb2pelican
     - cd ..
+    - rm extra/mathjax
     - make github
 
 
