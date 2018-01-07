@@ -21,7 +21,7 @@ before_install:
 
 install:
     - sudo apt-get install subversion
-    - sudo pip install pelican jinja2 py3babel babel beautifulsoup4 markdown nbconvert ghp-import pyembed rst
+    - sudo pip install pelican jinja2 py3babel babel beautifulsoup4 markdown nbconvert ghp-import pyembed pyembed-rst
     - pelican --version
 
 script:
