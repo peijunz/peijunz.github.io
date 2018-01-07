@@ -37,8 +37,8 @@ script:
     - svn export https://github.com/peijunz/pelican-themes/trunk/pelican-bootstrap3 themes/pelican-bootstrap3
     - git clone --depth=1 https://github.com/peijunz/pelican-plugins plugins
     - cd plugins
-    - git submodule update --init pelican-toc;\
-    - git submodule update --init ipynb2pelican;\
+    - git submodule update --init pelican-toc
+    - git submodule update --init ipynb2pelican
     - cd ..
     - make github
 
