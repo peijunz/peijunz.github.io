@@ -12,7 +12,7 @@ before_install:
 - git submodule update --init --recursive
 install:
 - sudo apt-get install subversion
-- sudo pip install pelican jinja2 py3babel babel beautifulsoup4 markdown nbconvert
+- sudo pip install pelican jinja2 py3babel babel beautifulsoup4 markdown nbconvert ipython
   ghp-import pyembed pyembed-rst
 - pelican --version
 script:
@@ -21,7 +21,6 @@ script:
 - git config --global push.default simple
 - rm -r themes plugins
 - mkdir themes plugins
-- ls *
 - svn export https://github.com/peijunz/pelican-themes/trunk/pelican-bootstrap3 themes/pelican-bootstrap3
   --quiet
 - git clone --depth=1 https://github.com/peijunz/pelican-plugins plugins
