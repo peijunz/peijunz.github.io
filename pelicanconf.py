@@ -37,11 +37,12 @@ FAVICON = '/static/favicon.ico'
 #AVATAR = '/static/site.png'
 #SITELOGO = '/static/site.png'
 # Blogroll
-#LINKS = (('ipynb2pelican', 'https://github.com/peijunz/ipynb2pelican'),)
+LINKS = (('<img alt="Build Status" src="https://travis-ci.org/peijunz/peijunz.github.io.svg?branch=src" style="max-width:100%;">', 'https://travis-ci.org/peijunz/peijunz.github.io'),
+        ('<i class="fa fa-code fa-lg"></i> Source of Contents', 'https://github.com/peijunz/peijunz.github.io/tree/src/content'))
 
 # Social widget
 SOCIAL = (
-    ('Google', 'https://plus.google.com/109997738689761453578'),
+#    ('Google', 'https://plus.google.com/109997738689761453578'),
     ('Email', 'mailto:pez33@pitt.edu', 'envelope-o'),
     ('Facebook', 'https://www.facebook.com/people/Peijun-Zhu/100011384055583'),
     ('Github', 'http://github.com/peijunz'),
