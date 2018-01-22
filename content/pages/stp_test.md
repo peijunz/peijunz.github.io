@@ -21,4 +21,4 @@ class Switch:
 Then there are two ways to run `check_answer.py`:
 
 + Simply run `python check_answer.py` to test randomly generated cases
-+ Run `python check_answer.py <topology_file> <log_file` to check for some specific topology 
++ Run `python check_answer.py <topology_file> <log_file>` to check for some specific topology 
