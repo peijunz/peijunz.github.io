@@ -1,6 +1,7 @@
 ---
 title: Spanning Tree Protocol Testing Code
 date: 2018-01-19
+comments: enabled
 slug: stptest
 ---
 
