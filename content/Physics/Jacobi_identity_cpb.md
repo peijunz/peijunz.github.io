@@ -2,6 +2,7 @@
 title: Jacobi Identity for Classical Possion Bracket
 date: 2016-10-30
 lang: en
+slug: jacobi-identity
 tags: Mechanics
 ---
 

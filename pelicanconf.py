@@ -52,9 +52,11 @@ MAIN_MENU = True
 HOME_HIDE_TAGS = True
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU=False
-MENUITEMS = (('归档', '/archives.html'),
-             ('目录', '/categories.html'),
-             ('标签', '/tags.html'),
+DIRECT_TEMPLATES = (('search', 'index', 'categories', 'authors', 'archives',
+'tags'))
+MENUITEMS = (('Archives', '/archives.html'),
+             ('Categories', '/categories.html'),
+             ('Tags', '/tags.html'),
 )
 #USE_LESS = False
 DEFAULT_DATE = 'fs'

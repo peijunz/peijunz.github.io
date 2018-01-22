@@ -1,10 +1,10 @@
 ---
 title: Spanning Tree Protocol Testing Code
 date: 2018-01-19
-lang: en
-slug: stp-test
+status: hidden
+slug: stptest
 ---
-[Download Here]({attach}/static/stptest.zip)
+[Download Here]({filename}/static/stptest.zip)
 # How to use
 There are two ways:
 + simply run `python check_answer.py` to test randomly generated cases
