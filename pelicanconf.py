@@ -14,7 +14,7 @@ PATH = 'content'
 
 TIMEZONE = 'US/Eastern'
 
-DEFAULT_LANG = 'zhs'
+DEFAULT_LANG = 'en'
 
 LOCALE = 'zh_CN.utf8'
 
