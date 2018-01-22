@@ -5,7 +5,7 @@ status: hidden
 slug: stptest
 ---
 
-[Download Here]({filename}/static/stptest.zip)
+[Download Here]({filename}/stptest.zip)
 ## Prerequired
 1. **Only** copy your `Switch.py` to this test suite. Do NOT overwrite `Topology.py`
 2. Please add a `Switch.activeLinks` attribute to your Switch class. As an example:
