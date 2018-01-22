@@ -4,16 +4,11 @@ date: 2018-01-19
 status: hidden
 slug: stptest
 ---
-[Download Here]({filename}/static/stptest.zip)
-# How to use
-There are two ways:
-+ simply run `python check_answer.py` to test randomly generated cases
-+ run `python check_answer.py <topology_file> <log_file` to check for some specific topology 
 
-# Notes
-1. **Only** copy your Switch.py to this test suite
-2. Do not over write Topology.py
-3. Please add a Switch.activeLinks attribute to your Switch class like:
+[Download Here]({filename}/static/stptest.zip)
+## Prerequired
+1. **Only** copy your `Switch.py` to this test suite. Do NOT overwrite `Topology.py`
+2. Please add a `Switch.activeLinks` attribute to your Switch class. As an example:
 ```py
 class Switch:
     @property
@@ -21,3 +16,9 @@ class Switch:
         # Your code to get active Links
 ```
 `property` decorator ensures that you can write object.activeLinks instead of object.activeLinks()
+
+## How to use
+Then there are two ways to run `check_answer.py`:
+
++ Simply run `python check_answer.py` to test randomly generated cases
++ Run `python check_answer.py <topology_file> <log_file` to check for some specific topology 
