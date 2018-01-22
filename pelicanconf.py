@@ -50,7 +50,7 @@ SOCIAL = (
 DISPLAY_TAGS_INLINE = True
 MAIN_MENU = True
 HOME_HIDE_TAGS = True
-DISPLAY_PAGES_ON_MENU = True
+DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU=False
 DIRECT_TEMPLATES = (('search', 'index', 'categories', 'authors', 'archives',
 'tags'))
