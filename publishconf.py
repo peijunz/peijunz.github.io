@@ -30,7 +30,7 @@ GOOGLE_ANALYTICS='UA-96594625-1'
 #ADD_THIS_ID = 'ra-592e4f7b8a3ce59f'
 
 MATHJAX_CDN=None
-SITEURL = 'http://www.peijun.me'
+SITEURL = 'https://www.peijun.me'
 RELATIVE_URLS = False
 USE_LESS = False
 
