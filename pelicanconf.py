@@ -95,3 +95,4 @@ TOC = {
 
 
 CUSTOM_CSS="static/css/custom.css"
+SUMMARY_MAX_LENGTH = 0
