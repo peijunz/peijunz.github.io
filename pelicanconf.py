@@ -58,7 +58,6 @@ MENUITEMS = (('Archives', '/archives.html'),
              ('Categories', '/categories.html'),
              ('Tags', '/tags.html'),
 )
-#USE_LESS = False
 DEFAULT_DATE = 'fs'
 PYGMENTS_STYLE = 'default'
 DEFAULT_PAGINATION = 10
