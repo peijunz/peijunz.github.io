@@ -82,7 +82,7 @@ DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'authors', 'archives', 'searc
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
-           'pelican-toc', 'i18n_subsites', 'tag_cloud', 'tipue_search', 'neighbors']
+           'pelican-toc', 'i18n_subsites', 'tag_cloud', 'tipue_search', 'neighbors', 'pelican_alias']
 IGNORE_FILES = ['.ipynb_checkpoints']
 CACHE_CONTENT = True
 LOAD_CONTENT_CACHE = True

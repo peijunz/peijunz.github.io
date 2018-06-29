@@ -11,7 +11,7 @@ before_install:
 - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
 - git submodule update --init --recursive
 install:
-- sudo pip install pelican jinja2 py3babel babel beautifulsoup4 markdown nbconvert ipython
+- sudo pip install pelican jinja2 py3babel babel beautifulsoup4 markdown nbconvert ipython pelican-alias
   ghp-import pyembed pyembed-rst
 - pelican --version
 script:
