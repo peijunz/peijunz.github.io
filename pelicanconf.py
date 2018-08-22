@@ -86,7 +86,7 @@ PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
 IGNORE_FILES = ['.ipynb_checkpoints']
 CACHE_CONTENT = True
 LOAD_CONTENT_CACHE = True
-MATHJAX_CDN="/mathjax/MathJax.js"
+MATHJAX_CDN="/mathjax/latest.js"
 TOC = {
     'TOC_HEADERS' : '^h[2-4]',
     'TOC_RUN'     : 'true',
