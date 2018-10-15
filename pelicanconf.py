@@ -78,6 +78,7 @@ JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+IPYNB_SUMMARY_CELL = True
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'authors', 'archives', 'search')
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATHS = ['plugins']
@@ -86,7 +87,7 @@ PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
 IGNORE_FILES = ['.ipynb_checkpoints']
 CACHE_CONTENT = True
 LOAD_CONTENT_CACHE = True
-MATHJAX_CDN="/mathjax/latest.js"
+#MATHJAX_CDN="/mathjax/latest.js"
 TOC = {
     'TOC_HEADERS' : '^h[2-4]',
     'TOC_RUN'     : 'true',
