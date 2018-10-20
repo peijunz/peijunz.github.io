@@ -43,11 +43,8 @@ LINKS = (('<img alt="Build Status" src="https://travis-ci.org/peijunz/peijunz.gi
 # Social widget
 SOCIAL = (
 #    ('Google', 'https://plus.google.com/109997738689761453578'),
-    ('Email', 'mailto:pez33@pitt.edu', 'envelope-o'),
-    ('Facebook', 'https://www.facebook.com/people/Peijun-Zhu/100011384055583'),
     ('Github', 'http://github.com/peijunz'),
     )
-DISPLAY_TAGS_INLINE = True
 MAIN_MENU = True
 HOME_HIDE_TAGS = True
 DISPLAY_PAGES_ON_MENU = False
@@ -83,7 +80,7 @@ DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'authors', 'archives', 'searc
 MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
-           'pelican-toc', 'i18n_subsites', 'tag_cloud', 'tipue_search', 'neighbors']
+           'pelican-toc', 'i18n_subsites', 'tipue_search', 'neighbors']
 IGNORE_FILES = ['.ipynb_checkpoints']
 CACHE_CONTENT = True
 LOAD_CONTENT_CACHE = True
@@ -94,6 +91,9 @@ TOC = {
     'TOC_INCLUDE_TITLE': 'false',
 }
 
-
 CUSTOM_CSS="static/css/custom.css"
 SUMMARY_MAX_LENGTH = 30
+PADDED_SINGLE_COLUMN_STYLE = True
+BUILD_STATUS = '<a href="https://travis-ci.org/peijunz/peijunz.github.io"><img alt="Build Status" src="https://travis-ci.org/peijunz/peijunz.github.io.svg?branch=src" style="max-width:100%;"></a>'
+SOURCE_LINK = 'https://github.com/peijunz/peijunz.github.io/tree/src/content'
+GITHUB_ID = "peijunz"
