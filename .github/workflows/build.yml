@@ -22,11 +22,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install pelican jinja2 py3babel babel beautifulsoup4 markdown nbconvert ipython pelican-alias ghp-import
           mkdir themes plugins
+      - name: Download Source
+        run: |
           svn export https://github.com/peijunz/pelican-themes/trunk/pelican-bootstrap3 themes/pelican-bootstrap3 --quiet
           git clone --depth=1 https://github.com/peijunz/pelican-plugins plugins
           cd plugins
           git submodule update --init pelican-toc
           git submodule update --init ipynb2pelican
-          cd .. && make publish
+      - name: Publish
+        run: |
+          make publish
           ghp-import -m "Generate Pelican site" -b master output
           git push -f origin master
