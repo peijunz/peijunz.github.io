@@ -75,8 +75,7 @@ JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 IPYNB_SUMMARY_CELL = True
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'authors', 'archives', 'search')
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
-           'pelican-toc', 'i18n_subsites', 'tipue_search', 'neighbors']
+PLUGINS = ['render_math', 'ipynb2pelican', 'i18n_subsites', 'tipue_search', 'neighbors']
 IGNORE_FILES = ['.ipynb_checkpoints']
 CACHE_CONTENT = True
 LOAD_CONTENT_CACHE = True
