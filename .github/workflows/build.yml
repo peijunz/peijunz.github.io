@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pelican beautifulsoup4 markdown nbconvert ghp-import
+          pip install pelican beautifulsoup4 markdown nbconvert ipython ghp-import
       - name: Download Source
         run: |
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
