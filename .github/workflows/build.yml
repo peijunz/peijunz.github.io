@@ -31,6 +31,6 @@ jobs:
           git submodule update --init ipynb2pelican
       - name: Publish
         run: |
-          cd .. && make publish
+          make publish
           ghp-import -m "Generate Pelican site" -b master output
           git push -f origin master
