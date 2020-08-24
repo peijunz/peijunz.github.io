@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Linux的配置 - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+<link rel="canonical" href="https://www.peijun.me/linux-configuration.html">
+
+        <meta name="author" content="Peijun Zhu" />
+        <meta name="keywords" content="linux,conf" />
+        <meta name="description" content="# 配置文件 .bashrc .vimrc .gitignore_global" />
+
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Linux的配置"/>
+        <meta property="og:url" content="https://www.peijun.me/linux-configuration.html"/>
+        <meta property="og:description" content="# 配置文件 .bashrc .vimrc .gitignore_global"/>
+        <meta property="article:published_time" content="2016-05-17" />
+            <meta property="article:section" content="Computer" />
+            <meta property="article:tag" content="linux" />
+            <meta property="article:tag" content="conf" />
+            <meta property="article:author" content="Peijun Zhu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <ol class="breadcrumb">
+                <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="https://www.peijun.me/category/computer.html" title="Computer">Computer</a></li>
+                <li class="active">Linux的配置</li>
+            </ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://www.peijun.me/linux-configuration.html"
+                       rel="bookmark"
+                       title="Permalink to Linux的配置">
+                        Linux的配置
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-05-17T00:00:00-04:00"> Tue, 17 May 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.peijun.me/tag/linux.html">linux</a>
+        /
+	<a href="https://www.peijun.me/tag/conf.html">conf</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="配置文件"><a class="anchor-link" href="#配置文件">#</a> 配置文件</h2><ul>
+<li><code>.bashrc</code></li>
+<li><code>.vimrc</code></li>
+<li><code>.gitignore_global</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="常用软件"><a class="anchor-link" href="#常用软件">#</a> 常用软件</h2><h3 id="影音多媒体"><a class="anchor-link" href="#影音多媒体">#</a> 影音多媒体</h3><ul>
+<li>画图：矢量图 <code>inkscape</code>，点阵图 <code>gimp</code>，手绘 <code>krita</code></li>
+<li>影音播放：<code>VLC</code>，深度播放器，网易云音乐</li>
+<li>flash播放器：npapi火狐，ppapi谷歌</li>
+</ul>
+<h3 id="实用工具"><a class="anchor-link" href="#实用工具">#</a> 实用工具</h3><ul>
+<li>分区<code>Gparted</code></li>
+<li>虚拟机<code>VirtualBox</code></li>
+<li>50G免费空间的网盘<code>megasync</code></li>
+<li>密码管理器KeePassX</li>
+<li>清理<code>bleachbit</code></li>
+<li>Dolphin文件管理器预览插件<ul>
+<li><code>kffmpegthumbnailer</code> 视频预览</li>
+<li><code>kdegraphics-thumbnailers</code> pdf, svg等文档图片预览</li>
+</ul>
+</li>
+<li>多线程下载<code>KGet</code></li>
+</ul>
+<h3 id="编程/代码相关"><a class="anchor-link" href="#编程/代码相关">#</a> 编程/代码相关</h3><ul>
+<li>Git代码管理 <code>git</code></li>
+<li>QtCreator</li>
+<li>文本编辑器 <code>kate</code></li>
+<li>Python<ul>
+<li>Jupyter-notebook <code>python3-jupyter_notebook</code></li>
+<li>画图 <code>python3-matplotlib</code></li>
+<li>科学计算库 <code>python3-scipy python3-numpy python3-sympy</code>等编程</li>
+</ul>
+</li>
+<li>数学软件<code>Mathematica</code></li>
+</ul>
+<h3 id="阅读/笔记/文档"><a class="anchor-link" href="#阅读/笔记/文档">#</a> 阅读/笔记/文档</h3><ul>
+<li>词典 <code>goldendict</code>， 注意版本需要大于1.5才能用<code>.mdx</code>词典<ul>
+<li>词典库，可以上<a href="http://pdawiki.com/forum/forum.php">PDA wiki</a>，或者<a href="https://mega.nz/#F!MFhGBQTJ!7aUrOQdVfykOE31aqVD6uw">MEGA网盘</a></li>
+</ul>
+</li>
+<li>pdf阅读器 <code>okular</code> 及其依赖的数据文件 <code>poppler-data</code></li>
+<li>LaTeX参见<a href="TeXLive最小安装.ipynb">TeXLive最小安装</a>，对应的IDE有Kile/TexStudio等</li>
+<li>pdf目录编辑器 <code>HandyOutliner</code></li>
+<li><a href="https://github.com/kcroker/dpsprep">dpsprep</a> djvu转pdf且保留目录，以及避免体积过度膨胀</li>
+<li>手绘笔记软件<code>Xournal</code></li>
+<li>pdf编辑器/阅读器：<a href="https://code-industry.net/get-masterpdfeditor/">master pdf editor</a>，Foxit</li>
+<li>WPS</li>
+</ul>
+<h3 id="本地化"><a class="anchor-link" href="#本地化">#</a> 本地化</h3><ul>
+<li>中文<ul>
+<li><code>kde-l10n-zh_CN translation-update-zh_CN bundle-lang-kde-zh_CN</code></li>
+</ul>
+</li>
+<li>字体<ul>
+<li>文泉驿微米黑 <code>wqy-mocrohei-fonts</code></li>
+<li>谷歌黑体 <code>"noto-sans-sc*"</code></li>
+<li>谷歌宋体 <code>"noto-serif-sc*"</code></li>
+</ul>
+</li>
+<li>ShadowSocks翻墙<ul>
+<li>图像界面 <code>shadowsocks-qt</code></li>
+<li>命令行python库工具 <code>sslocal</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="字体"><a class="anchor-link" href="#字体">#</a> 字体</h3><p>各种闭源字体的 rpm 包，<a href="https://mega.nz/#F!8ABFCC7I!ZLU8hpxbPolzQp2TejtIFg">MEGA网盘</a></p>
+<ul>
+<li>安装好wps后自带方正字体：宋黑仿楷+隶书/魏碑/姚体/行楷等</li>
+<li><code>symbol-fonts</code> WPS 依赖的数学符号等字体<ul>
+<li><code>archlinuxcn/ttf-wps-fonts</code></li>
+</ul>
+</li>
+<li><a href="https://github.com/peijunz/ttf-kpp-font">kingsoft-phonetic-font</a> GoldenDict 等显示音标需要的中文字体</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="常见问题"><a class="anchor-link" href="#常见问题">#</a> 常见问题</h2><ul>
+<li>GoldenDict被程序阻挡？程序聚焦问题需要对应用窗口右键后设置，或者设定KDE全局不阻止抢占焦点</li>
+<li>MEGA设置好同步的目录等</li>
+<li>dns错误？<code>sudo vim /etc/resolv.conf</code>，添加<code>nameserver xxxx</code></li>
+<li>Dolphin设置好pdf等的预览功能，<code>use common setting for all folders</code>，设置好<code>maxline</code>，设置好菜单栏，侧栏快捷方式</li>
+<li>设置好打印机</li>
+<li>设置好zsh</li>
+<li>设置Spectacle截屏？</li>
+<li>防zip乱码<code>sudo zypper in unzip-rcc</code></li>
+<li>matplotlib后端设置</li>
+<li>自定义模板后用刷新缓存用<code>mktexlsr</code></li>
+<li>pdf强制嵌入字体<code>gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=out.pdf in.pdf</code></li>
+<li>Firefox<ul>
+<li><code>about:config</code>中的设置<ul>
+<li>全局缩放：进<code>layout.css.devPixelPerPx</code></li>
+<li>允许第三方网站安装扩展<code>xpinstall.signature.required</code></li>
+</ul>
+</li>
+<li><a href="https://addons.mozilla.org/en-Us/firefox/collections/zpj_ustc/webextension/">WebExtension</a></li>
+<li><a href="https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#for-userchromecss"><code>userChrome.css</code>隐藏标签栏以及侧栏头</a><ul>
+<li>第一行模板<code>@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+            </div>
+            <!-- /.entry-content -->
+<ul class="pager">
+    <li class="previous"><a href="https://www.peijun.me/use-c-template-programming-to-find-int-of-least-byte-width.html">&larr; Use C++ Template Programming to find int of least byte width</a></li>
+    <li class="next"><a href="https://www.peijun.me/latex-configurtion.html">LaTeX环境搭建 &rarr;</a></li>
+</ul><section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="https://www.peijun.me/latex-configurtion.html">LaTeX环境搭建</a></li>
+        <li><a href="https://www.peijun.me/blogging-with-jupyter-and-pelican.html">Blogging with Jupyter and Pelican</a></li>
+        <li><a href="https://www.peijun.me/jupyter-conf.html">Jupyter Notebook的配置</a></li>
+        <li><a href="https://www.peijun.me/use-qt-creator-as-cpp-ide.html">QtCreator使用小结</a></li>
+        <li><a href="https://www.peijun.me/git-configuration.html">配置Git</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'linux-configuration';
+                var disqus_url = 'https://www.peijun.me/linux-configuration.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

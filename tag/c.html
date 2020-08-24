@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>c - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+
+    <meta name="author" content="Peijun Zhu" />
+    <meta name="keywords" content="c" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Peijun's Journal"/>
+        <meta property="og:url" content="https://www.peijun.me"/>
+        <meta property="og:description" content="Peijun's Journal"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+    <ol class="breadcrumb">
+        <li><a href="https://www.peijun.me/tags.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="active">c</li>
+    </ol>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/fake-header-node.html">链表的伪头节点</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>本文介绍C语言中，如何无中生有，给链表创造出一个不占空间的伪头节点</p>
+</blockquote>
+</div>
+</div>
+</div><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="基本定义"><a class="anchor-link" href="#基本定义">#</a> 基本定义</h2><p>设我们有一个不带空头节点的链表，其节点定义为</p>
+<div class="highlight"><pre><span></span><span class="c1">//typedef int dtype;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span><span class="p">{</span>
+    <span class="n">dtype</span> <span class="n">data</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">node</span><span class="p">;</span>
+</pre></div>
+<p>链表定义为</p>
+<div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">linklist</span><span class="p">{</span>
+    <span class="n">node</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span>
+    <span class="c1">//...</span>
+<span class="p">}</span> <span class="n">linklist</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/fake-header-node.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/24-game-solver.html">24 Game Solver</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>24 game is an arithmetic game with a simple rule: Given 4 numbers and use + - * / to get 24.</p>
+<ul>
+<li>A simple example is <code>1, 2, 3, 4</code>, and you find <code>1*2*3*4=24</code></li>
+<li>A more difficult one is <code>5, 5, 5, 1</code>, the answer is <code>5*(5-(1/5))=24</code>, which includes fractions.</li>
+</ul>
+<p><a href="https://github.com/peijunz/game24">24game</a> project provides a powerful C++ solver for the 24 game. And you can play with the PyQt5 based graphical front end.</p>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/24-game-solver.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/use-c-template-programming-to-find-int-of-least-byte-width.html">Use C++ Template Programming to find int of least byte width</a></h2>
+                <div class="summary"><p>Also see <a href="https://gist.github.com/peijunz/580c39932aed134c53c80d2c55101490">gist</a></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">least</span> <span class="p">{</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">N</span> <span class="o">&lt;</span> <span class="mi">9</span> <span class="o">&amp;&amp;</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Length beyond range 1&lt;N&lt;9!&quot;</span><span class="p">);</span>
+    <span class="k">using</span> <span class="n">int_</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">least</span> <span class="o">&lt;</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">int_ …</span></code></pre></div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/use-c-template-programming-to-find-int-of-least-byte-width.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/use-qt-creator-as-cpp-ide.html">QtCreator使用小结</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Debug"><a class="anchor-link" href="#Debug">#</a> Debug</h2><p>首先要看使用的是什么构建系统：</p>
+<ul>
+<li><code>qmake</code> 不需要额外的设置</li>
+<li><code>cmake</code> Debug需要在生成配置的时候进行额外参数设置</li>
+<li><code>qbs</code> ???</li>
+</ul>
+<p>QtC在左下角的Debug按钮一定要在Debug模式下运行才能有效。</p>
+<p>进入Debug模式如果是<code>qmake</code>构建系统不需要额外配置。但是如果是<code>cmake</code>则每次都要重新生成配置。</p>
+<p>参考<a href="http://mirko.windhoff.net/how_to/debug_with_cmake_and_qtcreator">Debug with cmake and qtcreator</a>可知生成配置的时候应当添加参数<code>-DCMAKE_BUILD_TYPE=Debug</code></p>
+<h2 id="C++11"><a class="anchor-link" href="#C++11">#</a> C++11</h2><ul>
+<li>CMake: <code>set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")</code></li>
+<li>qmake: <code>QMAKE_CXXFLAGS += -std=c++0x</code></li>
+</ul>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/use-qt-creator-as-cpp-ide.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

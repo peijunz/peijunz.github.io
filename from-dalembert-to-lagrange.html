@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>From d’Alembert to Lagrange - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+<link rel="canonical" href="https://www.peijun.me/from-dalembert-to-lagrange.html">
+
+        <meta name="author" content="Peijun Zhu" />
+        <meta name="keywords" content="Mechanics" />
+        <meta name="description" content="Nowtonian \(\newcommand{\bm}{\mathbf} \newcommand{\dd}{\mathrm{d}} \newcommand{\pp}{\partial} \newcommand{\mdef}{\overset{\mathrm{def}}{=}}\) Assume \(\bm F\) is active force and \(\bm R\) is constraint force. Then for …" />
+
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="From d’Alembert to Lagrange"/>
+        <meta property="og:url" content="https://www.peijun.me/from-dalembert-to-lagrange.html"/>
+        <meta property="og:description" content="Nowtonian \(\newcommand{\bm}{\mathbf} \newcommand{\dd}{\mathrm{d}} \newcommand{\pp}{\partial} \newcommand{\mdef}{\overset{\mathrm{def}}{=}}\) Assume \(\bm F\) is active force and \(\bm R\) is constraint force. Then for …"/>
+        <meta property="article:published_time" content="2016-10-01" />
+            <meta property="article:section" content="Physics" />
+            <meta property="article:tag" content="Mechanics" />
+            <meta property="article:author" content="Peijun Zhu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <ol class="breadcrumb">
+                <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="https://www.peijun.me/category/physics.html" title="Physics">Physics</a></li>
+                <li class="active">From d’Alembert to Lagrange</li>
+            </ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://www.peijun.me/from-dalembert-to-lagrange.html"
+                       rel="bookmark"
+                       title="Permalink to From d’Alembert to Lagrange">
+                        From d’Alembert to Lagrange
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-10-01T00:00:00-04:00"> Sat, 01 Oct 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.peijun.me/tag/mechanics.html">Mechanics</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>Nowtonian</h2>
+<p><span class="mathmacros" style="display:none;">
+<span class="math">\(\newcommand{\bm}{\mathbf}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\pp}{\partial}
+\newcommand{\mdef}{\overset{\mathrm{def}}{=}}\)</span>
+</span>
+Assume <span class="math">\(\bm F\)</span> is active force and <span class="math">\(\bm R\)</span> is constraint force. Then for
+<span class="math">\(i\)</span>th body we have Newton’s Second Law:
+</p>
+<div class="math">$$\bm F^\mathrm{tot}_i=\bm F_i+\bm R_i=m\bm a_i$$</div>
+<p> With a virtual
+displacement <span class="math">\(\delta \bm x_i\)</span>, we define:
+</p>
+<div class="math">$$\delta W_i=\bm F^\mathrm{tot}_i\cdot\delta\bm x_i,\quad
+\delta K_i=m\bm a_i\cdot\delta\bm x_i$$</div>
+<p> Then we have
+<span class="math">\(\delta W_i=\delta K_i\)</span>. Define
+</p>
+<div class="math">$$\delta W=\sum_i\delta W_i,\quad\delta K=\sum_i\delta K_i$$</div>
+<p> and
+obviously</p>
+<div class="math">$$\delta W=\delta K$$</div>
+<p> As the constraints will not do work, we
+can rewrite </p>
+<div class="math">$$\delta W=\sum_i\bm F_i\cdot\delta\bm x_i$$</div>
+<h2>Lagrangian</h2>
+<h3>Statics <span class="math">\(\delta K=0\)</span></h3>
+<p>Principle of Virtual Work: </p>
+<div class="math">$$\frac{\delta W}{\delta q}=0$$</div>
+<p> i.e. Minimal
+Potential Energy </p>
+<div class="math">$$Q\mdef-\frac{\delta V}{\delta q}=0$$</div>
+<h3>Dynamics</h3>
+<p>d’Alembert’s Principle—Counterpart of Principle of Virtual Work:
+</p>
+<div class="math">$$\frac{\delta W}{\delta q}=\frac{\delta K}{\delta q}$$</div>
+<p>i.e. </p>
+<div class="math">$$\begin{aligned}
+Q\mdef\bm F_i\cdot\frac{\pp \bm x_i}{\pp q}&amp;=m_i\bm a_i\cdot\frac{\pp \bm x_i}{\pp q}\\
+&amp;=m_i\frac{\dd \bm v_i}{\dd t}\cdot\frac{\pp \bm x_i}{\pp q}\\
+&amp;=m_i\frac{\dd}{\dd t}\left( \bm v\cdot\frac{\pp \bm x_i}{\pp q}\right)-m_i\bm v\cdot\frac{\dd}{\dd t}\frac{\pp}{\pp q}\bm x_i\\
+&amp;=m_i\frac{\dd}{\dd t}\left(\bm v\cdot\frac{\pp \dot{\bm x_i}}{\pp\dot q}\right)-m_i\bm v\cdot\frac{\pp}{\pp q}\frac{\dd}{\dd t}\bm x_i\\
+&amp;=\frac{\dd}{\dd t}\left(m_i\bm v_i\cdot\frac{\pp\bm v_i}{\pp\dot q}\right)-m_i\bm v_i\cdot\frac{\pp \bm v_i}{\pp q}\\
+&amp;=\frac{\dd}{\dd t}\frac{\pp T}{\pp\dot q}-\frac{\pp T}{\pp q}\\
+&amp;=\left(\frac{\dd}{\dd t}\frac{\pp}{\pp\dot q}-\frac{\pp}{\pp q}\right)T\label{T}\end{aligned}$$</div>
+<p>For conservative or monogenic system,</p>
+<div class="math">$$Q=\left(\frac{\dd}{\dd t}\frac{\pp}{\pp\dot q}-\frac{\pp}{\pp q}\right)V\label{V}$$</div>
+<p>As a result of last two equations, if we define <span class="math">\(L=T-V\)</span>, we have
+</p>
+<div class="math">$$\left(\frac{\dd}{\dd t}\frac{\pp}{\pp\dot q}-\frac{\pp}{\pp q}\right)L=0$$</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            </div>
+            <!-- /.entry-content -->
+<ul class="pager">
+    <li class="previous"><a href="https://www.peijun.me/percolation-tn-lattice.html">&larr; Tn格点上逾渗的几何结构</a></li>
+    <li class="next"><a href="https://www.peijun.me/jacobi-identity.html">Jacobi Identity for Classical Possion Bracket &rarr;</a></li>
+</ul><section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="https://www.peijun.me/invariance-of-euler-lagrange-equations.html">Invariance of Euler-Lagrange Equations</a></li>
+        <li><a href="https://www.peijun.me/jacobi-identity.html">Jacobi Identity for Classical Possion Bracket</a></li>
+        <li><a href="https://www.peijun.me/integrable-constraint.html">Integrable Constraint</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'from-dalembert-to-lagrange';
+                var disqus_url = 'https://www.peijun.me/from-dalembert-to-lagrange.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

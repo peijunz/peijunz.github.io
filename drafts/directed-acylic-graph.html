@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>带负权有向无环图的最短路径 - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+<link rel="canonical" href="https://www.peijun.me/drafts/directed-acylic-graph.html">
+
+        <meta name="author" content="Peijun Zhu" />
+        <meta name="description" content="# 最短路径# 正权图用广度优先，先到达的点一定是最短路径。因此不需要考虑后续更新问题 # 带负权由于先到达的某条路可能被后面带负权的路所代替，需要考虑后续更新问题。为了防止某节点的最短路径更新导致的后续步骤重算，任何节点必须等待他的依赖做完，此时给出的路径才是真正的最短路径。这个过程需要使用拓扑排序（考虑依赖的任务排序）来实现。 每次某个事情做完的时候，计算假设走该路径它的后继到达所需要的时间。如果该时间更短的话，给它的后继节点更新时间并记录该路径。 # 拓扑排序初始时有一系列任务待处理，构成一个任务树。这些任务有的不需要依赖（入度为零）即可以完成，称为树叶；另一些是出度为零的树根；其他的称为树干。每次剪除任意一个枝叶，此次剪除可能产生新的枝叶，加入枝叶队列。以此不断循环。 此方法应用于一个任意有向/无向图可以剪除所有树枝，剩余的皆是非平凡的环，或者连接环路的桥。" />
+
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="带负权有向无环图的最短路径"/>
+        <meta property="og:url" content="https://www.peijun.me/drafts/directed-acylic-graph.html"/>
+        <meta property="og:description" content="# 最短路径# 正权图用广度优先，先到达的点一定是最短路径。因此不需要考虑后续更新问题 # 带负权由于先到达的某条路可能被后面带负权的路所代替，需要考虑后续更新问题。为了防止某节点的最短路径更新导致的后续步骤重算，任何节点必须等待他的依赖做完，此时给出的路径才是真正的最短路径。这个过程需要使用拓扑排序（考虑依赖的任务排序）来实现。 每次某个事情做完的时候，计算假设走该路径它的后继到达所需要的时间。如果该时间更短的话，给它的后继节点更新时间并记录该路径。 # 拓扑排序初始时有一系列任务待处理，构成一个任务树。这些任务有的不需要依赖（入度为零）即可以完成，称为树叶；另一些是出度为零的树根；其他的称为树干。每次剪除任意一个枝叶，此次剪除可能产生新的枝叶，加入枝叶队列。以此不断循环。 此方法应用于一个任意有向/无向图可以剪除所有树枝，剩余的皆是非平凡的环，或者连接环路的桥。"/>
+        <meta property="article:published_time" content="2017-05-15" />
+            <meta property="article:section" content="Computer" />
+            <meta property="article:author" content="Peijun Zhu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <ol class="breadcrumb">
+                <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="https://www.peijun.me/category/computer.html" title="Computer">Computer</a></li>
+                <li class="active">带负权有向无环图的最短路径</li>
+            </ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://www.peijun.me/drafts/directed-acylic-graph.html"
+                       rel="bookmark"
+                       title="Permalink to 带负权有向无环图的最短路径">
+                        带负权有向无环图的最短路径
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-05-15T00:00:00-04:00"> Mon, 15 May 2017</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="最短路径"><a class="anchor-link" href="#最短路径">#</a> 最短路径</h2><h3 id="正权图"><a class="anchor-link" href="#正权图">#</a> 正权图</h3><p>用广度优先，先到达的点一定是最短路径。因此不需要考虑后续更新问题</p>
+<h3 id="带负权"><a class="anchor-link" href="#带负权">#</a> 带负权</h3><p>由于先到达的某条路可能被后面带负权的路所代替，需要考虑后续更新问题。为了<strong>防止</strong>某节点的最短路径更新导致的后续步骤重算，任何节点必须等待他的依赖做完，此时给出的路径才是真正的最短路径。这个过程需要使用<strong>拓扑排序</strong>（考虑依赖的任务排序）来实现。</p>
+<p>每次某个事情做完的时候，计算假设走该路径它的后继到达所需要的时间。如果该时间更短的话，给它的后继节点更新时间并记录该路径。</p>
+<h2 id="拓扑排序"><a class="anchor-link" href="#拓扑排序">#</a> 拓扑排序</h2><p>初始时有一系列任务待处理，构成一个任务树。这些任务有的不需要依赖（入度为零）即可以完成，称为树叶；另一些是出度为零的树根；其他的称为树干。每次剪除任意一个枝叶，此次剪除可能产生新的枝叶，加入枝叶队列。以此不断循环。</p>
+<p>此方法应用于一个任意有向/无向图可以剪除所有<strong>树枝</strong>，剩余的皆是非平凡的<strong>环</strong>，或者连接环路的<strong>桥</strong>。</p>
+</div>
+</div>
+</div>
+
+            </div>
+            <!-- /.entry-content -->
+<ul class="pager">
+</ul>    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'directed-acylic-graph';
+                var disqus_url = 'https://www.peijun.me/drafts/directed-acylic-graph.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

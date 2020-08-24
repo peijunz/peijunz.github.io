@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Expectation value of quickselect runtime - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+<link rel="canonical" href="https://www.peijun.me/quickselect-complexity.html">
+
+        <meta name="author" content="Peijun Zhu" />
+        <meta name="description" content="# ProblemSuppose there are $n$ numbers, use Quickselect to determine $k$-th smallest number. What is average runtime?" />
+
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Expectation value of quickselect runtime"/>
+        <meta property="og:url" content="https://www.peijun.me/quickselect-complexity.html"/>
+        <meta property="og:description" content="# ProblemSuppose there are $n$ numbers, use Quickselect to determine $k$-th smallest number. What is average runtime?"/>
+        <meta property="article:published_time" content="2018-08-27" />
+            <meta property="article:section" content="Computer" />
+            <meta property="article:author" content="Peijun Zhu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <ol class="breadcrumb">
+                <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="https://www.peijun.me/category/computer.html" title="Computer">Computer</a></li>
+                <li class="active">Expectation value of quickselect runtime</li>
+            </ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://www.peijun.me/quickselect-complexity.html"
+                       rel="bookmark"
+                       title="Permalink to Expectation value of quickselect runtime">
+                        Expectation value of quickselect runtime
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2018-08-27T00:00:00-04:00"> Mon, 27 Aug 2018</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Problem"><a class="anchor-link" href="#Problem">#</a> Problem</h2><p>Suppose there are $n$ numbers, use <a href="https://en.wikipedia.org/wiki/Quickselect">Quickselect</a> to determine $k$-th smallest number. What is average runtime?</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Recursion"><a class="anchor-link" href="#Recursion">#</a> Recursion</h2><p>For our convenience, we assume there are no equal numbers. Initially, there are $l=k-1$ numbers smaller than target and $r=n-k$ numbers larger than target, which satisfy $n=l+r+1$. We denote expectation value of run time for this situation by $T[l, r]$. 
+For one step of <code>quickselect</code>, it takes $cn$ time to do partition with a random pivot. Then the problem falls into three cases:</p>
+<ul>
+<li>If pivot is smaller than target, $l$ is reduced and falls in the range $[0, l-1]$</li>
+<li>If pivot is greater than target, $r$ is reduced and falls in the range $[0, r-1]$</li>
+<li>If pivot is target, our algorithm halts, which takes constant time $d$.</li>
+</ul>
+<p>With this analysis, we find recursion for $T[l, r]$:</p>
+$$T[l, r]= cn+\frac{\sum_{k=0}^{l-1} T[k, r]+\sum_{k=0}^{r-1} T[l, k]+d}{n}$$<h2 id="Local-Difference"><a class="anchor-link" href="#Local-Difference">#</a> Local Difference</h2><p>The recursion of $T$ is equivalent to
+$$nT[l, r]= cn^2+d+\sum_{k=0}^{l-1} T[k, r]+\sum_{k=0}^{r-1} T[l, k]$$</p>
+<p>Similarly we have
+\begin{align}
+(n-1)T[l, r-1]&amp;= c(n-1)^2+d+\sum_{k=0}^{l-1} T[k, r-1]+\sum_{k=0}^{r-2} T[l, k]\\
+(n-1)T[l-1, r]&amp;= c(n-1)^2+d+\sum_{k=0}^{l-2} T[k, r]+\sum_{k=0}^{r-1} T[l-1, k]\\
+(n-2)T[l-1, r-1]&amp;= c(n-2)^2+d+\sum_{k=0}^{l-2} T[k, r-1]+\sum_{k=0}^{r-2} T[l-1, k]
+\end{align}</p>
+<p>Evaluate $nT[l, r]-(n-1)T[l, r-1]-(n-1)T[l-1, r]+(n-2)T[l-1, r-1]$, and we find local difference term for $(l, r)$:</p>
+$$T[l, r]-T[l, r-1]-T[l-1, r]+T[l-1, r-1]=2c/n$$<h2 id="Summation"><a class="anchor-link" href="#Summation">#</a> Summation</h2><p>Sum over all local differences for $(i, j)$ points ($0&lt; i\leq l, 0&lt;j\leq r$), and we have</p>
+\begin{align}
+&amp;\phantom{{}={}}T[l, r]-T[l, 0]-T[0, r]+T[0, 0]\\
+&amp;=\sum_{i=1}^l\sum_{j=1}^r\frac{2c}{i+j+1}\\
+&amp;&lt; 2c\int_{1/2}^{l+1/2}\int_{1/2}^{r+1/2} \frac{dxdy}{x+y+1}\\
+&amp;= 2c[(l+r+2)\ln (l+r+2)-(l+2)\ln (l+2)-(r+2)\ln (r+2)+2\ln 2]\\
+&amp;= 2c\Big[N[-p\ln (p+1/N)-q\ln (q+1/N)]-\ln (l+2)(r+2)+2\ln 2\Big]\\
+&amp;&lt; 2cSN,\quad S=-p\ln p-q\ln q
+\end{align}<p>where $N=l+r+2, p=(l+1)/N, q=(r+1)/N$. $S$ is entropy for $(p, q)$ distribution.</p>
+<h2 id="Complexity"><a class="anchor-link" href="#Complexity">#</a> Complexity</h2><p>It is obvious that $T[n, 0]=T[0, n]=bn, T[0, 0]=d$, which gives</p>
+$$T[l, r]= (b+2cS)N$$<p>It shows that constant factor of computing median is larger than factor for max/min.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="$T/N$-as-a-function-of-percentage-$p$"><a class="anchor-link" href="#$T/N$-as-a-function-of-percentage-$p$">#</a> $T/N$ as a function of percentage $p$</h3><p>Assume $b=c=1$, then we can plot $T/N$ as function of $p$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="mf">1e-6</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">p</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">b</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">+</span><span class="n">q</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">q</span><span class="p">)))</span>
+<span class="n">grid</span><span class="p">();</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">'Percentage'</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$T/N$'</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_svg output_subarea">
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<!-- Created with matplotlib (http://matplotlib.org/) -->
+<svg height="266.34pt" version="1.1" viewbox="0 0 387.410937 266.34" width="387.410937pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;}
+  </style>
+</defs>
+<g id="figure_1">
+<g id="patch_1">
+<path d="M 0 266.34 
+L 387.410937 266.34 
+L 387.410937 0 
+L 0 0 
+z
+" style="fill:none;"></path>
+</g>
+<g id="axes_1">
+<g id="patch_2">
+<path d="M 41.910938 228.14 
+L 376.710938 228.14 
+L 376.710938 10.7 
+L 41.910938 10.7 
+z
+" style="fill:#ffffff;"></path>
+</g>
+<g id="matplotlib.axis_1">
+<g id="xtick_1">
+<g id="line2d_1">
+<path clip-path="url(#p4f903e1935)" d="M 57.128815 228.14 
+L 57.128815 10.7 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_2">
+<defs>
+<path d="M 0 0 
+L 0 3.5 
+" id="m45c44c6a8b" style="stroke:#000000;stroke-width:0.8;"></path>
+</defs>
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="57.128815" xlink:href="#m45c44c6a8b" y="228.14"></use>
+</g>
+</g>
+<g id="text_1">
+<!-- 0.0 -->
+<defs>
+<path d="M 4.6875 35.9375 
+Q 4.6875 54.296875 10.34375 63.46875 
+Q 16.015625 72.65625 27.34375 72.65625 
+Q 39.0625 72.65625 44.71875 63.46875 
+Q 50.390625 54.296875 50.390625 35.9375 
+Q 50.390625 17.578125 44.71875 8.390625 
+Q 39.0625 -0.78125 27.34375 -0.78125 
+Q 16.015625 -0.78125 10.34375 8.390625 
+Q 4.6875 17.578125 4.6875 35.9375 
+z
+M 41.40625 35.9375 
+Q 41.40625 52.34375 37.6875 58.59375 
+Q 33.984375 64.84375 27.34375 64.84375 
+Q 21.09375 64.84375 17.375 58.78125 
+Q 13.671875 52.734375 13.671875 35.9375 
+Q 13.671875 18.75 17.375 12.6875 
+Q 21.09375 6.640625 27.34375 6.640625 
+Q 33.984375 6.640625 37.6875 12.890625 
+Q 41.40625 19.140625 41.40625 35.9375 
+z
+" id="DroidSansFallback-30"></path>
+<path d="M 19.53125 5.46875 
+Q 19.53125 1.953125 17.96875 0.1875 
+Q 16.40625 -1.5625 13.28125 -1.5625 
+Q 10.15625 -1.5625 8.59375 0.1875 
+Q 7.03125 1.953125 7.03125 5.46875 
+Q 7.03125 8.984375 8.59375 10.546875 
+Q 10.15625 12.109375 13.28125 12.109375 
+Q 16.40625 12.109375 17.96875 10.546875 
+Q 19.53125 8.984375 19.53125 5.46875 
+z
+" id="DroidSansFallback-2e"></path>
+</defs>
+<g transform="translate(50.273346 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-30"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-30"></use>
+</g>
+</g>
+</g>
+<g id="xtick_2">
+<g id="line2d_3">
+<path clip-path="url(#p4f903e1935)" d="M 118.001664 228.14 
+L 118.001664 10.7 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_4">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="118.001664" xlink:href="#m45c44c6a8b" y="228.14"></use>
+</g>
+</g>
+<g id="text_2">
+<!-- 0.2 -->
+<defs>
+<path d="M 49.21875 0 
+L 4.6875 0 
+L 4.6875 7.8125 
+L 21.875 26.171875 
+Q 32.421875 37.5 34.953125 42.578125 
+Q 37.5 47.65625 37.5 53.125 
+Q 37.5 58.59375 34.375 61.71875 
+Q 31.25 64.84375 25.78125 64.84375 
+Q 17.96875 64.84375 10.546875 58.203125 
+L 5.46875 64.0625 
+Q 14.84375 72.265625 26.171875 72.265625 
+Q 35.546875 72.265625 41.015625 67.1875 
+Q 46.484375 62.109375 46.484375 53.515625 
+Q 46.484375 47.265625 43.15625 41.015625 
+Q 39.84375 34.765625 29.296875 23.046875 
+L 15.625 8.59375 
+L 15.625 8.203125 
+L 49.21875 8.203125 
+z
+" id="DroidSansFallback-32"></path>
+</defs>
+<g transform="translate(111.146195 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-30"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-32"></use>
+</g>
+</g>
+</g>
+<g id="xtick_3">
+<g id="line2d_5">
+<path clip-path="url(#p4f903e1935)" d="M 178.874513 228.14 
+L 178.874513 10.7 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_6">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="178.874513" xlink:href="#m45c44c6a8b" y="228.14"></use>
+</g>
+</g>
+<g id="text_3">
+<!-- 0.4 -->
+<defs>
+<path d="M 53.125 16.015625 
+L 42.578125 16.015625 
+L 42.578125 0 
+L 33.984375 0 
+L 33.984375 16.015625 
+L 1.171875 16.015625 
+L 1.171875 23.828125 
+L 33.59375 71.875 
+L 42.578125 71.875 
+L 42.578125 24.21875 
+L 53.125 24.21875 
+z
+M 33.984375 24.21875 
+L 33.984375 41.40625 
+Q 33.984375 50 34.765625 62.5 
+L 34.375 62.5 
+Q 32.421875 57.421875 30.078125 53.90625 
+L 9.765625 24.21875 
+z
+" id="DroidSansFallback-34"></path>
+</defs>
+<g transform="translate(172.019044 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-30"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-34"></use>
+</g>
+</g>
+</g>
+<g id="xtick_4">
+<g id="line2d_7">
+<path clip-path="url(#p4f903e1935)" d="M 239.747362 228.14 
+L 239.747362 10.7 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_8">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="239.747362" xlink:href="#m45c44c6a8b" y="228.14"></use>
+</g>
+</g>
+<g id="text_4">
+<!-- 0.6 -->
+<defs>
+<path d="M 45.3125 71.484375 
+L 45.3125 64.0625 
+Q 41.796875 65.234375 37.109375 65.234375 
+Q 15.234375 65.234375 14.453125 36.328125 
+L 15.234375 36.328125 
+Q 19.921875 44.53125 30.078125 44.53125 
+Q 39.453125 44.53125 44.921875 38.859375 
+Q 50.390625 33.203125 50.390625 23.046875 
+Q 50.390625 11.71875 44.53125 5.46875 
+Q 38.671875 -0.78125 28.90625 -0.78125 
+Q 18.359375 -0.78125 11.90625 7.21875 
+Q 5.46875 15.234375 5.46875 30.46875 
+Q 5.46875 51.5625 13.28125 61.90625 
+Q 21.09375 72.265625 36.71875 72.265625 
+Q 41.796875 72.265625 45.3125 71.484375 
+z
+M 28.90625 37.890625 
+Q 22.65625 37.890625 18.546875 33.78125 
+Q 14.453125 29.6875 14.453125 24.609375 
+Q 14.453125 16.796875 18.546875 11.71875 
+Q 22.65625 6.640625 28.90625 6.640625 
+Q 35.15625 6.640625 38.46875 10.734375 
+Q 41.796875 14.84375 41.796875 23.046875 
+Q 41.796875 30.46875 38.671875 34.171875 
+Q 35.546875 37.890625 28.90625 37.890625 
+z
+" id="DroidSansFallback-36"></path>
+</defs>
+<g transform="translate(232.891893 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-30"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-36"></use>
+</g>
+</g>
+</g>
+<g id="xtick_5">
+<g id="line2d_9">
+<path clip-path="url(#p4f903e1935)" d="M 300.620211 228.14 
+L 300.620211 10.7 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_10">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="300.620211" xlink:href="#m45c44c6a8b" y="228.14"></use>
+</g>
+</g>
+<g id="text_5">
+<!-- 0.8 -->
+<defs>
+<path d="M 34.765625 37.890625 
+Q 50 29.6875 50 18.75 
+Q 50 10.15625 43.9375 4.6875 
+Q 37.890625 -0.78125 27.734375 -0.78125 
+Q 16.796875 -0.78125 10.9375 4.296875 
+Q 5.078125 9.375 5.078125 18.359375 
+Q 5.078125 30.859375 19.140625 37.5 
+Q 7.421875 44.53125 7.421875 55.46875 
+Q 7.421875 62.890625 12.890625 67.765625 
+Q 18.359375 72.65625 27.734375 72.65625 
+Q 36.71875 72.65625 42.1875 67.765625 
+Q 47.65625 62.890625 47.65625 55.46875 
+Q 47.65625 44.140625 34.765625 37.890625 
+z
+M 27.734375 41.40625 
+Q 39.0625 46.484375 39.0625 55.078125 
+Q 39.0625 60.15625 36.125 62.6875 
+Q 33.203125 65.234375 27.34375 65.234375 
+Q 21.875 65.234375 19.140625 62.6875 
+Q 16.40625 60.15625 16.40625 55.078125 
+Q 16.40625 46.484375 27.734375 41.40625 
+z
+M 26.171875 33.984375 
+Q 14.0625 28.125 14.0625 17.96875 
+Q 14.0625 12.109375 17.375 9.171875 
+Q 20.703125 6.25 27.34375 6.25 
+Q 34.375 6.25 37.890625 9.375 
+Q 41.40625 12.5 41.40625 18.359375 
+Q 41.40625 22.65625 38.671875 25.96875 
+Q 35.9375 29.296875 27.734375 33.203125 
+z
+" id="DroidSansFallback-38"></path>
+</defs>
+<g transform="translate(293.764742 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-30"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-38"></use>
+</g>
+</g>
+</g>
+<g id="xtick_6">
+<g id="line2d_11">
+<path clip-path="url(#p4f903e1935)" d="M 361.49306 228.14 
+L 361.49306 10.7 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_12">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="361.49306" xlink:href="#m45c44c6a8b" y="228.14"></use>
+</g>
+</g>
+<g id="text_6">
+<!-- 1.0 -->
+<defs>
+<path d="M 34.765625 0 
+L 26.171875 0 
+L 26.171875 44.53125 
+Q 26.171875 53.90625 26.5625 62.109375 
+L 13.28125 50.78125 
+L 8.59375 56.640625 
+L 27.34375 71.484375 
+L 34.765625 71.484375 
+z
+" id="DroidSansFallback-31"></path>
+</defs>
+<g transform="translate(354.637591 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-31"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-30"></use>
+</g>
+</g>
+</g>
+<g id="text_7">
+<!-- Percentage -->
+<defs>
+<path d="M 18.75 27.734375 
+L 18.75 0 
+L 9.765625 0 
+L 9.765625 71.484375 
+L 27.34375 71.484375 
+Q 39.84375 71.484375 46.09375 66.203125 
+Q 52.34375 60.9375 52.34375 50.390625 
+Q 52.34375 39.84375 45.703125 33.78125 
+Q 39.0625 27.734375 26.171875 27.734375 
+z
+M 18.75 35.546875 
+L 25 35.546875 
+Q 34.765625 35.546875 38.859375 39.0625 
+Q 42.96875 42.578125 42.96875 50 
+Q 42.96875 56.640625 38.859375 60.15625 
+Q 34.765625 63.671875 26.5625 63.671875 
+L 18.75 63.671875 
+z
+" id="DroidSansFallback-50"></path>
+<path d="M 48.4375 25 
+L 14.84375 25 
+Q 14.84375 16.015625 18.546875 11.328125 
+Q 22.265625 6.640625 29.6875 6.640625 
+Q 38.28125 6.640625 46.09375 10.546875 
+L 46.09375 2.734375 
+Q 38.671875 -0.78125 29.6875 -0.78125 
+Q 18.75 -0.78125 12.109375 6.25 
+Q 5.46875 13.28125 5.46875 26.5625 
+Q 5.46875 39.84375 11.71875 47.265625 
+Q 17.96875 54.6875 27.734375 54.6875 
+Q 37.109375 54.6875 42.765625 48.234375 
+Q 48.4375 41.796875 48.4375 30.46875 
+z
+M 14.84375 32.421875 
+L 39.0625 32.421875 
+Q 39.0625 39.84375 36.125 43.546875 
+Q 33.203125 47.265625 27.34375 47.265625 
+Q 16.015625 47.265625 14.84375 32.421875 
+z
+" id="DroidSansFallback-65"></path>
+<path d="M 37.890625 54.296875 
+L 36.71875 46.09375 
+Q 33.59375 46.484375 31.25 46.484375 
+Q 25.390625 46.484375 21.484375 41.796875 
+Q 17.578125 37.109375 17.578125 28.90625 
+L 17.578125 0 
+L 8.59375 0 
+L 8.59375 53.515625 
+L 15.625 53.515625 
+L 16.796875 43.75 
+L 17.1875 43.75 
+Q 23.4375 54.6875 31.640625 54.6875 
+Q 35.15625 54.6875 37.890625 54.296875 
+z
+" id="DroidSansFallback-72"></path>
+<path d="M 42.96875 51.5625 
+L 40.234375 44.140625 
+Q 33.984375 46.875 29.296875 46.875 
+Q 21.875 46.875 18.359375 41.796875 
+Q 14.84375 36.71875 14.84375 26.5625 
+Q 14.84375 16.796875 18.359375 11.71875 
+Q 21.875 6.640625 28.90625 6.640625 
+Q 35.546875 6.640625 42.1875 9.765625 
+L 42.1875 1.953125 
+Q 36.71875 -0.78125 28.90625 -0.78125 
+Q 17.96875 -0.78125 11.71875 6.046875 
+Q 5.46875 12.890625 5.46875 26.5625 
+Q 5.46875 40.625 11.90625 47.65625 
+Q 18.359375 54.6875 29.296875 54.6875 
+Q 36.71875 54.6875 42.96875 51.5625 
+z
+" id="DroidSansFallback-63"></path>
+<path d="M 42.1875 0 
+L 42.1875 34.375 
+Q 42.1875 41.015625 39.453125 44.140625 
+Q 36.71875 47.265625 31.25 47.265625 
+Q 24.609375 47.265625 21.09375 42.765625 
+Q 17.578125 38.28125 17.578125 27.734375 
+L 17.578125 0 
+L 8.59375 0 
+L 8.59375 53.515625 
+L 15.625 53.515625 
+L 17.1875 46.484375 
+L 17.578125 46.484375 
+Q 22.265625 54.6875 32.8125 54.6875 
+Q 41.796875 54.6875 46.28125 49.796875 
+Q 50.78125 44.921875 50.78125 35.15625 
+L 50.78125 0 
+z
+" id="DroidSansFallback-6e"></path>
+<path d="M 32.03125 7.421875 
+L 32.03125 0.78125 
+Q 28.515625 -0.78125 23.4375 -0.78125 
+Q 16.40625 -0.78125 12.890625 3.3125 
+Q 9.375 7.421875 9.375 16.015625 
+L 9.375 46.875 
+L 1.5625 46.875 
+L 1.5625 50.78125 
+L 9.375 54.6875 
+L 12.890625 66.015625 
+L 17.96875 66.015625 
+L 17.96875 53.515625 
+L 31.640625 53.515625 
+L 31.640625 46.875 
+L 17.96875 46.875 
+L 17.96875 16.015625 
+Q 17.96875 10.9375 19.71875 8.59375 
+Q 21.484375 6.25 24.609375 6.25 
+Q 28.515625 6.25 32.03125 7.421875 
+z
+" id="DroidSansFallback-74"></path>
+<path d="M 38.671875 0 
+L 37.109375 7.421875 
+L 36.71875 7.421875 
+Q 30.859375 -0.78125 20.3125 -0.78125 
+Q 12.890625 -0.78125 8.78125 3.3125 
+Q 4.6875 7.421875 4.6875 14.84375 
+Q 4.6875 31.25 27.34375 32.03125 
+L 36.328125 32.421875 
+L 36.328125 35.546875 
+Q 36.328125 41.40625 33.78125 44.328125 
+Q 31.25 47.265625 25.78125 47.265625 
+Q 19.140625 47.265625 11.71875 43.359375 
+L 8.59375 50 
+Q 17.1875 54.6875 25.78125 54.6875 
+Q 35.9375 54.6875 40.625 50.390625 
+Q 45.3125 46.09375 45.3125 36.71875 
+L 45.3125 0 
+z
+M 36.328125 26.171875 
+L 29.296875 25.78125 
+Q 20.3125 25.390625 16.984375 22.65625 
+Q 13.671875 19.921875 13.671875 14.84375 
+Q 13.671875 10.546875 15.8125 8.390625 
+Q 17.96875 6.25 22.265625 6.25 
+Q 28.90625 6.25 32.609375 10.15625 
+Q 36.328125 14.0625 36.328125 21.484375 
+z
+" id="DroidSansFallback-61"></path>
+<path d="M 50 53.515625 
+L 50 48.046875 
+L 40.234375 46.875 
+Q 43.359375 42.578125 43.359375 36.328125 
+Q 43.359375 28.515625 38.46875 23.828125 
+Q 33.59375 19.140625 25 19.140625 
+Q 21.875 19.140625 21.09375 19.53125 
+Q 16.796875 16.796875 16.796875 12.890625 
+Q 16.796875 10.9375 18.546875 9.953125 
+Q 20.3125 8.984375 24.21875 8.984375 
+L 32.8125 8.984375 
+Q 41.015625 8.984375 45.109375 5.265625 
+Q 49.21875 1.5625 49.21875 -5.46875 
+Q 49.21875 -14.84375 42.578125 -19.328125 
+Q 35.9375 -23.828125 22.65625 -23.828125 
+Q 12.109375 -23.828125 7.03125 -20.109375 
+Q 1.953125 -16.40625 1.953125 -8.984375 
+Q 1.953125 1.171875 13.671875 4.296875 
+Q 8.984375 6.25 8.984375 11.71875 
+Q 8.984375 17.1875 15.234375 21.09375 
+Q 5.859375 25 5.859375 35.9375 
+Q 5.859375 44.921875 10.9375 49.796875 
+Q 16.015625 54.6875 25 54.6875 
+Q 29.296875 54.6875 32.03125 53.515625 
+z
+M 34.765625 36.71875 
+Q 34.765625 42.1875 32.21875 45.109375 
+Q 29.6875 48.046875 24.609375 48.046875 
+Q 19.53125 48.046875 17.1875 45.109375 
+Q 14.84375 42.1875 14.84375 36.328125 
+Q 14.84375 30.859375 17.375 28.125 
+Q 19.921875 25.390625 25 25.390625 
+Q 29.6875 25.390625 32.21875 28.125 
+Q 34.765625 30.859375 34.765625 36.71875 
+z
+M 29.296875 0.78125 
+L 20.703125 0.78125 
+Q 15.625 0.78125 12.890625 -1.5625 
+Q 10.15625 -3.90625 10.15625 -8.59375 
+Q 10.15625 -12.890625 13.28125 -15.03125 
+Q 16.40625 -17.1875 22.65625 -17.1875 
+Q 31.640625 -17.1875 36.125 -14.453125 
+Q 40.625 -11.71875 40.625 -6.25 
+Q 40.625 -2.34375 38.46875 -0.78125 
+Q 36.328125 0.78125 29.296875 0.78125 
+z
+" id="DroidSansFallback-67"></path>
+</defs>
+<g transform="translate(184.174219 256.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-50"></use>
+<use x="57.8125" xlink:href="#DroidSansFallback-65"></use>
+<use x="111.328125" xlink:href="#DroidSansFallback-72"></use>
+<use x="151.171875" xlink:href="#DroidSansFallback-63"></use>
+<use x="197.65625" xlink:href="#DroidSansFallback-65"></use>
+<use x="251.171875" xlink:href="#DroidSansFallback-6e"></use>
+<use x="310.15625" xlink:href="#DroidSansFallback-74"></use>
+<use x="344.140625" xlink:href="#DroidSansFallback-61"></use>
+<use x="397.265625" xlink:href="#DroidSansFallback-67"></use>
+<use x="449.21875" xlink:href="#DroidSansFallback-65"></use>
+</g>
+</g>
+</g>
+<g id="matplotlib.axis_2">
+<g id="ytick_1">
+<g id="line2d_13">
+<path clip-path="url(#p4f903e1935)" d="M 41.910938 218.260589 
+L 376.710938 218.260589 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_14">
+<defs>
+<path d="M 0 0 
+L -3.5 0 
+" id="me080cbdb74" style="stroke:#000000;stroke-width:0.8;"></path>
+</defs>
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="41.910938" xlink:href="#me080cbdb74" y="218.260589"></use>
+</g>
+</g>
+<g id="text_8">
+<!-- 1.0 -->
+<g transform="translate(21.2 222.069183)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-31"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-30"></use>
+</g>
+</g>
+</g>
+<g id="ytick_2">
+<g id="line2d_15">
+<path clip-path="url(#p4f903e1935)" d="M 41.910938 189.741833 
+L 376.710938 189.741833 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_16">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="41.910938" xlink:href="#me080cbdb74" y="189.741833"></use>
+</g>
+</g>
+<g id="text_9">
+<!-- 1.2 -->
+<g transform="translate(21.2 193.550427)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-31"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-32"></use>
+</g>
+</g>
+</g>
+<g id="ytick_3">
+<g id="line2d_17">
+<path clip-path="url(#p4f903e1935)" d="M 41.910938 161.223077 
+L 376.710938 161.223077 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_18">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="41.910938" xlink:href="#me080cbdb74" y="161.223077"></use>
+</g>
+</g>
+<g id="text_10">
+<!-- 1.4 -->
+<g transform="translate(21.2 165.031671)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-31"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-34"></use>
+</g>
+</g>
+</g>
+<g id="ytick_4">
+<g id="line2d_19">
+<path clip-path="url(#p4f903e1935)" d="M 41.910938 132.704321 
+L 376.710938 132.704321 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_20">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="41.910938" xlink:href="#me080cbdb74" y="132.704321"></use>
+</g>
+</g>
+<g id="text_11">
+<!-- 1.6 -->
+<g transform="translate(21.2 136.512915)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-31"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-36"></use>
+</g>
+</g>
+</g>
+<g id="ytick_5">
+<g id="line2d_21">
+<path clip-path="url(#p4f903e1935)" d="M 41.910938 104.185565 
+L 376.710938 104.185565 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_22">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="41.910938" xlink:href="#me080cbdb74" y="104.185565"></use>
+</g>
+</g>
+<g id="text_12">
+<!-- 1.8 -->
+<g transform="translate(21.2 107.994159)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-31"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-38"></use>
+</g>
+</g>
+</g>
+<g id="ytick_6">
+<g id="line2d_23">
+<path clip-path="url(#p4f903e1935)" d="M 41.910938 75.666809 
+L 376.710938 75.666809 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_24">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="41.910938" xlink:href="#me080cbdb74" y="75.666809"></use>
+</g>
+</g>
+<g id="text_13">
+<!-- 2.0 -->
+<g transform="translate(21.2 79.475403)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-32"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-30"></use>
+</g>
+</g>
+</g>
+<g id="ytick_7">
+<g id="line2d_25">
+<path clip-path="url(#p4f903e1935)" d="M 41.910938 47.148053 
+L 376.710938 47.148053 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_26">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="41.910938" xlink:href="#me080cbdb74" y="47.148053"></use>
+</g>
+</g>
+<g id="text_14">
+<!-- 2.2 -->
+<g transform="translate(21.2 50.956647)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-32"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-32"></use>
+</g>
+</g>
+</g>
+<g id="ytick_8">
+<g id="line2d_27">
+<path clip-path="url(#p4f903e1935)" d="M 41.910938 18.629298 
+L 376.710938 18.629298 
+" style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"></path>
+</g>
+<g id="line2d_28">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="41.910938" xlink:href="#me080cbdb74" y="18.629298"></use>
+</g>
+</g>
+<g id="text_15">
+<!-- 2.4 -->
+<g transform="translate(21.2 22.437891)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-32"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-2e"></use>
+<use x="82.03125" xlink:href="#DroidSansFallback-34"></use>
+</g>
+</g>
+</g>
+<g id="text_16">
+<!-- $T/N$ -->
+<defs>
+<path d="M 5.90625 72.90625 
+L 67.578125 72.90625 
+L 66.015625 64.59375 
+L 39.984375 64.59375 
+L 27.484375 0 
+L 17.578125 0 
+L 30.078125 64.59375 
+L 4.296875 64.59375 
+z
+" id="DejaVuSans-Oblique-54"></path>
+<path d="M 25.390625 72.90625 
+L 33.6875 72.90625 
+L 8.296875 -9.28125 
+L 0 -9.28125 
+z
+" id="DejaVuSans-2f"></path>
+<path d="M 16.890625 72.90625 
+L 30.171875 72.90625 
+L 50.296875 10.40625 
+L 62.5 72.90625 
+L 72.125 72.90625 
+L 57.90625 0 
+L 44.578125 0 
+L 24.515625 62.890625 
+L 12.3125 0 
+L 2.6875 0 
+z
+" id="DejaVuSans-Oblique-4e"></path>
+</defs>
+<g transform="translate(14.817188 127.92)rotate(-90)scale(0.1 -0.1)">
+<use transform="translate(0 0.09375)" xlink:href="#DejaVuSans-Oblique-54"></use>
+<use transform="translate(61.083984 0.09375)" xlink:href="#DejaVuSans-2f"></use>
+<use transform="translate(94.775391 0.09375)" xlink:href="#DejaVuSans-Oblique-4e"></use>
+</g>
+</g>
+</g>
+<g id="line2d_29">
+<path clip-path="url(#p4f903e1935)" d="M 57.129119 218.256364 
+L 60.172756 202.288364 
+L 63.216392 190.299988 
+L 66.260028 179.832867 
+L 69.303665 170.364173 
+L 72.347301 161.645755 
+L 75.390937 153.531585 
+L 78.434574 145.925282 
+L 81.47821 138.758447 
+L 84.521847 131.980025 
+L 87.565483 125.550468 
+L 90.609119 119.438261 
+L 93.652756 113.617714 
+L 96.696392 108.067506 
+L 99.740028 102.769668 
+L 102.783665 97.70887 
+L 105.827301 92.871888 
+L 108.870937 88.247214 
+L 111.914574 83.824754 
+L 114.95821 79.595592 
+L 118.001847 75.551806 
+L 121.045483 71.686321 
+L 124.089119 67.992791 
+L 127.132756 64.465499 
+L 130.176392 61.099278 
+L 133.220028 57.889445 
+L 136.263665 54.831742 
+L 139.307301 51.922293 
+L 142.350937 49.157561 
+L 145.394574 46.534313 
+L 148.43821 44.049593 
+L 151.481847 41.700695 
+L 154.525483 39.485141 
+L 157.569119 37.400663 
+L 160.612756 35.445185 
+L 163.656392 33.616809 
+L 166.700028 31.913803 
+L 169.743665 30.334587 
+L 172.787301 28.877728 
+L 175.830937 27.541926 
+L 178.874574 26.326011 
+L 181.91821 25.228933 
+L 184.961847 24.249759 
+L 188.005483 23.387665 
+L 191.049119 22.641935 
+L 194.092756 22.011955 
+L 197.136392 21.497209 
+L 200.180028 21.09728 
+L 203.223665 20.811846 
+L 206.267301 20.640677 
+L 209.310937 20.583636 
+L 212.354574 20.640677 
+L 215.39821 20.811846 
+L 218.441847 21.09728 
+L 221.485483 21.497209 
+L 224.529119 22.011955 
+L 227.572756 22.641935 
+L 230.616392 23.387665 
+L 233.660028 24.249759 
+L 236.703665 25.228933 
+L 239.747301 26.326011 
+L 242.790937 27.541926 
+L 245.834574 28.877728 
+L 248.87821 30.334587 
+L 251.921847 31.913803 
+L 254.965483 33.616809 
+L 258.009119 35.445185 
+L 261.052756 37.400663 
+L 264.096392 39.485141 
+L 267.140028 41.700695 
+L 270.183665 44.049593 
+L 273.227301 46.534313 
+L 276.270937 49.157561 
+L 279.314574 51.922293 
+L 282.35821 54.831742 
+L 285.401847 57.889445 
+L 288.445483 61.099278 
+L 291.489119 64.465499 
+L 294.532756 67.992791 
+L 297.576392 71.686321 
+L 300.620028 75.551806 
+L 303.663665 79.595592 
+L 306.707301 83.824754 
+L 309.750937 88.247214 
+L 312.794574 92.871888 
+L 315.83821 97.70887 
+L 318.881847 102.769668 
+L 321.925483 108.067506 
+L 324.969119 113.617714 
+L 328.012756 119.438261 
+L 331.056392 125.550468 
+L 334.100028 131.980025 
+L 337.143665 138.758447 
+L 340.187301 145.925282 
+L 343.230937 153.531585 
+L 346.274574 161.645755 
+L 349.31821 170.364173 
+L 352.361847 179.832867 
+L 355.405483 190.299988 
+L 358.449119 202.288364 
+L 361.492756 218.256364 
+" style="fill:none;stroke:#1f77b4;stroke-linecap:square;stroke-width:1.5;"></path>
+</g>
+<g id="patch_3">
+<path d="M 41.910938 228.14 
+L 41.910938 10.7 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_4">
+<path d="M 376.710938 228.14 
+L 376.710938 10.7 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_5">
+<path d="M 41.910938 228.14 
+L 376.710938 228.14 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_6">
+<path d="M 41.910938 10.7 
+L 376.710938 10.7 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="p4f903e1935">
+<rect height="217.44" width="334.8" x="41.910938" y="10.7"></rect>
+</clippath>
+</defs>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+            <!-- /.entry-content -->
+<ul class="pager">
+    <li class="previous"><a href="https://www.peijun.me/migration-to-manjaro.html">&larr; 迁移到Manjaro系统了</a></li>
+    <li class="next"><a href="https://www.peijun.me/master-theorem-on-recursion.html">Master Theorem on Recursion &rarr;</a></li>
+</ul>    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'quickselect-complexity';
+                var disqus_url = 'https://www.peijun.me/quickselect-complexity.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

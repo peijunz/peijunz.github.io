@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Jupyter Notebook的配置 - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+<link rel="canonical" href="https://www.peijun.me/jupyter-conf.html">
+
+        <meta name="author" content="Peijun Zhu" />
+        <meta name="keywords" content="python,jupyter,conf" />
+        <meta name="description" content="# 默认目录jupyter notebook --generate-config vim /home/zpj/.jupyter/jupyter_notebook_config.py#查找dir设定notebook根目录 找到c.NotebookApp.notebook_dir条目，修改为启动jupyter后打开的目录，如/home/zpj/code # 配置pylab, matplotlib默认载入导入库，内联svg输出，需要运行： %pylab %matplotlib inline %config InlineBackend.figure_format = &#39;svg&#39; # 配置ipython# 目的 设置pylab环境自动载入 为notebook设置inline显示，使得图片嵌入在文档中 设置矢量svg格式可以使生成的图像在任何屏幕下获得清晰的显示 # 步骤创建配置文件 ipython profile create 编辑ipython_config.py vim ~/.ipython/profile_default/ipython_config.py 修改内容为 c.InteractiveShellApp.pylab = &#34;inline&#34; c.InlineBackend.figure_formats = [&#39;svg&#39;] c.InteractiveShellApp.pylab_import_all = True" />
+
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Jupyter Notebook的配置"/>
+        <meta property="og:url" content="https://www.peijun.me/jupyter-conf.html"/>
+        <meta property="og:description" content="# 默认目录jupyter notebook --generate-config vim /home/zpj/.jupyter/jupyter_notebook_config.py#查找dir设定notebook根目录 找到c.NotebookApp.notebook_dir条目，修改为启动jupyter后打开的目录，如/home/zpj/code # 配置pylab, matplotlib默认载入导入库，内联svg输出，需要运行： %pylab %matplotlib inline %config InlineBackend.figure_format = &#39;svg&#39; # 配置ipython# 目的 设置pylab环境自动载入 为notebook设置inline显示，使得图片嵌入在文档中 设置矢量svg格式可以使生成的图像在任何屏幕下获得清晰的显示 # 步骤创建配置文件 ipython profile create 编辑ipython_config.py vim ~/.ipython/profile_default/ipython_config.py 修改内容为 c.InteractiveShellApp.pylab = &#34;inline&#34; c.InlineBackend.figure_formats = [&#39;svg&#39;] c.InteractiveShellApp.pylab_import_all = True"/>
+        <meta property="article:published_time" content="2016-11-01" />
+            <meta property="article:section" content="Computer" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:tag" content="jupyter" />
+            <meta property="article:tag" content="conf" />
+            <meta property="article:author" content="Peijun Zhu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <ol class="breadcrumb">
+                <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="https://www.peijun.me/category/computer.html" title="Computer">Computer</a></li>
+                <li class="active">Jupyter Notebook的配置</li>
+            </ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://www.peijun.me/jupyter-conf.html"
+                       rel="bookmark"
+                       title="Permalink to Jupyter Notebook的配置">
+                        Jupyter Notebook的配置
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-11-01T00:00:00-04:00"> Tue, 01 Nov 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.peijun.me/tag/python.html">python</a>
+        /
+	<a href="https://www.peijun.me/tag/jupyter.html">jupyter</a>
+        /
+	<a href="https://www.peijun.me/tag/conf.html">conf</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="默认目录"><a class="anchor-link" href="#默认目录">#</a> 默认目录</h2><div class="highlight"><pre><span></span>jupyter notebook --generate-config
+vim /home/zpj/.jupyter/jupyter_notebook_config.py#查找dir设定notebook根目录
+</pre></div>
+<p>找到<code>c.NotebookApp.notebook_dir</code>条目，修改为启动jupyter后打开的目录，如<code>/home/zpj/code</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="配置pylab,-matplotlib默认载入"><a class="anchor-link" href="#配置pylab,-matplotlib默认载入">#</a> 配置pylab, matplotlib默认载入</h2><p>导入库，内联svg输出，需要运行：</p>
+<div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pylab</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s1">'svg'</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="配置ipython"><a class="anchor-link" href="#配置ipython">#</a> 配置ipython</h3><h4 id="目的"><a class="anchor-link" href="#目的">#</a> 目的</h4><ul>
+<li>设置pylab环境自动载入</li>
+<li>为notebook设置<code>inline</code>显示，使得图片嵌入在文档中</li>
+<li>设置矢量<code>svg</code>格式可以使生成的图像在任何屏幕下获得清晰的显示</li>
+</ul>
+<h4 id="步骤"><a class="anchor-link" href="#步骤">#</a> 步骤</h4><p>创建配置文件</p>
+<div class="highlight"><pre><span></span>ipython profile create
+</pre></div>
+<p>编辑<code>ipython_config.py</code></p>
+<div class="highlight"><pre><span></span>vim ~/.ipython/profile_default/ipython_config.py
+</pre></div>
+<p>修改内容为</p>
+<div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">InteractiveShellApp</span><span class="o">.</span><span class="n">pylab</span> <span class="o">=</span> <span class="s2">"inline"</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_formats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'svg'</span><span class="p">]</span>
+<span class="n">c</span><span class="o">.</span><span class="n">InteractiveShellApp</span><span class="o">.</span><span class="n">pylab_import_all</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="matplotlib中文"><a class="anchor-link" href="#matplotlib中文">#</a> matplotlib中文</h2><p>matplotlib似乎只能使用<code>.ttf</code>格式的字体</p>
+<div class="highlight"><pre><span></span>$ fc-list :lang<span class="o">=</span>zh<span class="p">|</span>grep ttf#产生可用中文字体列表
+/usr/share/fonts/truetype/DroidSansFallbackFull.ttf: Droid Sans Fallback:style<span class="o">=</span>Regular
+</pre></div>
+<p>这里设置为Droid Sans Fallback这种常见的字体。用root权限运行以下脚本：</p>
+<div class="highlight"><pre><span></span><span class="nv">file</span><span class="o">=</span><span class="s2">"/usr/lib64/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc"</span>
+<span class="k">if</span> <span class="o">[</span> -f <span class="nv">$file</span> <span class="o">]</span>
+<span class="k">then</span>
+  sed -i <span class="s2">"s/#*\(font.sans-serif *:\).*/\1 Droid Sans Fallback/g"</span> <span class="nv">$file</span>
+  sed -i <span class="s2">"s/#*\(axes.unicode_minus *:\).*/\1 False/g"</span> <span class="nv">$file</span>
+  <span class="nb">echo</span> <span class="s2">"matplotlibrc found and font is configured"</span>
+<span class="k">else</span>
+  <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$file</span><span class="s2"> not found!"</span>
+  <span class="nb">echo</span> <span class="s2">"Please run locate matplotlibrc to find similiar file locattion"</span>
+<span class="k">fi</span>
+</pre></div>
+<p>再重新载入matplotlib即可</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="s1">'o-'</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">'吃饭睡觉打豆豆'</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_svg output_subarea">
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<!-- Created with matplotlib (http://matplotlib.org/) -->
+<svg height="263pt" version="1.1" viewbox="0 0 365 263" width="365pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;}
+  </style>
+</defs>
+<g id="figure_1">
+<g id="patch_1">
+<path d="M 0 263.980625 
+L 365.207813 263.980625 
+L 365.207813 0 
+L 0 0 
+z
+" style="fill:none;"></path>
+</g>
+<g id="axes_1">
+<g id="patch_2">
+<path d="M 19.707813 239.780625 
+L 354.507812 239.780625 
+L 354.507812 22.340625 
+L 19.707813 22.340625 
+z
+" style="fill:#ffffff;"></path>
+</g>
+<g id="matplotlib.axis_1">
+<g id="xtick_1">
+<g id="line2d_1">
+<defs>
+<path d="M 0 0 
+L 0 3.5 
+" id="mf5183d35d7" style="stroke:#000000;stroke-width:0.8;"></path>
+</defs>
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="34.925994" xlink:href="#mf5183d35d7" y="239.780625"></use>
+</g>
+</g>
+<g id="text_1">
+<!-- 0 -->
+<defs>
+<path d="M 4.6875 35.9375 
+Q 4.6875 54.296875 10.34375 63.46875 
+Q 16.015625 72.65625 27.34375 72.65625 
+Q 39.0625 72.65625 44.71875 63.46875 
+Q 50.390625 54.296875 50.390625 35.9375 
+Q 50.390625 17.578125 44.71875 8.390625 
+Q 39.0625 -0.78125 27.34375 -0.78125 
+Q 16.015625 -0.78125 10.34375 8.390625 
+Q 4.6875 17.578125 4.6875 35.9375 
+z
+M 41.40625 35.9375 
+Q 41.40625 52.34375 37.6875 58.59375 
+Q 33.984375 64.84375 27.34375 64.84375 
+Q 21.09375 64.84375 17.375 58.78125 
+Q 13.671875 52.734375 13.671875 35.9375 
+Q 13.671875 18.75 17.375 12.6875 
+Q 21.09375 6.640625 27.34375 6.640625 
+Q 33.984375 6.640625 37.6875 12.890625 
+Q 41.40625 19.140625 41.40625 35.9375 
+z
+" id="DroidSansFallback-30"></path>
+</defs>
+<g transform="translate(32.172088 254.397812)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-30"></use>
+</g>
+</g>
+</g>
+<g id="xtick_2">
+<g id="line2d_2">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="102.562358" xlink:href="#mf5183d35d7" y="239.780625"></use>
+</g>
+</g>
+<g id="text_2">
+<!-- 2 -->
+<defs>
+<path d="M 49.21875 0 
+L 4.6875 0 
+L 4.6875 7.8125 
+L 21.875 26.171875 
+Q 32.421875 37.5 34.953125 42.578125 
+Q 37.5 47.65625 37.5 53.125 
+Q 37.5 58.59375 34.375 61.71875 
+Q 31.25 64.84375 25.78125 64.84375 
+Q 17.96875 64.84375 10.546875 58.203125 
+L 5.46875 64.0625 
+Q 14.84375 72.265625 26.171875 72.265625 
+Q 35.546875 72.265625 41.015625 67.1875 
+Q 46.484375 62.109375 46.484375 53.515625 
+Q 46.484375 47.265625 43.15625 41.015625 
+Q 39.84375 34.765625 29.296875 23.046875 
+L 15.625 8.59375 
+L 15.625 8.203125 
+L 49.21875 8.203125 
+z
+" id="DroidSansFallback-32"></path>
+</defs>
+<g transform="translate(99.808452 254.397812)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-32"></use>
+</g>
+</g>
+</g>
+<g id="xtick_3">
+<g id="line2d_3">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="170.198722" xlink:href="#mf5183d35d7" y="239.780625"></use>
+</g>
+</g>
+<g id="text_3">
+<!-- 4 -->
+<defs>
+<path d="M 53.125 16.015625 
+L 42.578125 16.015625 
+L 42.578125 0 
+L 33.984375 0 
+L 33.984375 16.015625 
+L 1.171875 16.015625 
+L 1.171875 23.828125 
+L 33.59375 71.875 
+L 42.578125 71.875 
+L 42.578125 24.21875 
+L 53.125 24.21875 
+z
+M 33.984375 24.21875 
+L 33.984375 41.40625 
+Q 33.984375 50 34.765625 62.5 
+L 34.375 62.5 
+Q 32.421875 57.421875 30.078125 53.90625 
+L 9.765625 24.21875 
+z
+" id="DroidSansFallback-34"></path>
+</defs>
+<g transform="translate(167.444815 254.397812)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-34"></use>
+</g>
+</g>
+</g>
+<g id="xtick_4">
+<g id="line2d_4">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="237.835085" xlink:href="#mf5183d35d7" y="239.780625"></use>
+</g>
+</g>
+<g id="text_4">
+<!-- 6 -->
+<defs>
+<path d="M 45.3125 71.484375 
+L 45.3125 64.0625 
+Q 41.796875 65.234375 37.109375 65.234375 
+Q 15.234375 65.234375 14.453125 36.328125 
+L 15.234375 36.328125 
+Q 19.921875 44.53125 30.078125 44.53125 
+Q 39.453125 44.53125 44.921875 38.859375 
+Q 50.390625 33.203125 50.390625 23.046875 
+Q 50.390625 11.71875 44.53125 5.46875 
+Q 38.671875 -0.78125 28.90625 -0.78125 
+Q 18.359375 -0.78125 11.90625 7.21875 
+Q 5.46875 15.234375 5.46875 30.46875 
+Q 5.46875 51.5625 13.28125 61.90625 
+Q 21.09375 72.265625 36.71875 72.265625 
+Q 41.796875 72.265625 45.3125 71.484375 
+z
+M 28.90625 37.890625 
+Q 22.65625 37.890625 18.546875 33.78125 
+Q 14.453125 29.6875 14.453125 24.609375 
+Q 14.453125 16.796875 18.546875 11.71875 
+Q 22.65625 6.640625 28.90625 6.640625 
+Q 35.15625 6.640625 38.46875 10.734375 
+Q 41.796875 14.84375 41.796875 23.046875 
+Q 41.796875 30.46875 38.671875 34.171875 
+Q 35.546875 37.890625 28.90625 37.890625 
+z
+" id="DroidSansFallback-36"></path>
+</defs>
+<g transform="translate(235.081179 254.397812)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-36"></use>
+</g>
+</g>
+</g>
+<g id="xtick_5">
+<g id="line2d_5">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="305.471449" xlink:href="#mf5183d35d7" y="239.780625"></use>
+</g>
+</g>
+<g id="text_5">
+<!-- 8 -->
+<defs>
+<path d="M 34.765625 37.890625 
+Q 50 29.6875 50 18.75 
+Q 50 10.15625 43.9375 4.6875 
+Q 37.890625 -0.78125 27.734375 -0.78125 
+Q 16.796875 -0.78125 10.9375 4.296875 
+Q 5.078125 9.375 5.078125 18.359375 
+Q 5.078125 30.859375 19.140625 37.5 
+Q 7.421875 44.53125 7.421875 55.46875 
+Q 7.421875 62.890625 12.890625 67.765625 
+Q 18.359375 72.65625 27.734375 72.65625 
+Q 36.71875 72.65625 42.1875 67.765625 
+Q 47.65625 62.890625 47.65625 55.46875 
+Q 47.65625 44.140625 34.765625 37.890625 
+z
+M 27.734375 41.40625 
+Q 39.0625 46.484375 39.0625 55.078125 
+Q 39.0625 60.15625 36.125 62.6875 
+Q 33.203125 65.234375 27.34375 65.234375 
+Q 21.875 65.234375 19.140625 62.6875 
+Q 16.40625 60.15625 16.40625 55.078125 
+Q 16.40625 46.484375 27.734375 41.40625 
+z
+M 26.171875 33.984375 
+Q 14.0625 28.125 14.0625 17.96875 
+Q 14.0625 12.109375 17.375 9.171875 
+Q 20.703125 6.25 27.34375 6.25 
+Q 34.375 6.25 37.890625 9.375 
+Q 41.40625 12.5 41.40625 18.359375 
+Q 41.40625 22.65625 38.671875 25.96875 
+Q 35.9375 29.296875 27.734375 33.203125 
+z
+" id="DroidSansFallback-38"></path>
+</defs>
+<g transform="translate(302.717543 254.397812)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-38"></use>
+</g>
+</g>
+</g>
+</g>
+<g id="matplotlib.axis_2">
+<g id="ytick_1">
+<g id="line2d_6">
+<defs>
+<path d="M 0 0 
+L -3.5 0 
+" id="m58d3801d8f" style="stroke:#000000;stroke-width:0.8;"></path>
+</defs>
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="19.707813" xlink:href="#m58d3801d8f" y="229.896989"></use>
+</g>
+</g>
+<g id="text_6">
+<!-- 0 -->
+<g transform="translate(7.2 233.705582)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-30"></use>
+</g>
+</g>
+</g>
+<g id="ytick_2">
+<g id="line2d_7">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="19.707813" xlink:href="#m58d3801d8f" y="185.969716"></use>
+</g>
+</g>
+<g id="text_7">
+<!-- 2 -->
+<g transform="translate(7.2 189.77831)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-32"></use>
+</g>
+</g>
+</g>
+<g id="ytick_3">
+<g id="line2d_8">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="19.707813" xlink:href="#m58d3801d8f" y="142.042443"></use>
+</g>
+</g>
+<g id="text_8">
+<!-- 4 -->
+<g transform="translate(7.2 145.851037)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-34"></use>
+</g>
+</g>
+</g>
+<g id="ytick_4">
+<g id="line2d_9">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="19.707813" xlink:href="#m58d3801d8f" y="98.11517"></use>
+</g>
+</g>
+<g id="text_9">
+<!-- 6 -->
+<g transform="translate(7.2 101.923764)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-36"></use>
+</g>
+</g>
+</g>
+<g id="ytick_5">
+<g id="line2d_10">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="19.707813" xlink:href="#m58d3801d8f" y="54.187898"></use>
+</g>
+</g>
+<g id="text_10">
+<!-- 8 -->
+<g transform="translate(7.2 57.996491)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-38"></use>
+</g>
+</g>
+</g>
+</g>
+<g id="line2d_11">
+<path clip-path="url(#p346d373af3)" d="M 34.925994 229.896989 
+L 68.744176 207.933352 
+L 102.562358 185.969716 
+L 136.38054 164.00608 
+L 170.198722 142.042443 
+L 204.016903 120.078807 
+L 237.835085 98.11517 
+L 271.653267 76.151534 
+L 305.471449 54.187898 
+L 339.289631 32.224261 
+" style="fill:none;stroke:#1f77b4;stroke-linecap:square;stroke-width:1.5;"></path>
+<defs>
+<path d="M 0 3 
+C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
+C 2.683901 1.55874 3 0.795609 3 0 
+C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
+C 1.55874 -2.683901 0.795609 -3 0 -3 
+C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132 
+C -2.683901 -1.55874 -3 -0.795609 -3 0 
+C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132 
+C -1.55874 2.683901 -0.795609 3 0 3 
+z
+" id="m1977d5021b" style="stroke:#1f77b4;"></path>
+</defs>
+<g clip-path="url(#p346d373af3)">
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="34.925994" xlink:href="#m1977d5021b" y="229.896989"></use>
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="68.744176" xlink:href="#m1977d5021b" y="207.933352"></use>
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="102.562358" xlink:href="#m1977d5021b" y="185.969716"></use>
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="136.38054" xlink:href="#m1977d5021b" y="164.00608"></use>
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="170.198722" xlink:href="#m1977d5021b" y="142.042443"></use>
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="204.016903" xlink:href="#m1977d5021b" y="120.078807"></use>
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="237.835085" xlink:href="#m1977d5021b" y="98.11517"></use>
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="271.653267" xlink:href="#m1977d5021b" y="76.151534"></use>
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="305.471449" xlink:href="#m1977d5021b" y="54.187898"></use>
+<use style="fill:#1f77b4;stroke:#1f77b4;" x="339.289631" xlink:href="#m1977d5021b" y="32.224261"></use>
+</g>
+</g>
+<g id="patch_3">
+<path d="M 19.707813 239.780625 
+L 19.707813 22.340625 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_4">
+<path d="M 354.507812 239.780625 
+L 354.507812 22.340625 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_5">
+<path d="M 19.707813 239.780625 
+L 354.507812 239.780625 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_6">
+<path d="M 19.707813 22.340625 
+L 354.507812 22.340625 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="text_11">
+<!-- 吃饭睡觉打豆豆 -->
+<defs>
+<path d="M 56.25 81.25 
+L 64.0625 79.6875 
+Q 62.5 74.21875 60.15625 68.75 
+L 94.53125 68.75 
+L 94.53125 61.71875 
+L 56.640625 61.71875 
+L 50 51.953125 
+Q 46.09375 46.875 41.796875 42.96875 
+L 36.328125 48.046875 
+Q 49.609375 61.328125 56.25 81.25 
+z
+M 50.390625 48.4375 
+L 86.71875 48.4375 
+L 86.71875 42.578125 
+L 57.421875 11.328125 
+Q 51.5625 5.46875 51.5625 2.734375 
+Q 51.5625 1.171875 54.09375 0.578125 
+Q 56.640625 0 68.75 0 
+L 75.390625 0 
+Q 83.203125 0 85.15625 1.75 
+Q 87.109375 3.515625 87.5 9.375 
+L 95.703125 7.03125 
+Q 94.53125 -1.171875 91.203125 -4.09375 
+Q 87.890625 -7.03125 75.390625 -7.03125 
+L 66.40625 -7.03125 
+Q 51.5625 -7.03125 47.265625 -4.6875 
+Q 42.96875 -2.34375 42.96875 2.734375 
+Q 42.96875 6.640625 51.5625 15.625 
+L 75.390625 41.015625 
+L 50.390625 41.015625 
+z
+M 35.9375 72.265625 
+L 35.9375 10.546875 
+L 28.515625 10.546875 
+L 28.515625 16.796875 
+L 15.234375 16.796875 
+L 15.234375 7.03125 
+L 7.8125 7.03125 
+L 7.8125 72.265625 
+z
+M 15.234375 24.21875 
+L 28.515625 24.21875 
+L 28.515625 64.84375 
+L 15.234375 64.84375 
+z
+" id="DroidSansFallback-5403"></path>
+<path d="M 17.96875 81.25 
+L 25.78125 79.296875 
+Q 25 73.4375 23.046875 67.96875 
+L 42.578125 67.96875 
+L 42.578125 60.9375 
+Q 42.578125 60.15625 40.421875 54.296875 
+Q 38.28125 48.4375 35.546875 43.359375 
+L 28.90625 47.265625 
+Q 32.421875 53.515625 34.375 60.546875 
+L 20.703125 60.546875 
+Q 16.40625 46.875 9.375 37.109375 
+L 3.515625 43.359375 
+Q 13.671875 59.765625 17.96875 81.25 
+z
+M 18.75 48.4375 
+L 26.171875 48.4375 
+L 26.171875 3.125 
+Q 32.03125 7.03125 36.71875 11.328125 
+L 38.28125 2.734375 
+Q 31.25 -3.125 22.265625 -8.203125 
+L 18.75 -3.90625 
+z
+M 55.859375 45.703125 
+Q 55.078125 14.0625 44.921875 -7.421875 
+L 37.890625 -2.734375 
+Q 48.046875 17.96875 48.046875 52.34375 
+L 48.046875 73.4375 
+Q 67.578125 75.78125 83.984375 80.46875 
+L 90.234375 74.21875 
+Q 74.609375 69.53125 55.859375 67.1875 
+L 55.859375 52.734375 
+L 89.84375 52.734375 
+Q 88.28125 30.46875 78.515625 13.671875 
+Q 84.765625 5.46875 94.53125 -1.171875 
+L 90.625 -8.203125 
+Q 81.25 -2.34375 74.21875 7.03125 
+L 69.140625 1.5625 
+Q 66.40625 -1.171875 62.890625 -3.90625 
+Q 59.375 -6.640625 55.46875 -8.59375 
+L 50.78125 -1.953125 
+Q 62.5 3.90625 69.53125 14.0625 
+Q 60.9375 29.6875 57.8125 45.703125 
+z
+M 64.84375 45.703125 
+Q 67.578125 33.203125 73.828125 21.484375 
+Q 79.6875 32.8125 81.25 45.703125 
+z
+" id="DroidSansFallback-996d"></path>
+<path d="M 33.203125 74.21875 
+L 33.203125 -0.78125 
+L 25.78125 -0.78125 
+L 25.78125 2.734375 
+L 14.0625 2.734375 
+L 14.0625 -5.078125 
+L 6.640625 -5.078125 
+L 6.640625 74.21875 
+z
+M 14.0625 52.734375 
+L 25.78125 52.734375 
+L 25.78125 67.1875 
+L 14.0625 67.1875 
+z
+M 14.0625 31.25 
+L 25.78125 31.25 
+L 25.78125 45.703125 
+L 14.0625 45.703125 
+z
+M 14.0625 9.765625 
+L 25.78125 9.765625 
+L 25.78125 24.21875 
+L 14.0625 24.21875 
+z
+M 87.109375 80.859375 
+L 90.625 74.21875 
+Q 80.859375 72.65625 68.75 71.484375 
+L 68.75 60.9375 
+L 94.140625 60.9375 
+L 94.140625 54.296875 
+L 85.15625 54.296875 
+L 85.15625 40.625 
+L 94.140625 40.625 
+L 94.140625 33.984375 
+L 85.15625 33.984375 
+L 85.15625 20.703125 
+L 94.53125 20.703125 
+L 94.53125 13.671875 
+L 68.75 13.671875 
+L 68.75 0.390625 
+L 92.578125 0.390625 
+L 92.578125 -6.640625 
+L 36.71875 -6.640625 
+L 36.71875 0.390625 
+L 61.71875 0.390625 
+L 61.71875 13.671875 
+L 35.9375 13.671875 
+L 35.9375 20.703125 
+L 45.3125 20.703125 
+L 45.3125 33.984375 
+L 35.9375 33.984375 
+L 35.9375 40.625 
+L 45.3125 40.625 
+L 45.3125 54.296875 
+L 35.546875 54.296875 
+L 35.546875 60.9375 
+L 61.71875 60.9375 
+L 61.71875 70.703125 
+Q 51.5625 69.921875 40.625 69.53125 
+L 38.28125 76.953125 
+Q 62.5 76.953125 87.109375 80.859375 
+z
+M 78.125 40.625 
+L 78.125 54.296875 
+L 68.75 54.296875 
+L 68.75 40.625 
+z
+M 61.71875 40.625 
+L 61.71875 54.296875 
+L 52.34375 54.296875 
+L 52.34375 40.625 
+z
+M 52.34375 20.703125 
+L 61.71875 20.703125 
+L 61.71875 33.984375 
+L 52.34375 33.984375 
+z
+M 68.75 33.984375 
+L 68.75 20.703125 
+L 78.125 20.703125 
+L 78.125 33.984375 
+z
+" id="DroidSansFallback-7761"></path>
+<path d="M 50 81.640625 
+Q 54.296875 76.171875 56.25 69.140625 
+L 48.4375 66.40625 
+Q 46.875 73.4375 42.96875 79.6875 
+z
+M 73.828125 80.859375 
+L 82.8125 78.125 
+Q 78.90625 71.09375 71.484375 64.0625 
+L 91.796875 64.0625 
+L 91.796875 44.921875 
+L 84.375 44.921875 
+L 84.375 57.03125 
+L 15.234375 57.03125 
+L 15.234375 45.3125 
+L 7.8125 45.3125 
+L 7.8125 64.0625 
+L 62.5 64.0625 
+Q 69.921875 72.265625 73.828125 80.859375 
+z
+M 24.21875 79.6875 
+Q 29.296875 75 32.421875 69.53125 
+L 25.390625 65.234375 
+Q 22.65625 70.703125 17.578125 75.78125 
+z
+M 76.171875 47.65625 
+L 76.171875 12.5 
+L 68.75 12.5 
+L 68.75 40.625 
+L 30.078125 40.625 
+L 30.078125 12.890625 
+L 22.65625 12.890625 
+L 22.65625 47.65625 
+z
+M 46.09375 34.765625 
+L 53.90625 32.421875 
+Q 51.171875 14.84375 40.625 4.875 
+Q 30.078125 -5.078125 8.59375 -8.984375 
+L 5.078125 -1.5625 
+Q 25.78125 1.953125 34.953125 10.34375 
+Q 44.140625 18.75 46.09375 34.765625 
+z
+M 51.953125 18.75 
+L 59.375 18.75 
+L 59.375 3.90625 
+Q 59.375 2.34375 61.125 1.359375 
+Q 62.890625 0.390625 68.75 0.390625 
+Q 82.03125 0.390625 84.171875 2.140625 
+Q 86.328125 3.90625 87.5 10.9375 
+L 94.53125 8.984375 
+Q 93.359375 -1.5625 89.84375 -4.296875 
+Q 86.328125 -7.03125 68.75 -7.03125 
+Q 57.421875 -7.03125 54.6875 -5.265625 
+Q 51.953125 -3.515625 51.953125 1.5625 
+z
+" id="DroidSansFallback-89c9"></path>
+<path d="M 44.53125 76.5625 
+L 94.921875 76.5625 
+L 94.921875 69.140625 
+L 78.515625 69.140625 
+L 78.515625 1.5625 
+Q 78.515625 -3.90625 76.171875 -6.25 
+Q 73.828125 -8.59375 66.40625 -8.59375 
+Q 62.109375 -8.59375 58.203125 -7.8125 
+L 56.640625 0 
+Q 61.71875 -0.78125 66.40625 -0.78125 
+Q 70.703125 -0.78125 70.703125 2.734375 
+L 70.703125 69.140625 
+L 44.53125 69.140625 
+z
+M 5.078125 64.453125 
+L 19.53125 64.453125 
+L 19.53125 80.859375 
+L 27.34375 80.859375 
+L 27.34375 64.453125 
+L 39.453125 64.453125 
+L 39.453125 57.03125 
+L 27.34375 57.03125 
+L 27.34375 36.71875 
+L 39.453125 41.796875 
+L 41.015625 34.765625 
+L 27.34375 28.515625 
+L 27.34375 1.5625 
+Q 27.34375 -4.296875 25.390625 -6.640625 
+Q 23.4375 -8.984375 18.75 -8.984375 
+Q 12.5 -8.984375 7.03125 -7.8125 
+L 5.46875 0.390625 
+Q 11.328125 -1.171875 17.578125 -1.171875 
+Q 19.53125 -1.171875 19.53125 3.515625 
+L 19.53125 25.390625 
+L 6.640625 20.703125 
+L 3.90625 28.90625 
+Q 12.109375 31.25 19.53125 33.984375 
+L 19.53125 57.03125 
+L 5.078125 57.03125 
+z
+" id="DroidSansFallback-6253"></path>
+<path d="M 10.15625 77.34375 
+L 90.234375 77.34375 
+L 90.234375 69.53125 
+L 10.15625 69.53125 
+z
+M 16.796875 58.59375 
+L 82.421875 58.59375 
+L 82.421875 25.78125 
+L 16.796875 25.78125 
+z
+M 24.609375 33.203125 
+L 74.609375 33.203125 
+L 74.609375 51.171875 
+L 24.609375 51.171875 
+z
+M 66.796875 23.4375 
+L 75.78125 20.703125 
+Q 71.09375 9.765625 66.40625 1.5625 
+L 94.140625 1.5625 
+L 94.140625 -5.859375 
+L 5.859375 -5.859375 
+L 5.859375 1.5625 
+L 57.03125 1.5625 
+Q 62.890625 11.71875 66.796875 23.4375 
+z
+M 31.640625 22.65625 
+Q 36.71875 15.234375 39.84375 6.640625 
+L 31.640625 3.125 
+Q 28.90625 12.109375 24.21875 19.53125 
+z
+" id="DroidSansFallback-8c46"></path>
+</defs>
+<g transform="translate(145.107813 16.340625)scale(0.12 -0.12)">
+<use xlink:href="#DroidSansFallback-5403"></use>
+<use x="100" xlink:href="#DroidSansFallback-996d"></use>
+<use x="200" xlink:href="#DroidSansFallback-7761"></use>
+<use x="300" xlink:href="#DroidSansFallback-89c9"></use>
+<use x="400" xlink:href="#DroidSansFallback-6253"></use>
+<use x="500" xlink:href="#DroidSansFallback-8c46"></use>
+<use x="600" xlink:href="#DroidSansFallback-8c46"></use>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="p346d373af3">
+<rect height="217.44" width="334.8" x="19.707813" y="22.340625"></rect>
+</clippath>
+</defs>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="类似matplotlib.text.Text-at-xxx的处理"><a class="anchor-link" href="#类似matplotlib.text.Text-at-xxx的处理">#</a> 类似matplotlib.text.Text at xxx的处理</h2><p>这是由于<code>plot</code>等画图函数的返回值导致的，加分号即可吞掉返回值</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="本地LM-Roman字体"><a class="anchor-link" href="#本地LM-Roman字体">#</a> 本地LM Roman字体</h2><p>参见<a href="http://stackoverflow.com/a/42446768">http://stackoverflow.com/a/42446768</a> 命令：</p>
+<div class="highlight"><pre><span></span><span class="nv">FROM</span><span class="o">=</span>/usr/share/javascript/mathjax
+<span class="nv">NB</span><span class="o">=</span>/usr/lib/python3.6/site-packages/notebook
+<span class="nv">TO</span><span class="o">=</span><span class="nv">$NB</span>/static/components/MathJax
+<span class="nv">JS</span><span class="o">=</span><span class="nv">$NB</span>/static/notebook/js/main.min.js
+<span class="nv">DIR1</span><span class="o">=</span>fonts/HTML-CSS/TeX
+<span class="nv">DIR2</span><span class="o">=</span>jax/output/HTML-CSS/fonts/TeX
+ln -s <span class="nv">$FROM</span>/<span class="nv">$DIR1</span> <span class="nv">$TO</span>/<span class="nv">$DIR1</span>
+ln -s <span class="nv">$FROM</span>/<span class="nv">$DIR2</span> <span class="nv">$TO</span>/<span class="nv">$DIR2</span>
+sed -i <span class="s1">'s/\(availableFonts:\).*/\1 \["STIX-Web", "TeX"\],/g'</span> <span class="nv">$JS</span>
+sed -i <span class="s1">'s/\(preferredFonts:\).*/\1 "TeX",/g'</span> <span class="nv">$JS</span>
+sed -i <span class="s1">'s/\(webFont:\).*/\1 "TeX",/g'</span> <span class="nv">$JS</span>
+</pre></div>
+<p>最后几句通过sed设置了：</p>
+<pre><code>availableFonts: ["STIX-Web","TeX"],
+preferredFont: "TeX",
+webFont: "TeX",</code></pre>
+<p>设置好后刷新即可看到新的字体：$$e^x=\sum_{n=0}^\infty \dfrac{x^n}{n!}$$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Userstyle-for-jupyter"><a class="anchor-link" href="#Userstyle-for-jupyter">#</a> Userstyle for jupyter</h2><p>Install stylish, and then install <a href="https://userstyles.org/styles/142934/jupyter-serif-font-and-code-block-background">Jupyter Serif Font &amp; Code Block Background</a> style.</p>
+</div>
+</div>
+</div>
+
+            </div>
+            <!-- /.entry-content -->
+<ul class="pager">
+    <li class="previous"><a href="https://www.peijun.me/max-sum-of-continuous-subsequence.html">&larr; 最大子序列和系列问题</a></li>
+    <li class="next"><a href="https://www.peijun.me/learning-js.html">Javascript 学习小记 &rarr;</a></li>
+</ul><section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="https://www.peijun.me/ipynb-plugin.html">ipynb2pelican Plugin released!</a></li>
+        <li><a href="https://www.peijun.me/blogging-with-jupyter-and-pelican.html">Blogging with Jupyter and Pelican</a></li>
+        <li><a href="https://www.peijun.me/reduced-density-matrix-and-partial-trace.html">Reduced density matrix and partial trace</a></li>
+        <li><a href="https://www.peijun.me/24-game-solver.html">24 Game Solver</a></li>
+        <li><a href="https://www.peijun.me/python-plotting-with-infinite-incontinuous-point.html">Python plotting with infinite incontinuous point</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'jupyter-conf';
+                var disqus_url = 'https://www.peijun.me/jupyter-conf.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

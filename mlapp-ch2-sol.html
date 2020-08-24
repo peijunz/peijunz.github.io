@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Solutions for Chapter 2 Probability - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+<link rel="canonical" href="https://www.peijun.me/mlapp-ch2-sol.html">
+
+        <meta name="author" content="Peijun Zhu" />
+        <meta name="keywords" content="mlapp,statistics" />
+        <meta name="description" content="$\def\bra#1{\mathinner{\langle{#1}|}} \def\ket#1{\mathinner{|{#1}\rangle}} \def\braket#1{\mathinner{\langle{#1}\rangle}} \newcommand{\mdef}{\overset{\mathrm{def}}{=}} \newcommand{\bm}{\mathbf} \DeclareMathOperator{\Var}{Var} \DeclareMathOperator{\det}{det} \DeclareMathOperator{\tr}{tr} \DeclareMathOperator{\E}{E} \DeclareMathOperator{\Cov}{Cov} \DeclareMathOperator{\Beta}{B} \DeclareMathOperator{\Bdist}{Beta} \DeclareMathOperator{\sgn}{sgn} \DeclareMathOperator{\adj}{adj} \DeclareMathOperator{\ii}{i} \DeclareMathOperator{\dd}{d} \newcommand{\pp}{\partial} \DeclareMathOperator{\rhs}{RHS} \DeclareMathOperator{\lhs}{LHS} \DeclareMathOperator{\Beta}{B}$" />
+
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Solutions for Chapter 2 Probability"/>
+        <meta property="og:url" content="https://www.peijun.me/mlapp-ch2-sol.html"/>
+        <meta property="og:description" content="$\def\bra#1{\mathinner{\langle{#1}|}} \def\ket#1{\mathinner{|{#1}\rangle}} \def\braket#1{\mathinner{\langle{#1}\rangle}} \newcommand{\mdef}{\overset{\mathrm{def}}{=}} \newcommand{\bm}{\mathbf} \DeclareMathOperator{\Var}{Var} \DeclareMathOperator{\det}{det} \DeclareMathOperator{\tr}{tr} \DeclareMathOperator{\E}{E} \DeclareMathOperator{\Cov}{Cov} \DeclareMathOperator{\Beta}{B} \DeclareMathOperator{\Bdist}{Beta} \DeclareMathOperator{\sgn}{sgn} \DeclareMathOperator{\adj}{adj} \DeclareMathOperator{\ii}{i} \DeclareMathOperator{\dd}{d} \newcommand{\pp}{\partial} \DeclareMathOperator{\rhs}{RHS} \DeclareMathOperator{\lhs}{LHS} \DeclareMathOperator{\Beta}{B}$"/>
+        <meta property="article:published_time" content="2017-03-08" />
+            <meta property="article:section" content="MLAPP" />
+            <meta property="article:tag" content="mlapp" />
+            <meta property="article:tag" content="statistics" />
+            <meta property="article:author" content="Peijun Zhu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <ol class="breadcrumb">
+                <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="https://www.peijun.me/category/mlapp.html" title="MLAPP">MLAPP</a></li>
+                <li class="active">Solutions for Chapter 2 Probability</li>
+            </ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://www.peijun.me/mlapp-ch2-sol.html"
+                       rel="bookmark"
+                       title="Permalink to Solutions for Chapter 2 Probability">
+                        Solutions for Chapter 2 Probability
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-03-08T00:00:00-05:00"> Wed, 08 Mar 2017</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.peijun.me/tag/mlapp.html">mlapp</a>
+        /
+	<a href="https://www.peijun.me/tag/statistics.html">statistics</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span class="mathmacros" style="display:none;">
+$\def\bra#1{\mathinner{\langle{#1}|}}
+\def\ket#1{\mathinner{|{#1}\rangle}}
+\def\braket#1{\mathinner{\langle{#1}\rangle}}
+\newcommand{\mdef}{\overset{\mathrm{def}}{=}}
+\newcommand{\bm}{\mathbf}
+\DeclareMathOperator{\Var}{Var} 
+\DeclareMathOperator{\det}{det} 
+\DeclareMathOperator{\tr}{tr}   
+\DeclareMathOperator{\E}{E}     
+\DeclareMathOperator{\Cov}{Cov} 
+\DeclareMathOperator{\Beta}{B}  
+\DeclareMathOperator{\Bdist}{Beta}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\ii}{i}   
+\DeclareMathOperator{\dd}{d}   
+\newcommand{\pp}{\partial}   
+\DeclareMathOperator{\rhs}{RHS}
+\DeclareMathOperator{\lhs}{LHS}
+\DeclareMathOperator{\Beta}{B}$
+</span></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.1"><a class="anchor-link" href="#2.1">#</a> 2.1</h2><ol>
+<li>$P=1/3$</li>
+<li>$P=1/2$, the difference is that you happen to see a child.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.2-Obvious"><a class="anchor-link" href="#2.2-Obvious">#</a> 2.2 Obvious</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.3"><a class="anchor-link" href="#2.3">#</a> 2.3</h2>\begin{align}
+\Var[x+y]&amp;=\E[(x+y)^2]-\E[x+y]^2\\
+&amp;=\E[x^2]+\E[y^2]+2\E[xy]-\E[x]^2-\E[y]^2-2\E[x]\E[y]\\
+&amp;=\Var[x]+\Var[y]+2\Cov[x,y]
+\end{align}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.4"><a class="anchor-link" href="#2.4">#</a> 2.4</h2><p>$I, N$ means infected and not infected, $P$ means positive
+$$\Pr(I|P)=\frac{\Pr(IP)}{\Pr(P)}=\frac{\Pr(IP)}{\Pr(IP)+\Pr(NP)}\approx\frac{10^{-4}}{10^{-4}+0.01}\approx 0.01$$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.5"><a class="anchor-link" href="#2.5">#</a> 2.5</h2><p>The door we chose has probability $1/3$ for the prize. After the host has revealed another invalid door, the chance of the last door is $1-1/3=2/3$. Note the host is <strong>not randomly</strong> removing a door, so the chance of the two unchosen doors will fall to the last door.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.6"><a class="anchor-link" href="#2.6">#</a> 2.6</h2><ol>
+<li>$$P(H|e_1,e_2)=\frac{P(H,e_1,e_2)}{P(e_1,e_2}=\frac{P(e_1,e_2|H)P(H)}{P(e_1,e_2)}$$<ul>
+<li>Only ii is sufficient</li>
+</ul>
+</li>
+<li>Given $P(e_1,e_2|H)=P(e_1|H)P(e_2|H)$, we have $$P(H|e_1,e_2)=\frac{P(e_1,H)P(e_2,H)}{P(H)P(e_1,e_2)}$$<ul>
+<li>Use $P(e_1,e_2)=\sum_h P(e_1,e_2|H=h)P(H=h)$, i is equivalent to iii</li>
+<li>Both i, iii are sufficient now</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.7"><a class="anchor-link" href="#2.7">#</a> 2.7</h2><p>Pairwise independence means
+$$P(X_iX_j)=P(X_i)P(X_j), \forall i\neq j\in \{1,\ldots ,n\}$$</p>
+<p>Mutually independent means
+$$P(\prod_{X\in S}X)=\prod_{X\in S}, \forall S\subseteq \{1,\ldots ,n\}$$</p>
+<p>Thus for $n\geq 3$, the two group of identities are not necessarily equivalent.</p>
+<h3 id="Counter-example"><a class="anchor-link" href="#Counter-example">#</a> Counter example</h3>$$X, Y\sim \operatorname{Ber}(0.5), \quad Z=X\oplus Y\sim \operatorname{Ber}(0.5)$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.8"><a class="anchor-link" href="#2.8">#</a> 2.8</h2><p>We want to prove $$P(x,y|z)=P(x|z)P(y|z)\Leftrightarrow P(x,y|z)=g(x,z)h(y,z)$$</p>
+<p>The LHS to RHS is obvious. We are now going from RHS to LHS.
+First of all, $p(x,y|z)$ must satisfy unitary condition
+$$\iint p(x,y|z)dxdy=\left(\int g(x,z)dx\right)\left(\int h(y,z)dy\right)=1$$
+and $$P(x|z)= g(x,z)\int h(y,z)dy,\qquad P(y|z)= h(y,z)\int h(x,z)dx$$
+And the deduction to LHS is trivial now.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.9"><a class="anchor-link" href="#2.9">#</a> 2.9</h2>$$X\perp W|Z,Y\Rightarrow P(XWZY)=P(XZY)P(WZY)/P(ZY)$$$$X\perp Y|Z\Rightarrow P(XYZ)=P(XZ)P(YZ)/P(Z)$$$$X\perp Y|W\Rightarrow P(XYW)=P(XW)P(YW)/P(W)$$<h3 id="a.-True"><a class="anchor-link" href="#a.-True">#</a> a. True</h3><p>We need to prove $$P(XYWZ)=P(XZ)P(YWZ)/P(Z),$$
+which is the result of plugging  2nd equation into 1st one.</p>
+<h3 id="b.-False"><a class="anchor-link" href="#b.-False">#</a> b. False</h3><p>We need to prove $$P(XYZW)=P(XZW)P(YZW)/P(ZW),$$
+which is not reachable.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10"><a class="anchor-link" href="#2.10">#</a> 2.10</h2><p>The pdf of $y=1/x$ is</p>
+\begin{align}
+g(y)&amp;=f(x(y))\left|\frac{dx}{dy}\right|=f(1/y)/y^2\\
+&amp;=\frac{b^a}{\Gamma(a)}(1/y)^{a-1}e^{-b/y}/y^2\\
+&amp;=\frac{b^a}{\Gamma(a)}y^{-(a+1)}e^{-b/y}
+\end{align}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.11"><a class="anchor-link" href="#2.11">#</a> 2.11</h2>\begin{align}
+Z^2&amp;=\int_0^{2\pi}\int_0^\infty r\exp\left(-\frac{r^2}{2\sigma^2}\right)drd\theta\\
+&amp;=2\pi\int_0^\infty\exp\left(-\frac{t}{\sigma^2}\right)dt,\quad t=r^2/2\\
+&amp;=2\pi\sigma^2
+\end{align}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.12"><a class="anchor-link" href="#2.12">#</a> 2.12</h2><p>Notice $-\sum_x\sum_y p(x,y)\log p(x)=-\sum_x p(x)\log p(x)=H(X)$</p>
+\begin{align}
+I(X,Y)&amp;=\sum_x\sum_y p(x,y)\log\frac{p(x,y)}{p(x)p(y)}\\
+&amp;=H(X)+H(Y)-H(X,Y)
+\end{align}\begin{align}
+H(Y|X)&amp;=-\sum_y \log p(x,y)\log\frac{p(x,y)}{p(x)}\\
+&amp;=H(X,Y)-H(X)
+\end{align}<p>So $I(X,Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.13"><a class="anchor-link" href="#2.13">#</a> 2.13</h2><p>Suppose we have $$X_{\pm}=\frac{X_1\pm X_2}{\sqrt{2}}$$
+then $$\begin{bmatrix}
+X_+\\
+X_-
+\end{bmatrix}\sim N\left(\mathbf{0},\begin{bmatrix}\sigma_+^2&amp;\\&amp;\sigma_-^2\end{bmatrix}\right)=N(0,\sigma_+^2)N(0,\sigma_-^2)$$</p>
+<p>And $$\sigma_+^2\frac{(X_1+X_2)^2}{2}+\sigma_-^2\frac{(X_1-X_2)^2}{2}=\sigma^2 (X_1^2+X_2^2)-2\rho X_1X_2$$</p>
+<p>Thus $\sigma_\pm=(1\pm\rho)\sigma^2$. And $X_+$ is independent on $X_-$. From $X_\pm$, we can get the distribution of $X_1$ and $X_2$.</p>
+<p>If $\rho=1$, then $X_1=X_2=X/\sqrt 2$, the mutual information $I(X_1,X_2)=H(X_1)$</p>
+<p>If $\rho=-1$, similiar.</p>
+<p>If $\rho=0$, they are independent. So $I(X_1,X_2)=0$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.14"><a class="anchor-link" href="#2.14">#</a> 2.14</h2><ol>
+<li>$r=1-H(Y|X)/H(X)=(H(X)-H(Y|X))/H(X)=I(Y, X)/H(x)$</li>
+<li>It is obvious that $H(X)&gt;0$.<ol>
+<li>$r\geq 0$ because we have $I(X,Y)\geq 0$ using Jensen inequality: $$I(X,Y)=-\sum_{i,j} \Pr(i,j)\log \frac{p_ip_j}{\Pr(i,j)}\geq - \log \sum_{i,j}p_ip_j=0$$</li>
+<li>We need to prove $H(Y|X)\geq 0$. And $H(Y|X)=H(X,Y)-H(Y)\geq 0$. </li>
+</ol>
+</li>
+</ol>
+\begin{align}
+H(X,Y)&amp;=-\sum_i\sum_j \Pr(i,j)\log \Pr(i,j)\\
+&amp;\geq -\sum_i p_i\log \frac{\sum_j p^2(i,j)}{p_i}\\
+&amp;\geq -\sum_i p_i\log \frac{p_i^2}{p_i}=H(Y)
+\end{align}<p>As a result, $r\leq 1$</p>
+<ol>
+<li>$r=0$ holds iff $I(X,Y)=0$. In this case, $\dfrac{p_ip_j}{\Pr(i,j)}$ is a constant, so $X$ is independent on $Y$</li>
+<li>$r=0$ holds iff $I(X,Y)=H(X)$. i.e. $X=Y$</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.15"><a class="anchor-link" href="#2.15">#</a> 2.15</h2><p>MLE(Maximum Likehood Estimation) is to maximize the likehood
+$$\prod_i q(x=i|\theta)^{n_i}=\exp(n_i\log q_i)\propto\exp(\sum_ip_i\log q_i)$$</p>
+<p>It is equivalent to minimize $-\sum_ip_i\log q_i\equiv -\sum_ip_i\log(q_i/p_i)$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.16"><a class="anchor-link" href="#2.16">#</a> 2.16</h2><p>$f=x^{a-1}(1-x)^{b-1}/\Beta(a,b)\propto x^{a-1}(1-x)^{b-1}$
+$$E(x)=\int xf dx=\Beta(a+1,b)/\Beta(a,b)=\frac{a}{a+b}$$
+We can prove the last step as follows:</p>
+\begin{align}
+\Beta(p, q+1)&amp;=\int_0^1 x^{p-1}(1-x)^{q}dx\\
+&amp;=\int_0^1 x^{p-1}(1-x)^{q-1}dx-\int_0^1 x^{p}(1-x)^{q-1}dx\\
+&amp;=\int_0^1 x^{p-1}(1-x)^{q-1}dx-\int_0^1 x^{p}(1-x)^{q-1}dx\\
+&amp;=\int_0^1 x^{p-1}(1-x)^{q-1}dx-\frac{p}{q}\int_0^1 x^{p-1}(1-x)^{q}dx\\
+&amp;=\Beta(p,q)-\frac{p}{q}\Beta(p, q+1)
+\end{align}<p>As a result, $\Beta(p, q+1)=\dfrac{q}{p+q}\Beta(p,q)$. We can also use the relationship betweeen Beta and Gamma function, and $\Gamma(p+1)=p\Gamma(p)$
+$$\Beta(p,q+1)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q+1)}=\frac{q\Gamma(p)\Gamma(q)}{(p+q)\Gamma(p+q)}=\frac{q}{p+q}\Beta(p,q)$$</p>
+$$E(x^2)=\int x^2f dx=\Beta(a+2,b)/\Beta(a,b)=\frac{a}{a+b}\frac{a+1}{a+b+1}$$$$\frac{f'}{f}=\frac{a-1}{x}+\frac{b-1}{1-x}=0\Rightarrow x_m=\frac{a-1}{a-b}$$$$Var(x)=E(x^2)-E(x)^2=\frac{ab}{(a+b)^2(a+b+1)}$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.17"><a class="anchor-link" href="#2.17">#</a> 2.17</h2><p>The cdf(cumulative distribution function) of each variable is</p>
+$$F_1(x)=\Pr(X&lt;x)=x$$<p>So the cdf that the smallest one is smaller than $x$ is $$F_m(x)=1-(1-F_1(x))^2=x(2-x)$$</p>
+<p>So the density function is $f_m=F_m'=2(1-x)$. The subscript $m$ means minimum</p>
+</div>
+</div>
+</div>
+
+            </div>
+            <!-- /.entry-content -->
+<ul class="pager">
+    <li class="previous"><a href="https://www.peijun.me/solutions-for-mlapp.html">&larr; Solutions for MLAPP</a></li>
+    <li class="next"><a href="https://www.peijun.me/mlapp-ch2-notes.html">Notes on Chapter 2 Probability &rarr;</a></li>
+</ul><section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="https://www.peijun.me/mlapp-ch4-notes.html">Notes for Chapter 4. Gaussian Models</a></li>
+        <li><a href="https://www.peijun.me/mlapp-ch4-sol.html">Solutions for Chapter 4. Gaussian Models</a></li>
+        <li><a href="https://www.peijun.me/mlapp-ch3-sol.html">Solutions for Chapter 3 Generative models for discrete data</a></li>
+        <li><a href="https://www.peijun.me/mlapp-ch2-notes.html">Notes on Chapter 2 Probability</a></li>
+        <li><a href="https://www.peijun.me/solutions-for-mlapp.html">Solutions for MLAPP</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'mlapp-ch2-sol';
+                var disqus_url = 'https://www.peijun.me/mlapp-ch2-sol.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

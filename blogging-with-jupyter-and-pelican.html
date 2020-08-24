@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Blogging with Jupyter and Pelican - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+<link rel="canonical" href="https://www.peijun.me/blogging-with-jupyter-and-pelican.html">
+
+        <meta name="author" content="Peijun Zhu" />
+        <meta name="keywords" content="jupyter,pelican,conf" />
+        <meta name="description" content="ipynb2pelican is used to provide jupyter ipynb support in pelican. This my blog source code repo: https://github.com/peijunz/peijunz.github.io/tree/src, and .travis.yml # Installation and Setup Jupyter, and what is jupyter notebook Pelican, a pythonic blog system supports markdown, rst, asciidoc, ipynb etc. ipynb2pelican, a plugin enables ipynb support by metacell ghp-import is needed for github page import. It can be installed by pip Bootstrap3 Theme" />
+
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Blogging with Jupyter and Pelican"/>
+        <meta property="og:url" content="https://www.peijun.me/blogging-with-jupyter-and-pelican.html"/>
+        <meta property="og:description" content="ipynb2pelican is used to provide jupyter ipynb support in pelican. This my blog source code repo: https://github.com/peijunz/peijunz.github.io/tree/src, and .travis.yml # Installation and Setup Jupyter, and what is jupyter notebook Pelican, a pythonic blog system supports markdown, rst, asciidoc, ipynb etc. ipynb2pelican, a plugin enables ipynb support by metacell ghp-import is needed for github page import. It can be installed by pip Bootstrap3 Theme"/>
+        <meta property="article:published_time" content="2017-03-30" />
+            <meta property="article:section" content="Computer" />
+            <meta property="article:tag" content="jupyter" />
+            <meta property="article:tag" content="pelican" />
+            <meta property="article:tag" content="conf" />
+            <meta property="article:author" content="Peijun Zhu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <ol class="breadcrumb">
+                <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="https://www.peijun.me/category/computer.html" title="Computer">Computer</a></li>
+                <li class="active">Blogging with Jupyter and Pelican</li>
+            </ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://www.peijun.me/blogging-with-jupyter-and-pelican.html"
+                       rel="bookmark"
+                       title="Permalink to Blogging with Jupyter and Pelican">
+                        Blogging with Jupyter and Pelican
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-03-30T12:00:00-04:00"> Thu, 30 Mar 2017</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.peijun.me/tag/jupyter.html">jupyter</a>
+        /
+	<a href="https://www.peijun.me/tag/pelican.html">pelican</a>
+        /
+	<a href="https://www.peijun.me/tag/conf.html">conf</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p><a href="https://github.com/peijunz/ipynb2pelican#installation-and-configuration">ipynb2pelican</a> is used to provide jupyter ipynb support in pelican.</p>
+</blockquote>
+<p>This my blog source code repo: <a href="https://github.com/peijunz/peijunz.github.io/tree/src">https://github.com/peijunz/peijunz.github.io/tree/src</a>, and <a href="https://github.com/peijunz/peijunz.github.io/blob/src/.travis.yml">.travis.yml</a></p>
+<h2 id="Installation-and-Setup"><a class="anchor-link" href="#Installation-and-Setup">#</a> Installation and Setup</h2><ul>
+<li><a href="https://jupyter.readthedocs.io/en/latest/install.html">Jupyter</a>, and <a href="http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html">what is jupyter notebook</a></li>
+<li><a href="http://docs.getpelican.com/en/stable/install.html">Pelican</a>, a pythonic blog system supports markdown, rst, asciidoc, ipynb etc. </li>
+<li><a href="https://github.com/peijunz/ipynb2pelican#installation-and-configuration">ipynb2pelican</a>, a plugin enables ipynb support by metacell</li>
+<li><code>ghp-import</code> is needed for github page import. It can be installed by pip</li>
+<li><a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">Bootstrap3 Theme</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Setup-pelican"><a class="anchor-link" href="#Setup-pelican">#</a> Setup pelican</h3><p>Simply run command <code>pelican-quickstart</code>, and you will get the welcome information, and asked some questions. For the following questions, you probably do not want to use default setting:</p>
+<pre><code>&gt; What is your time zone? [Europe/Paris] US/Eastern
+&gt; Do you want to upload your website using GitHub Pages? (y/N) Y
+&gt; Is this your personal page (username.github.io)? (y/N) y</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Setup-navigation-by-TOC"><a class="anchor-link" href="#Setup-navigation-by-TOC">#</a> Setup navigation by TOC</h3><blockquote><p>This part depends on <code>pelican-toc</code> plugin and applies to bootstrap3 theme. It is updated to <a href="https://github.com/peijunz/pelican-themes/tree/master/pelican-bootstrap3">my fork</a> of pelican-theme repo</p>
+</blockquote>
+<p>We can add the following code in <code>article.html</code> before <code>{{ article.content }}</code> to implement the navigation(Table of contents).</p>
+<pre><code>        {% if article.toc %}
+        &lt;div class="panel panel-default"&gt;
+            &lt;div class="panel-heading"&gt;Table of Contents&lt;/div&gt;
+            &lt;div class="panel-body"&gt;
+            {{article.toc}}
+            &lt;/div&gt;
+        &lt;/div&gt;
+        {% endif %}</code></pre>
+<h4 id="Remove-paragraph-indicator-¶-inside-navigation"><a class="anchor-link" href="#Remove-paragraph-indicator-¶-inside-navigation">#</a> Remove paragraph indicator ¶ inside navigation</h4><p>Look for the first line below, and add the second line in :</p>
+<pre><code>content.toc = tree_soup.decode(formatter='html')
+content.toc = content.toc.replace('¶', '')</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Setup-Git-and-Github-Pages"><a class="anchor-link" href="#Setup-Git-and-Github-Pages">#</a> Setup Git and Github Pages</h3><ul>
+<li>Set up your <a href="https://pages.github.com/">Github Pages</a><blockquote><p>Head over to GitHub and create a new repository named <em>username</em>.github.io, where username is your username (or organization name) on GitHub.</p>
+</blockquote>
+</li>
+<li>Change directory to the blog folder containing <code>Makefile</code>, <code>pelicanconf.py</code> etc. </li>
+<li>Init git repo by <code>git init</code></li>
+<li>Create a branch <code>src</code> by <code>git checkout -b src</code>. This will be your working folder</li>
+<li>Add a remote repo related to your github page and push the src to github</li>
+<li>Now you can push webpage to master branch by <code>make github</code>, which includes <code>ghp-import</code> commands. </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Write-your-post-in-jupyter-notebook!"><a class="anchor-link" href="#Write-your-post-in-jupyter-notebook!">#</a> Write your post in jupyter notebook!</h2><p>There is a official <a href="http://docs.getpelican.com/en/3.6.3/content.html">tutorial</a> on how to write a MarkDown/reStructuredText article with metadata</p>
+<p><code>ipynb2pelican</code> defined a metadata format here: <a href="https://github.com/peijunz/ipynb2pelican#metacell">https://github.com/peijunz/ipynb2pelican#metacell</a></p>
+<h3 id="Make-your-contents"><a class="anchor-link" href="#Make-your-contents">#</a> Make your contents</h3><ul>
+<li>Generate Site
+<pre><code>make html</code></pre>
+</li>
+<li>Test site at localhost
+<pre><code>make serve</code></pre>
+Then, go to address <code>localhost:8000</code> in your browser.</li>
+<li>Generate + test
+<pre><code>make devserver</code></pre>
+It will automatically regenerate html instantly after your change of the src. </li>
+<li>Deploy to github page
+<pre><code>make github</code></pre>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tweaks"><a class="anchor-link" href="#Tweaks">#</a> Tweaks</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Extra-\n-in-indented-code-block"><a class="anchor-link" href="#Extra-\n-in-indented-code-block">#</a> Extra \n in indented code block</h3><p>For indent style code block</p>
+<pre><code>Some text before
+
+    This is a indented code block
+    This is another line
+
+Some text after the block with an empty line between them</code></pre>
+<p>It will produce</p>
+<hr/>
+<p>Some text before</p>
+<pre><code>This is a indented code block
+This is another line
+
+</code></pre>
+<p>Some text after the block with an empty line between them</p>
+<hr/>
+<p>So you should stick to <code>```</code> style code block or remove empty lines <strong>after</strong> indented code block. This is a bug of nbconvert</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="extra-directory"><a class="anchor-link" href="#extra-directory">#</a> <code>extra</code> directory</h3><p>This supports an <code>extra</code> directory in the same directory of your <code>Makefile</code>, which can be used to place static files to root directory of your sites, such as:</p>
+<ul>
+<li><code>CNAME</code> file for github page</li>
+<li>local <code>mathjax</code> for local preview of your site.<ul>
+<li>Link local mathjax to the extra directory by <code>ln -s MATHJAX_PATH extra/static</code></li>
+<li>Use <code>MATHJAX_CDN="/mathjax/MathJax.js"</code> in pelicanconf.py</li>
+<li>Use <code>MATHJAX_CDN=None</code> in pelicanconf.py</li>
+</ul>
+</li>
+</ul>
+<p>In <code>html</code> and <code>publish</code> section of <code>Makefile</code>, simply add:</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">test</span> -d <span class="k">$(</span>BASEDIR<span class="k">)</span>/extra<span class="p">;</span> <span class="k">then</span> cp -r <span class="k">$(</span>BASEDIR<span class="k">)</span>/extra/* <span class="k">$(</span>OUTPUTDIR<span class="k">)</span>/<span class="p">;</span> <span class="k">fi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Cache"><a class="anchor-link" href="#Cache">#</a> Cache</h3><p>Enable cache for local build but not for publishing:</p>
+<ul>
+<li><code>pelicanconf.py</code><div class="highlight"><pre><span></span><span class="n">CACHE_CONTENT</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">LOAD_CONTENT_CACHE</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</li>
+<li><code>publishconf.py</code><div class="highlight"><pre><span></span><span class="n">CACHE_CONTENT</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">LOAD_CONTENT_CACHE</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+            </div>
+            <!-- /.entry-content -->
+<ul class="pager">
+    <li class="previous"><a href="https://www.peijun.me/ipynb-plugin.html">&larr; ipynb2pelican Plugin released!</a></li>
+    <li class="next"><a href="https://www.peijun.me/bayesian-analysis-for-exchanging-money.html">对换钱悖论的贝叶斯分析 &rarr;</a></li>
+</ul><section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="https://www.peijun.me/ipynb-plugin.html">ipynb2pelican Plugin released!</a></li>
+        <li><a href="https://www.peijun.me/jupyter-conf.html">Jupyter Notebook的配置</a></li>
+        <li><a href="https://www.peijun.me/solutions-for-mlapp.html">Solutions for MLAPP</a></li>
+        <li><a href="https://www.peijun.me/latex-configurtion.html">LaTeX环境搭建</a></li>
+        <li><a href="https://www.peijun.me/linux-configuration.html">Linux的配置</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'blogging-with-jupyter-and-pelican';
+                var disqus_url = 'https://www.peijun.me/blogging-with-jupyter-and-pelican.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

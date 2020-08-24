@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Bayes - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+
+    <meta name="author" content="Peijun Zhu" />
+    <meta name="keywords" content="Bayes" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Peijun's Journal"/>
+        <meta property="og:url" content="https://www.peijun.me"/>
+        <meta property="og:description" content="Peijun's Journal"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+    <ol class="breadcrumb">
+        <li><a href="https://www.peijun.me/tags.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="active">Bayes</li>
+    </ol>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/bayesian-analysis-for-exchanging-money.html">对换钱悖论的贝叶斯分析</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="问题的提出"><a class="anchor-link" href="#问题的提出">#</a> 问题的提出</h2><blockquote><p>现在邀请你和一位路人甲来做一个游戏：我拿出两个信封分别递给你们，并告诉你
+们一个装着的钱是另一个的两倍（但不知道哪个多哪个少）。你们有一次互相交换
+的机会，想交换吗？然后打开信封，看一下自己拿到的钱数（但不要让对方知道），现在还想交换吗？</p>
+<p>——<a href="http://0x01.me/%E2%80%9C%E8%BF%99%E5%B1%B1%E6%9C%9B%E7%9D%80%E9%82%A3%E5%B1%B1%E9%AB%98%E2%80%9D%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/">引自0x01.me</a></p>
+</blockquote>
+<p>这段话似乎可以引出一个悖论：</p>
+<blockquote><p>换钱后，有一半的概率钱变成<strong>原来</strong>的两倍，一半概率钱减少到<strong>原来</strong>的一半，因此期望收益是大于零的。然而另一方面，两份钱显然是对称的，因此不可能总是由换钱带来收益。</p>
+</blockquote>
+<p>下面我们用贝叶斯来分析这个悖论。</p>
+</div>
+</div>
+</div><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="贝叶斯分析"><a class="anchor-link" href="#贝叶斯分析">#</a> 贝叶斯分析</h2><p>假设发钱时，钱少的那个钱数取$y$的先验分布为$\rho(y)$。设某人抽到了钱数是$x$，则此时$y$的取值可以是$x$或者$x/2$。</p>
+<p>参数$y$下$x$的分布是
+$$p(x|y)=\frac{\delta(x-2y)+\delta(x-y)}{2}$$</p>
+<p>因此$x$本身的发生概率：</p>
+\begin{align}
+p(x)&amp;=\int p(x|y)\rho(y)dy\\
+&amp;=\frac{1}{2}\int [\delta(x-2y)+\delta(x-y)]\rho(y)dy\\
+&amp;=\frac{\rho(x)}{2}+\frac{\rho(x/2)}{4}
+\end{align}
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/bayesian-analysis-for-exchanging-money.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/mlapp-ch3-sol.html">Solutions for Chapter 3 Generative models for discrete data</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span class="mathmacros" style="display:none;">
+$\def\bra#1{\mathinner{\langle{#1}|}}
+\def\ket#1{\mathinner{|{#1}\rangle}}
+\def\braket#1{\mathinner{\langle{#1}\rangle}}
+\newcommand{\mdef}{\overset{\mathrm{def}}{=}}
+\newcommand{\bm}{\mathbf}
+\DeclareMathOperator{\Var}{Var} 
+\DeclareMathOperator{\det}{det} 
+\DeclareMathOperator{\tr}{tr}   
+\DeclareMathOperator{\E}{E}     
+\DeclareMathOperator{\Cov}{Cov} 
+\DeclareMathOperator{\Beta}{B}  
+\DeclareMathOperator{\Bdist}{Beta}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\ii}{i}   
+\DeclareMathOperator{\dd}{d}   
+\newcommand{\pp}{\partial}   
+\DeclareMathOperator{\rhs}{RHS}
+\DeclareMathOperator{\lhs}{LHS}
+\DeclareMathOperator{\Beta}{B}$
+</span></p>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/mlapp-ch3-sol.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

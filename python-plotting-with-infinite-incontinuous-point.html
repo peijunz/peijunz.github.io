@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Python plotting with infinite incontinuous point - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+<link rel="canonical" href="https://www.peijun.me/python-plotting-with-infinite-incontinuous-point.html">
+
+        <meta name="author" content="Peijun Zhu" />
+        <meta name="keywords" content="python" />
+        <meta name="description" content="Reference: http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous)" />
+
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Python plotting with infinite incontinuous point"/>
+        <meta property="og:url" content="https://www.peijun.me/python-plotting-with-infinite-incontinuous-point.html"/>
+        <meta property="og:description" content="Reference: http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous)"/>
+        <meta property="article:published_time" content="2016-02-01" />
+            <meta property="article:section" content="Computer" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:author" content="Peijun Zhu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <ol class="breadcrumb">
+                <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="https://www.peijun.me/category/computer.html" title="Computer">Computer</a></li>
+                <li class="active">Python plotting with infinite incontinuous point</li>
+            </ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://www.peijun.me/python-plotting-with-infinite-incontinuous-point.html"
+                       rel="bookmark"
+                       title="Permalink to Python plotting with infinite incontinuous point">
+                        Python plotting with infinite incontinuous point
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-02-01T00:00:00-05:00"> Mon, 01 Feb 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://www.peijun.me/tag/python.html">python</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Reference: <a href="http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous">http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous</a>)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tannan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">&gt;</span><span class="n">bound</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nan</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">t</span>
+<span class="n">tann</span><span class="o">=</span><span class="n">vectorize</span><span class="p">(</span><span class="n">tannan</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">pi</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">tann</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_svg output_subarea">
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<!-- Created with matplotlib (http://matplotlib.org/) -->
+<svg height="252pt" version="1.1" viewbox="0 0 368 252" width="368pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;}
+  </style>
+</defs>
+<g id="figure_1">
+<g id="patch_1">
+<path d="M -0 252.34 
+L 368.410937 252.34 
+L 368.410937 0 
+L -0 0 
+z
+" style="fill:none;"></path>
+</g>
+<g id="axes_1">
+<g id="patch_2">
+<path d="M 22.910937 228.14 
+L 357.710938 228.14 
+L 357.710938 10.7 
+L 22.910937 10.7 
+z
+" style="fill:#ffffff;"></path>
+</g>
+<g id="matplotlib.axis_1">
+<g id="xtick_1">
+<g id="line2d_1">
+<defs>
+<path d="M 0 0 
+L 0 3.5 
+" id="mdf1a3b492c" style="stroke:#000000;stroke-width:0.8;"></path>
+</defs>
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="38.129119" xlink:href="#mdf1a3b492c" y="228.14"></use>
+</g>
+</g>
+<g id="text_1">
+<!-- 0 -->
+<defs>
+<path d="M 4.6875 35.9375 
+Q 4.6875 54.296875 10.34375 63.46875 
+Q 16.015625 72.65625 27.34375 72.65625 
+Q 39.0625 72.65625 44.71875 63.46875 
+Q 50.390625 54.296875 50.390625 35.9375 
+Q 50.390625 17.578125 44.71875 8.390625 
+Q 39.0625 -0.78125 27.34375 -0.78125 
+Q 16.015625 -0.78125 10.34375 8.390625 
+Q 4.6875 17.578125 4.6875 35.9375 
+z
+M 41.40625 35.9375 
+Q 41.40625 52.34375 37.6875 58.59375 
+Q 33.984375 64.84375 27.34375 64.84375 
+Q 21.09375 64.84375 17.375 58.78125 
+Q 13.671875 52.734375 13.671875 35.9375 
+Q 13.671875 18.75 17.375 12.6875 
+Q 21.09375 6.640625 27.34375 6.640625 
+Q 33.984375 6.640625 37.6875 12.890625 
+Q 41.40625 19.140625 41.40625 35.9375 
+z
+" id="DroidSansFallback-30"></path>
+</defs>
+<g transform="translate(35.375213 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-30"></use>
+</g>
+</g>
+</g>
+<g id="xtick_2">
+<g id="line2d_2">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="81.769639" xlink:href="#mdf1a3b492c" y="228.14"></use>
+</g>
+</g>
+<g id="text_2">
+<!-- 2 -->
+<defs>
+<path d="M 49.21875 0 
+L 4.6875 0 
+L 4.6875 7.8125 
+L 21.875 26.171875 
+Q 32.421875 37.5 34.953125 42.578125 
+Q 37.5 47.65625 37.5 53.125 
+Q 37.5 58.59375 34.375 61.71875 
+Q 31.25 64.84375 25.78125 64.84375 
+Q 17.96875 64.84375 10.546875 58.203125 
+L 5.46875 64.0625 
+Q 14.84375 72.265625 26.171875 72.265625 
+Q 35.546875 72.265625 41.015625 67.1875 
+Q 46.484375 62.109375 46.484375 53.515625 
+Q 46.484375 47.265625 43.15625 41.015625 
+Q 39.84375 34.765625 29.296875 23.046875 
+L 15.625 8.59375 
+L 15.625 8.203125 
+L 49.21875 8.203125 
+z
+" id="DroidSansFallback-32"></path>
+</defs>
+<g transform="translate(79.015733 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-32"></use>
+</g>
+</g>
+</g>
+<g id="xtick_3">
+<g id="line2d_3">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="125.410159" xlink:href="#mdf1a3b492c" y="228.14"></use>
+</g>
+</g>
+<g id="text_3">
+<!-- 4 -->
+<defs>
+<path d="M 53.125 16.015625 
+L 42.578125 16.015625 
+L 42.578125 0 
+L 33.984375 0 
+L 33.984375 16.015625 
+L 1.171875 16.015625 
+L 1.171875 23.828125 
+L 33.59375 71.875 
+L 42.578125 71.875 
+L 42.578125 24.21875 
+L 53.125 24.21875 
+z
+M 33.984375 24.21875 
+L 33.984375 41.40625 
+Q 33.984375 50 34.765625 62.5 
+L 34.375 62.5 
+Q 32.421875 57.421875 30.078125 53.90625 
+L 9.765625 24.21875 
+z
+" id="DroidSansFallback-34"></path>
+</defs>
+<g transform="translate(122.656253 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-34"></use>
+</g>
+</g>
+</g>
+<g id="xtick_4">
+<g id="line2d_4">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="169.050679" xlink:href="#mdf1a3b492c" y="228.14"></use>
+</g>
+</g>
+<g id="text_4">
+<!-- 6 -->
+<defs>
+<path d="M 45.3125 71.484375 
+L 45.3125 64.0625 
+Q 41.796875 65.234375 37.109375 65.234375 
+Q 15.234375 65.234375 14.453125 36.328125 
+L 15.234375 36.328125 
+Q 19.921875 44.53125 30.078125 44.53125 
+Q 39.453125 44.53125 44.921875 38.859375 
+Q 50.390625 33.203125 50.390625 23.046875 
+Q 50.390625 11.71875 44.53125 5.46875 
+Q 38.671875 -0.78125 28.90625 -0.78125 
+Q 18.359375 -0.78125 11.90625 7.21875 
+Q 5.46875 15.234375 5.46875 30.46875 
+Q 5.46875 51.5625 13.28125 61.90625 
+Q 21.09375 72.265625 36.71875 72.265625 
+Q 41.796875 72.265625 45.3125 71.484375 
+z
+M 28.90625 37.890625 
+Q 22.65625 37.890625 18.546875 33.78125 
+Q 14.453125 29.6875 14.453125 24.609375 
+Q 14.453125 16.796875 18.546875 11.71875 
+Q 22.65625 6.640625 28.90625 6.640625 
+Q 35.15625 6.640625 38.46875 10.734375 
+Q 41.796875 14.84375 41.796875 23.046875 
+Q 41.796875 30.46875 38.671875 34.171875 
+Q 35.546875 37.890625 28.90625 37.890625 
+z
+" id="DroidSansFallback-36"></path>
+</defs>
+<g transform="translate(166.296773 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-36"></use>
+</g>
+</g>
+</g>
+<g id="xtick_5">
+<g id="line2d_5">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="212.691199" xlink:href="#mdf1a3b492c" y="228.14"></use>
+</g>
+</g>
+<g id="text_5">
+<!-- 8 -->
+<defs>
+<path d="M 34.765625 37.890625 
+Q 50 29.6875 50 18.75 
+Q 50 10.15625 43.9375 4.6875 
+Q 37.890625 -0.78125 27.734375 -0.78125 
+Q 16.796875 -0.78125 10.9375 4.296875 
+Q 5.078125 9.375 5.078125 18.359375 
+Q 5.078125 30.859375 19.140625 37.5 
+Q 7.421875 44.53125 7.421875 55.46875 
+Q 7.421875 62.890625 12.890625 67.765625 
+Q 18.359375 72.65625 27.734375 72.65625 
+Q 36.71875 72.65625 42.1875 67.765625 
+Q 47.65625 62.890625 47.65625 55.46875 
+Q 47.65625 44.140625 34.765625 37.890625 
+z
+M 27.734375 41.40625 
+Q 39.0625 46.484375 39.0625 55.078125 
+Q 39.0625 60.15625 36.125 62.6875 
+Q 33.203125 65.234375 27.34375 65.234375 
+Q 21.875 65.234375 19.140625 62.6875 
+Q 16.40625 60.15625 16.40625 55.078125 
+Q 16.40625 46.484375 27.734375 41.40625 
+z
+M 26.171875 33.984375 
+Q 14.0625 28.125 14.0625 17.96875 
+Q 14.0625 12.109375 17.375 9.171875 
+Q 20.703125 6.25 27.34375 6.25 
+Q 34.375 6.25 37.890625 9.375 
+Q 41.40625 12.5 41.40625 18.359375 
+Q 41.40625 22.65625 38.671875 25.96875 
+Q 35.9375 29.296875 27.734375 33.203125 
+z
+" id="DroidSansFallback-38"></path>
+</defs>
+<g transform="translate(209.937293 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-38"></use>
+</g>
+</g>
+</g>
+<g id="xtick_6">
+<g id="line2d_6">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="256.331719" xlink:href="#mdf1a3b492c" y="228.14"></use>
+</g>
+</g>
+<g id="text_6">
+<!-- 10 -->
+<defs>
+<path d="M 34.765625 0 
+L 26.171875 0 
+L 26.171875 44.53125 
+Q 26.171875 53.90625 26.5625 62.109375 
+L 13.28125 50.78125 
+L 8.59375 56.640625 
+L 27.34375 71.484375 
+L 34.765625 71.484375 
+z
+" id="DroidSansFallback-31"></path>
+</defs>
+<g transform="translate(250.823907 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-31"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-30"></use>
+</g>
+</g>
+</g>
+<g id="xtick_7">
+<g id="line2d_7">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="299.972239" xlink:href="#mdf1a3b492c" y="228.14"></use>
+</g>
+</g>
+<g id="text_7">
+<!-- 12 -->
+<g transform="translate(294.464427 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-31"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-32"></use>
+</g>
+</g>
+</g>
+<g id="xtick_8">
+<g id="line2d_8">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="343.612759" xlink:href="#mdf1a3b492c" y="228.14"></use>
+</g>
+</g>
+<g id="text_8">
+<!-- 14 -->
+<g transform="translate(338.104947 242.757187)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-31"></use>
+<use x="55.078125" xlink:href="#DroidSansFallback-34"></use>
+</g>
+</g>
+</g>
+</g>
+<g id="matplotlib.axis_2">
+<g id="ytick_1">
+<g id="line2d_9">
+<defs>
+<path d="M 0 0 
+L -3.5 0 
+" id="mac569e2fee" style="stroke:#000000;stroke-width:0.8;"></path>
+</defs>
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="22.910937" xlink:href="#mac569e2fee" y="194.836179"></use>
+</g>
+</g>
+<g id="text_9">
+<!-- -4 -->
+<defs>
+<path d="M 3.90625 22.65625 
+L 3.90625 30.859375 
+L 28.125 30.859375 
+L 28.125 22.65625 
+z
+" id="DroidSansFallback-2d"></path>
+</defs>
+<g transform="translate(7.2 198.644773)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-2d"></use>
+<use x="32.03125" xlink:href="#DroidSansFallback-34"></use>
+</g>
+</g>
+</g>
+<g id="ytick_2">
+<g id="line2d_10">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="22.910937" xlink:href="#mac569e2fee" y="157.128089"></use>
+</g>
+</g>
+<g id="text_10">
+<!-- -2 -->
+<g transform="translate(7.2 160.936683)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-2d"></use>
+<use x="32.03125" xlink:href="#DroidSansFallback-32"></use>
+</g>
+</g>
+</g>
+<g id="ytick_3">
+<g id="line2d_11">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="22.910937" xlink:href="#mac569e2fee" y="119.42"></use>
+</g>
+</g>
+<g id="text_11">
+<!-- 0 -->
+<g transform="translate(10.403125 123.228594)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-30"></use>
+</g>
+</g>
+</g>
+<g id="ytick_4">
+<g id="line2d_12">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="22.910937" xlink:href="#mac569e2fee" y="81.711911"></use>
+</g>
+</g>
+<g id="text_12">
+<!-- 2 -->
+<g transform="translate(10.403125 85.520504)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-32"></use>
+</g>
+</g>
+</g>
+<g id="ytick_5">
+<g id="line2d_13">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="22.910937" xlink:href="#mac569e2fee" y="44.003821"></use>
+</g>
+</g>
+<g id="text_13">
+<!-- 4 -->
+<g transform="translate(10.403125 47.812415)scale(0.1 -0.1)">
+<use xlink:href="#DroidSansFallback-34"></use>
+</g>
+</g>
+</g>
+</g>
+<g id="line2d_14">
+<path clip-path="url(#pb5e2de6acd)" d="M 38.129119 119.42 
+L 44.298652 113.942394 
+L 47.726171 110.54796 
+L 50.468186 107.454859 
+L 52.524697 104.795304 
+L 54.581208 101.714874 
+L 55.952215 99.342482 
+L 57.323223 96.629375 
+L 58.69423 93.469634 
+L 60.065237 89.710779 
+L 61.436245 85.12462 
+L 62.807252 79.353115 
+L 64.178259 71.800119 
+L 64.863763 67.050876 
+L 65.549267 61.393217 
+L 66.23477 54.523952 
+L 66.920274 45.988344 
+L 67.605778 35.071853 
+L 68.291281 20.583636 
+M 76.517326 218.256364 
+L 77.202829 203.768147 
+L 77.888333 192.851656 
+L 78.573837 184.316048 
+L 79.25934 177.446783 
+L 80.630348 167.039881 
+L 82.001355 159.486885 
+L 83.372363 153.71538 
+L 84.74337 149.129221 
+L 86.114377 145.370366 
+L 87.485385 142.210625 
+L 88.856392 139.497518 
+L 90.912903 136.042076 
+L 92.969414 133.118265 
+L 95.025925 130.570251 
+L 97.76794 127.578874 
+L 101.195458 124.260896 
+L 105.993984 120.012512 
+L 112.849021 113.942394 
+L 116.276539 110.54796 
+L 119.018554 107.454859 
+L 121.075065 104.795304 
+L 123.131576 101.714874 
+L 124.502584 99.342482 
+L 125.873591 96.629375 
+L 127.244598 93.469634 
+L 128.615606 89.710779 
+L 129.986613 85.12462 
+L 131.357621 79.353115 
+L 132.728628 71.800119 
+L 133.414132 67.050876 
+L 134.099635 61.393217 
+L 134.785139 54.523952 
+L 135.470643 45.988344 
+L 136.156146 35.071853 
+L 136.84165 20.583636 
+M 145.067694 218.256364 
+L 145.753198 203.768147 
+L 146.438702 192.851656 
+L 147.124205 184.316048 
+L 147.809709 177.446783 
+L 149.180716 167.039881 
+L 150.551724 159.486885 
+L 151.922731 153.71538 
+L 153.293738 149.129221 
+L 154.664746 145.370366 
+L 156.035753 142.210625 
+L 157.406761 139.497518 
+L 159.463272 136.042076 
+L 161.519783 133.118265 
+L 163.576294 130.570251 
+L 166.318309 127.578874 
+L 169.745827 124.260896 
+L 174.544353 120.012512 
+L 181.39939 113.942394 
+L 184.826908 110.54796 
+L 187.568923 107.454859 
+L 189.625434 104.795304 
+L 191.681945 101.714874 
+L 193.052952 99.342482 
+L 194.42396 96.629375 
+L 195.794967 93.469634 
+L 197.165974 89.710779 
+L 198.536982 85.12462 
+L 199.907989 79.353115 
+L 201.278996 71.800119 
+L 201.9645 67.050876 
+L 202.650004 61.393217 
+L 203.335508 54.523952 
+L 204.021011 45.988344 
+L 204.706515 35.071853 
+L 205.392019 20.583636 
+M 213.618063 218.256364 
+L 214.303566 203.768147 
+L 214.98907 192.851656 
+L 215.674574 184.316048 
+L 216.360078 177.446783 
+L 217.731085 167.039881 
+L 219.102092 159.486885 
+L 220.4731 153.71538 
+L 221.844107 149.129221 
+L 223.215114 145.370366 
+L 224.586122 142.210625 
+L 225.957129 139.497518 
+L 228.01364 136.042076 
+L 230.070151 133.118265 
+L 232.126662 130.570251 
+L 234.868677 127.578874 
+L 238.296195 124.260896 
+L 243.094721 120.012512 
+L 249.949758 113.942394 
+L 253.377277 110.54796 
+L 256.119291 107.454859 
+L 258.175802 104.795304 
+L 260.232313 101.714874 
+L 261.603321 99.342482 
+L 262.974328 96.629375 
+L 264.345336 93.469634 
+L 265.716343 89.710779 
+L 267.08735 85.12462 
+L 268.458358 79.353115 
+L 269.829365 71.800119 
+L 270.514869 67.050876 
+L 271.200372 61.393217 
+L 271.885876 54.523952 
+L 272.57138 45.988344 
+L 273.256883 35.071853 
+L 273.942387 20.583636 
+M 282.168431 218.256364 
+L 282.853935 203.768147 
+L 283.539439 192.851656 
+L 284.224942 184.316048 
+L 284.910446 177.446783 
+L 286.281453 167.039881 
+L 287.652461 159.486885 
+L 289.023468 153.71538 
+L 290.394476 149.129221 
+L 291.765483 145.370366 
+L 293.13649 142.210625 
+L 294.507498 139.497518 
+L 296.564009 136.042076 
+L 298.62052 133.118265 
+L 300.677031 130.570251 
+L 303.419046 127.578874 
+L 306.846564 124.260896 
+L 311.64509 120.012512 
+L 318.500127 113.942394 
+L 321.927645 110.54796 
+L 324.66966 107.454859 
+L 326.726171 104.795304 
+L 328.782682 101.714874 
+L 330.153689 99.342482 
+L 331.524697 96.629375 
+L 332.895704 93.469634 
+L 334.266711 89.710779 
+L 335.637719 85.12462 
+L 337.008726 79.353115 
+L 338.379734 71.800119 
+L 339.065237 67.050876 
+L 339.750741 61.393217 
+L 340.436245 54.523952 
+L 341.121748 45.988344 
+L 341.807252 35.071853 
+L 342.492756 20.583636 
+L 342.492756 20.583636 
+" style="fill:none;stroke:#1f77b4;stroke-linecap:square;stroke-width:1.5;"></path>
+</g>
+<g id="patch_3">
+<path d="M 22.910937 228.14 
+L 22.910937 10.7 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_4">
+<path d="M 357.710938 228.14 
+L 357.710938 10.7 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_5">
+<path d="M 22.910937 228.14 
+L 357.710938 228.14 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_6">
+<path d="M 22.910937 10.7 
+L 357.710938 10.7 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="pb5e2de6acd">
+<rect height="217.44" width="334.8" x="22.910937" y="10.7"></rect>
+</clippath>
+</defs>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+            <!-- /.entry-content -->
+<ul class="pager">
+    <li class="previous"><a href="https://www.peijun.me/two-dimension-colloids-design.html">&larr; 二维胶粒设计</a></li>
+    <li class="next"><a href="https://www.peijun.me/use-qt-creator-as-cpp-ide.html">QtCreator使用小结 &rarr;</a></li>
+</ul><section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="https://www.peijun.me/reduced-density-matrix-and-partial-trace.html">Reduced density matrix and partial trace</a></li>
+        <li><a href="https://www.peijun.me/ipynb-plugin.html">ipynb2pelican Plugin released!</a></li>
+        <li><a href="https://www.peijun.me/24-game-solver.html">24 Game Solver</a></li>
+        <li><a href="https://www.peijun.me/jupyter-conf.html">Jupyter Notebook的配置</a></li>
+        <li><a href="https://www.peijun.me/nacl-madelung-constant.html">NaCl离子晶体晶格能的研究</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'python-plotting-with-infinite-incontinuous-point';
+                var disqus_url = 'https://www.peijun.me/python-plotting-with-infinite-incontinuous-point.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

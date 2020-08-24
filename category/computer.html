@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Computer - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+
+    <meta name="author" content="Peijun Zhu" />
+    <meta name="keywords" content="Computer" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Peijun's Journal"/>
+        <meta property="og:url" content="https://www.peijun.me"/>
+        <meta property="og:description" content="Peijun's Journal"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+    <ol class="breadcrumb">
+        <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+        <li class="active">Computer</li>
+    </ol>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/master-theorem-on-recursion.html">Master Theorem on Recursion</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Given $$T[n]=\sum a_i T[n/b_i]+f(n),\quad a_i&gt;0, b_i&gt;1,$$
+we want to find asymptotic expression for $T[n]$</p>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/master-theorem-on-recursion.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/quickselect-complexity.html">Expectation value of quickselect runtime</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Problem"><a class="anchor-link" href="#Problem">#</a> Problem</h2><p>Suppose there are $n$ numbers, use <a href="https://en.wikipedia.org/wiki/Quickselect">Quickselect</a> to determine $k$-th smallest number. What is average runtime?</p>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/quickselect-complexity.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/migration-to-manjaro.html">迁移到Manjaro系统了</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="起因"><a class="anchor-link" href="#起因">#</a> 起因</h2><p>由于openSUSE软件更新实在太慢以及对双显卡支持太差，暑假研究了下其他的滚动Linux发行版。以下是对比：</p>
+<ul>
+<li>openSUSE的优点是稳定，缺点简直不可胜数：<ul>
+<li>软件更新太慢（如火狐，goldendict等）</li>
+<li>需要加的源太多太麻烦，受版权掣肘，连多媒体源都不自带，更别提其他的了</li>
+<li>系统额外东西过多，不够KISS</li>
+</ul>
+</li>
+<li>Arch Linux安装太复杂，但是有巨大的AUR软件源，稳定性不好容易滚挂</li>
+<li>Manjaro目前看来几乎没有缺点，而优点简直太多了<ul>
+<li>安装比较简单</li>
+<li>系统稳定性足够好，内核更新的并不是很快，可以自由锁定/切换内核</li>
+<li>驱动支持非常好</li>
+<li>常用软件更新够快</li>
+<li>软件足够丰富，继承Archlinux的AUR</li>
+<li>KDE用起来不错</li>
+<li>易用性好，可配置性很强</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/migration-to-manjaro.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/fake-header-node.html">链表的伪头节点</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>本文介绍C语言中，如何无中生有，给链表创造出一个不占空间的伪头节点</p>
+</blockquote>
+</div>
+</div>
+</div><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="基本定义"><a class="anchor-link" href="#基本定义">#</a> 基本定义</h2><p>设我们有一个不带空头节点的链表，其节点定义为</p>
+<div class="highlight"><pre><span></span><span class="c1">//typedef int dtype;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span><span class="p">{</span>
+    <span class="n">dtype</span> <span class="n">data</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">node</span><span class="p">;</span>
+</pre></div>
+<p>链表定义为</p>
+<div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="n">linklist</span><span class="p">{</span>
+    <span class="n">node</span> <span class="o">*</span><span class="n">head</span><span class="p">;</span>
+    <span class="c1">//...</span>
+<span class="p">}</span> <span class="n">linklist</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/fake-header-node.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/zheng-shu-mi-de-qiu-he.html">整数幂的求和</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="问题"><a class="anchor-link" href="#问题">#</a> 问题</h2><p>计算对于给定的整数$k$，求$f(n, k)=\sum_{i=1}^n i^k$关于$n$的多项式表达式。例如</p>
+\begin{align}
+f(n, 0)&amp;=n\\
+f(n, 1)&amp;=n(n+1)/2\\
+f(n, 2)&amp;=n(n+1)(2n+1)/6\\
+f(n, 3)&amp;=n^2(n+1)^2/4
+\end{align}
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/zheng-shu-mi-de-qiu-he.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/normalize-color-by-center.html">Normalize color by center</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Also on <a href="https://gist.github.com/peijunz/b5f5fa89f7e1412686b9eaa5646be730">Github Gist</a></p>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/normalize-color-by-center.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/gnome-config.html">Gnome 配置</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="GNONE插件"><a class="anchor-link" href="#GNONE插件">#</a> GNONE插件</h2><p><a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a></p>
+<h3 id="必备"><a class="anchor-link" href="#必备">#</a> 必备</h3><ul>
+<li><a href="https://extensions.gnome.org/extension/1160/dash-to-panel/">Dash to Panel</a></li>
+<li><a href="https://extensions.gnome.org/extension/615/appindicator-support/">KStatusNotifierItem/AppIndicator Support</a></li>
+<li><a href="https://extensions.gnome.org/extension/723/pixel-saver/">Pixel Saver</a></li>
+</ul>
+<h3 id="次要"><a class="anchor-link" href="#次要">#</a> 次要</h3><ul>
+<li>'Window Is Ready' Notification Remover by nunofarruca</li>
+<li>Bumblebee Status by dsboger</li>
+<li>gTile by scherepanov</li>
+<li>Media Player Indicator by JasonLG1979</li>
+<li>Lunar Calendar 农历 by Nei</li>
+<li>Remove Rounded Corners by mbokil</li>
+<li>Pomodoro by kamilprusko</li>
+<li>Suspend Button by laser_b</li>
+<li><del>Simple net speed by bijignome</del></li>
+</ul>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/gnome-config.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/windowsshe-zhi.html">Windows设置</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>压缩<a href="http://www.7-zip.org/download.html">7-zip</a></li>
+<li>pdf阅读器<ul>
+<li><a href="https://get.adobe.com/cn/reader/otherversions/">Adobe Reader</a></li>
+<li><a href="https://code-industry.net/get-masterpdfeditor/">Master PDF Editor</a></li>
+</ul>
+</li>
+<li><a href="http://www.wps.cn/product">WPS</a></li>
+<li>图像处理<ul>
+<li>点阵图<a href="https://www.gimp.org/downloads/">Gimp</a></li>
+<li>矢量图<a href="https://inkscape.org/zh/download/">Inkscape</a></li>
+</ul>
+</li>
+<li>代码开发<ul>
+<li><a href="http://www.codeblocks.org/downloads/26">Code::Blocks</a></li>
+<li><a href="https://download.qt.io/official_releases/qtcreator/">QtCreator</a></li>
+<li><a href="https://code.visualstudio.com/download">VS Code</a></li>
+<li><a href="https://mingw-w64.org/doku.php/download">Mingw-w64</a></li>
+</ul>
+</li>
+<li>浏览器<ul>
+<li><a href="https://www.mozilla.org/en-US/firefox/all/?q=Chinese">Firefox中文版</a></li>
+<li><a href="https://www.google.cn/chrome/browser/desktop/index.html">Chrome</a></li>
+</ul>
+</li>
+<li>编辑器<ul>
+<li><a href="https://www.sublimetext.com/3">SublimeText</a></li>
+<li><a href="https://notepad-plus-plus.org/download/v7.5.1.html">Notepad++</a></li>
+</ul>
+</li>
+<li>网盘dropbox, megasync</li>
+<li>词典<a href="http://goldendict.org/download.php">Goldendict</a>, 欧路词典</li>
+</ul>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/windowsshe-zhi.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/draw-with-connected-dots.html">描点画图</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="等距描点画图"><a class="anchor-link" href="#等距描点画图">#</a> 等距描点画图</h3>\begin{align}
+\Delta l&amp;=\sqrt{\Delta x^2+\Delta y^2}=C\\
+\Rightarrow \Delta x&amp;=\frac{\Delta l}{\sqrt{1+y'^2}}
+\end{align}<h3 id="等角描点画图"><a class="anchor-link" href="#等角描点画图">#</a> 等角描点画图</h3>\begin{align}
+\theta&amp;=\arctan\frac{\Delta y}{\Delta x}\\
+\delta\theta&amp;=C\\
+\Rightarrow \Delta x&amp;=\delta\theta\Big/\frac{y''}{1+y'^2}
+\end{align}
+</div>
+</div>
+</div><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="无穷间断点"><a class="anchor-link" href="#无穷间断点">#</a> 无穷间断点</h3><p>请参见<a href="http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous">http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous</a>)</p>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/draw-with-connected-dots.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2 class="article-list"><a href="https://www.peijun.me/network-programming.html">Network Programming</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>This is my note of reading network programming chapter of CSAPP Book</p>
+</blockquote>
+</div>
+</div>
+</div>
+                    <a class="btn btn-default btn-xs" href="https://www.peijun.me/network-programming.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="https://www.peijun.me/category/computer.html">1</a></li>
+                    <li class=""><a
+                            href="https://www.peijun.me/category/computer2.html">2</a></li>
+                    <li class=""><a
+                            href="https://www.peijun.me/category/computer3.html">3</a></li>
+                <li class="next"><a
+                        href="https://www.peijun.me/category/computer2.html">&raquo;</a></li>
+        </ul>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>

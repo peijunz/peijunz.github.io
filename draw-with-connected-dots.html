@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>描点画图 - Peijun's Journal</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://www.peijun.me//static/binary.png" rel="icon">
+
+<link rel="canonical" href="https://www.peijun.me/draw-with-connected-dots.html">
+
+        <meta name="author" content="Peijun Zhu" />
+        <meta name="description" content="# 等距描点画图\begin{align} \Delta l&amp;=\sqrt{\Delta x^2+\Delta y^2}=C\\ \Rightarrow \Delta x&amp;=\frac{\Delta l}{\sqrt{1+y&#39;^2}} \end{align}# 等角描点画图\begin{align} \theta&amp;=\arctan\frac{\Delta y}{\Delta x}\\ \delta\theta&amp;=C\\ \Rightarrow \Delta x&amp;=\delta\theta\Big/\frac{y&#39;&#39;}{1+y&#39;^2} \end{align} # 无穷间断点请参见http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous)" />
+
+        <meta property="og:site_name" content="Peijun's Journal" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="描点画图"/>
+        <meta property="og:url" content="https://www.peijun.me/draw-with-connected-dots.html"/>
+        <meta property="og:description" content="# 等距描点画图\begin{align} \Delta l&amp;=\sqrt{\Delta x^2+\Delta y^2}=C\\ \Rightarrow \Delta x&amp;=\frac{\Delta l}{\sqrt{1+y&#39;^2}} \end{align}# 等角描点画图\begin{align} \theta&amp;=\arctan\frac{\Delta y}{\Delta x}\\ \delta\theta&amp;=C\\ \Rightarrow \Delta x&amp;=\delta\theta\Big/\frac{y&#39;&#39;}{1+y&#39;^2} \end{align} # 无穷间断点请参见http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous)"/>
+        <meta property="article:published_time" content="2017-09-20" />
+            <meta property="article:section" content="Computer" />
+            <meta property="article:author" content="Peijun Zhu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://www.peijun.me/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="https://www.peijun.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://www.peijun.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="https://www.peijun.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.peijun.me/theme/css/style.css" type="text/css"/>
+        <link href="https://www.peijun.me/static/css/custom.css" rel="stylesheet">
+
+        <link href="https://www.peijun.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Peijun's Journal ATOM Feed"/>
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://www.peijun.me/" class="navbar-brand">
+Peijun's Journal            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/archives.html">Archives</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/tags.html">Tags</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="https://www.peijun.me/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <ol class="breadcrumb">
+                <li><a href="https://www.peijun.me/categories.html" title="Peijun's Journal"><i class="fa fa-home fa-lg"></i></a></li>
+                <li><a href="https://www.peijun.me/category/computer.html" title="Computer">Computer</a></li>
+                <li class="active">描点画图</li>
+            </ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://www.peijun.me/draw-with-connected-dots.html"
+                       rel="bookmark"
+                       title="Permalink to 描点画图">
+                        描点画图
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-09-20T00:00:00-04:00"> Wed, 20 Sep 2017</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="等距描点画图"><a class="anchor-link" href="#等距描点画图">#</a> 等距描点画图</h3>\begin{align}
+\Delta l&amp;=\sqrt{\Delta x^2+\Delta y^2}=C\\
+\Rightarrow \Delta x&amp;=\frac{\Delta l}{\sqrt{1+y'^2}}
+\end{align}<h3 id="等角描点画图"><a class="anchor-link" href="#等角描点画图">#</a> 等角描点画图</h3>\begin{align}
+\theta&amp;=\arctan\frac{\Delta y}{\Delta x}\\
+\delta\theta&amp;=C\\
+\Rightarrow \Delta x&amp;=\delta\theta\Big/\frac{y''}{1+y'^2}
+\end{align}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="无穷间断点"><a class="anchor-link" href="#无穷间断点">#</a> 无穷间断点</h3><p>请参见<a href="http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous">http://stackoverflow.com/questions/10377593/how-to-drop-connecting-lines-where-the-function-is-discontinuous</a>)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tannan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">&gt;</span><span class="n">bound</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nan</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">t</span>
+<span class="n">tann</span><span class="o">=</span><span class="n">vectorize</span><span class="p">(</span><span class="n">tannan</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">pi</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">tann</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_svg output_subarea">
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<!-- Created with matplotlib (http://matplotlib.org/) -->
+<svg height="252pt" version="1.1" viewbox="0 0 374 252" width="374pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<style type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;}
+  </style>
+</defs>
+<g id="figure_1">
+<g id="patch_1">
+<path d="M 0 252.018125 
+L 374.442187 252.018125 
+L 374.442187 0 
+L 0 0 
+z
+" style="fill:none;"></path>
+</g>
+<g id="axes_1">
+<g id="patch_2">
+<path d="M 28.942188 228.14 
+L 363.742188 228.14 
+L 363.742188 10.7 
+L 28.942188 10.7 
+z
+" style="fill:#ffffff;"></path>
+</g>
+<g id="matplotlib.axis_1">
+<g id="xtick_1">
+<g id="line2d_1">
+<defs>
+<path d="M 0 0 
+L 0 3.5 
+" id="me7d23866ce" style="stroke:#000000;stroke-width:0.8;"></path>
+</defs>
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="44.160369" xlink:href="#me7d23866ce" y="228.14"></use>
+</g>
+</g>
+<g id="text_1">
+<!-- 0 -->
+<defs>
+<path d="M 31.78125 66.40625 
+Q 24.171875 66.40625 20.328125 58.90625 
+Q 16.5 51.421875 16.5 36.375 
+Q 16.5 21.390625 20.328125 13.890625 
+Q 24.171875 6.390625 31.78125 6.390625 
+Q 39.453125 6.390625 43.28125 13.890625 
+Q 47.125 21.390625 47.125 36.375 
+Q 47.125 51.421875 43.28125 58.90625 
+Q 39.453125 66.40625 31.78125 66.40625 
+z
+M 31.78125 74.21875 
+Q 44.046875 74.21875 50.515625 64.515625 
+Q 56.984375 54.828125 56.984375 36.375 
+Q 56.984375 17.96875 50.515625 8.265625 
+Q 44.046875 -1.421875 31.78125 -1.421875 
+Q 19.53125 -1.421875 13.0625 8.265625 
+Q 6.59375 17.96875 6.59375 36.375 
+Q 6.59375 54.828125 13.0625 64.515625 
+Q 19.53125 74.21875 31.78125 74.21875 
+z
+" id="DejaVuSans-30"></path>
+</defs>
+<g transform="translate(40.979119 242.738437)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-30"></use>
+</g>
+</g>
+</g>
+<g id="xtick_2">
+<g id="line2d_2">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="87.800889" xlink:href="#me7d23866ce" y="228.14"></use>
+</g>
+</g>
+<g id="text_2">
+<!-- 2 -->
+<defs>
+<path d="M 19.1875 8.296875 
+L 53.609375 8.296875 
+L 53.609375 0 
+L 7.328125 0 
+L 7.328125 8.296875 
+Q 12.9375 14.109375 22.625 23.890625 
+Q 32.328125 33.6875 34.8125 36.53125 
+Q 39.546875 41.84375 41.421875 45.53125 
+Q 43.3125 49.21875 43.3125 52.78125 
+Q 43.3125 58.59375 39.234375 62.25 
+Q 35.15625 65.921875 28.609375 65.921875 
+Q 23.96875 65.921875 18.8125 64.3125 
+Q 13.671875 62.703125 7.8125 59.421875 
+L 7.8125 69.390625 
+Q 13.765625 71.78125 18.9375 73 
+Q 24.125 74.21875 28.421875 74.21875 
+Q 39.75 74.21875 46.484375 68.546875 
+Q 53.21875 62.890625 53.21875 53.421875 
+Q 53.21875 48.921875 51.53125 44.890625 
+Q 49.859375 40.875 45.40625 35.40625 
+Q 44.1875 33.984375 37.640625 27.21875 
+Q 31.109375 20.453125 19.1875 8.296875 
+z
+" id="DejaVuSans-32"></path>
+</defs>
+<g transform="translate(84.619639 242.738437)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-32"></use>
+</g>
+</g>
+</g>
+<g id="xtick_3">
+<g id="line2d_3">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="131.441409" xlink:href="#me7d23866ce" y="228.14"></use>
+</g>
+</g>
+<g id="text_3">
+<!-- 4 -->
+<defs>
+<path d="M 37.796875 64.3125 
+L 12.890625 25.390625 
+L 37.796875 25.390625 
+z
+M 35.203125 72.90625 
+L 47.609375 72.90625 
+L 47.609375 25.390625 
+L 58.015625 25.390625 
+L 58.015625 17.1875 
+L 47.609375 17.1875 
+L 47.609375 0 
+L 37.796875 0 
+L 37.796875 17.1875 
+L 4.890625 17.1875 
+L 4.890625 26.703125 
+z
+" id="DejaVuSans-34"></path>
+</defs>
+<g transform="translate(128.260159 242.738437)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-34"></use>
+</g>
+</g>
+</g>
+<g id="xtick_4">
+<g id="line2d_4">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="175.081929" xlink:href="#me7d23866ce" y="228.14"></use>
+</g>
+</g>
+<g id="text_4">
+<!-- 6 -->
+<defs>
+<path d="M 33.015625 40.375 
+Q 26.375 40.375 22.484375 35.828125 
+Q 18.609375 31.296875 18.609375 23.390625 
+Q 18.609375 15.53125 22.484375 10.953125 
+Q 26.375 6.390625 33.015625 6.390625 
+Q 39.65625 6.390625 43.53125 10.953125 
+Q 47.40625 15.53125 47.40625 23.390625 
+Q 47.40625 31.296875 43.53125 35.828125 
+Q 39.65625 40.375 33.015625 40.375 
+z
+M 52.59375 71.296875 
+L 52.59375 62.3125 
+Q 48.875 64.0625 45.09375 64.984375 
+Q 41.3125 65.921875 37.59375 65.921875 
+Q 27.828125 65.921875 22.671875 59.328125 
+Q 17.53125 52.734375 16.796875 39.40625 
+Q 19.671875 43.65625 24.015625 45.921875 
+Q 28.375 48.1875 33.59375 48.1875 
+Q 44.578125 48.1875 50.953125 41.515625 
+Q 57.328125 34.859375 57.328125 23.390625 
+Q 57.328125 12.15625 50.6875 5.359375 
+Q 44.046875 -1.421875 33.015625 -1.421875 
+Q 20.359375 -1.421875 13.671875 8.265625 
+Q 6.984375 17.96875 6.984375 36.375 
+Q 6.984375 53.65625 15.1875 63.9375 
+Q 23.390625 74.21875 37.203125 74.21875 
+Q 40.921875 74.21875 44.703125 73.484375 
+Q 48.484375 72.75 52.59375 71.296875 
+z
+" id="DejaVuSans-36"></path>
+</defs>
+<g transform="translate(171.900679 242.738437)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-36"></use>
+</g>
+</g>
+</g>
+<g id="xtick_5">
+<g id="line2d_5">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="218.722449" xlink:href="#me7d23866ce" y="228.14"></use>
+</g>
+</g>
+<g id="text_5">
+<!-- 8 -->
+<defs>
+<path d="M 31.78125 34.625 
+Q 24.75 34.625 20.71875 30.859375 
+Q 16.703125 27.09375 16.703125 20.515625 
+Q 16.703125 13.921875 20.71875 10.15625 
+Q 24.75 6.390625 31.78125 6.390625 
+Q 38.8125 6.390625 42.859375 10.171875 
+Q 46.921875 13.96875 46.921875 20.515625 
+Q 46.921875 27.09375 42.890625 30.859375 
+Q 38.875 34.625 31.78125 34.625 
+z
+M 21.921875 38.8125 
+Q 15.578125 40.375 12.03125 44.71875 
+Q 8.5 49.078125 8.5 55.328125 
+Q 8.5 64.0625 14.71875 69.140625 
+Q 20.953125 74.21875 31.78125 74.21875 
+Q 42.671875 74.21875 48.875 69.140625 
+Q 55.078125 64.0625 55.078125 55.328125 
+Q 55.078125 49.078125 51.53125 44.71875 
+Q 48 40.375 41.703125 38.8125 
+Q 48.828125 37.15625 52.796875 32.3125 
+Q 56.78125 27.484375 56.78125 20.515625 
+Q 56.78125 9.90625 50.3125 4.234375 
+Q 43.84375 -1.421875 31.78125 -1.421875 
+Q 19.734375 -1.421875 13.25 4.234375 
+Q 6.78125 9.90625 6.78125 20.515625 
+Q 6.78125 27.484375 10.78125 32.3125 
+Q 14.796875 37.15625 21.921875 38.8125 
+z
+M 18.3125 54.390625 
+Q 18.3125 48.734375 21.84375 45.5625 
+Q 25.390625 42.390625 31.78125 42.390625 
+Q 38.140625 42.390625 41.71875 45.5625 
+Q 45.3125 48.734375 45.3125 54.390625 
+Q 45.3125 60.0625 41.71875 63.234375 
+Q 38.140625 66.40625 31.78125 66.40625 
+Q 25.390625 66.40625 21.84375 63.234375 
+Q 18.3125 60.0625 18.3125 54.390625 
+z
+" id="DejaVuSans-38"></path>
+</defs>
+<g transform="translate(215.541199 242.738437)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-38"></use>
+</g>
+</g>
+</g>
+<g id="xtick_6">
+<g id="line2d_6">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="262.362969" xlink:href="#me7d23866ce" y="228.14"></use>
+</g>
+</g>
+<g id="text_6">
+<!-- 10 -->
+<defs>
+<path d="M 12.40625 8.296875 
+L 28.515625 8.296875 
+L 28.515625 63.921875 
+L 10.984375 60.40625 
+L 10.984375 69.390625 
+L 28.421875 72.90625 
+L 38.28125 72.90625 
+L 38.28125 8.296875 
+L 54.390625 8.296875 
+L 54.390625 0 
+L 12.40625 0 
+z
+" id="DejaVuSans-31"></path>
+</defs>
+<g transform="translate(256.000469 242.738437)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-31"></use>
+<use x="63.623047" xlink:href="#DejaVuSans-30"></use>
+</g>
+</g>
+</g>
+<g id="xtick_7">
+<g id="line2d_7">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="306.003489" xlink:href="#me7d23866ce" y="228.14"></use>
+</g>
+</g>
+<g id="text_7">
+<!-- 12 -->
+<g transform="translate(299.640989 242.738437)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-31"></use>
+<use x="63.623047" xlink:href="#DejaVuSans-32"></use>
+</g>
+</g>
+</g>
+<g id="xtick_8">
+<g id="line2d_8">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="349.644009" xlink:href="#me7d23866ce" y="228.14"></use>
+</g>
+</g>
+<g id="text_8">
+<!-- 14 -->
+<g transform="translate(343.281509 242.738437)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-31"></use>
+<use x="63.623047" xlink:href="#DejaVuSans-34"></use>
+</g>
+</g>
+</g>
+</g>
+<g id="matplotlib.axis_2">
+<g id="ytick_1">
+<g id="line2d_9">
+<defs>
+<path d="M 0 0 
+L -3.5 0 
+" id="m7d612ed537" style="stroke:#000000;stroke-width:0.8;"></path>
+</defs>
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m7d612ed537" y="194.836179"></use>
+</g>
+</g>
+<g id="text_9">
+<!-- −4 -->
+<defs>
+<path d="M 10.59375 35.5 
+L 73.1875 35.5 
+L 73.1875 27.203125 
+L 10.59375 27.203125 
+z
+" id="DejaVuSans-2212"></path>
+</defs>
+<g transform="translate(7.2 198.635398)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-2212"></use>
+<use x="83.789062" xlink:href="#DejaVuSans-34"></use>
+</g>
+</g>
+</g>
+<g id="ytick_2">
+<g id="line2d_10">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m7d612ed537" y="157.128089"></use>
+</g>
+</g>
+<g id="text_10">
+<!-- −2 -->
+<g transform="translate(7.2 160.927308)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-2212"></use>
+<use x="83.789062" xlink:href="#DejaVuSans-32"></use>
+</g>
+</g>
+</g>
+<g id="ytick_3">
+<g id="line2d_11">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m7d612ed537" y="119.42"></use>
+</g>
+</g>
+<g id="text_11">
+<!-- 0 -->
+<g transform="translate(15.579688 123.219219)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-30"></use>
+</g>
+</g>
+</g>
+<g id="ytick_4">
+<g id="line2d_12">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m7d612ed537" y="81.711911"></use>
+</g>
+</g>
+<g id="text_12">
+<!-- 2 -->
+<g transform="translate(15.579688 85.511129)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-32"></use>
+</g>
+</g>
+</g>
+<g id="ytick_5">
+<g id="line2d_13">
+<g>
+<use style="stroke:#000000;stroke-width:0.8;" x="28.942188" xlink:href="#m7d612ed537" y="44.003821"></use>
+</g>
+</g>
+<g id="text_13">
+<!-- 4 -->
+<g transform="translate(15.579688 47.80304)scale(0.1 -0.1)">
+<use xlink:href="#DejaVuSans-34"></use>
+</g>
+</g>
+</g>
+</g>
+<g id="line2d_14">
+<path clip-path="url(#pd3a8970eb1)" d="M 44.160369 119.42 
+L 50.329902 113.942394 
+L 53.757421 110.54796 
+L 56.499436 107.454859 
+L 58.555947 104.795304 
+L 60.612458 101.714874 
+L 61.983465 99.342482 
+L 63.354473 96.629375 
+L 64.72548 93.469634 
+L 66.096487 89.710779 
+L 67.467495 85.12462 
+L 68.838502 79.353115 
+L 70.209509 71.800119 
+L 70.895013 67.050876 
+L 71.580517 61.393217 
+L 72.26602 54.523952 
+L 72.951524 45.988344 
+L 73.637028 35.071853 
+L 74.322531 20.583636 
+M 82.548576 218.256364 
+L 83.234079 203.768147 
+L 83.919583 192.851656 
+L 84.605087 184.316048 
+L 85.29059 177.446783 
+L 86.661598 167.039881 
+L 88.032605 159.486885 
+L 89.403613 153.71538 
+L 90.77462 149.129221 
+L 92.145627 145.370366 
+L 93.516635 142.210625 
+L 94.887642 139.497518 
+L 96.944153 136.042076 
+L 99.000664 133.118265 
+L 101.057175 130.570251 
+L 103.79919 127.578874 
+L 107.226708 124.260896 
+L 112.025234 120.012512 
+L 118.880271 113.942394 
+L 122.307789 110.54796 
+L 125.049804 107.454859 
+L 127.106315 104.795304 
+L 129.162826 101.714874 
+L 130.533834 99.342482 
+L 131.904841 96.629375 
+L 133.275848 93.469634 
+L 134.646856 89.710779 
+L 136.017863 85.12462 
+L 137.388871 79.353115 
+L 138.759878 71.800119 
+L 139.445382 67.050876 
+L 140.130885 61.393217 
+L 140.816389 54.523952 
+L 141.501893 45.988344 
+L 142.187396 35.071853 
+L 142.8729 20.583636 
+M 151.098944 218.256364 
+L 151.784448 203.768147 
+L 152.469952 192.851656 
+L 153.155455 184.316048 
+L 153.840959 177.446783 
+L 155.211966 167.039881 
+L 156.582974 159.486885 
+L 157.953981 153.71538 
+L 159.324988 149.129221 
+L 160.695996 145.370366 
+L 162.067003 142.210625 
+L 163.438011 139.497518 
+L 165.494522 136.042076 
+L 167.551033 133.118265 
+L 169.607544 130.570251 
+L 172.349559 127.578874 
+L 175.777077 124.260896 
+L 180.575603 120.012512 
+L 187.43064 113.942394 
+L 190.858158 110.54796 
+L 193.600173 107.454859 
+L 195.656684 104.795304 
+L 197.713195 101.714874 
+L 199.084202 99.342482 
+L 200.45521 96.629375 
+L 201.826217 93.469634 
+L 203.197224 89.710779 
+L 204.568232 85.12462 
+L 205.939239 79.353115 
+L 207.310246 71.800119 
+L 207.99575 67.050876 
+L 208.681254 61.393217 
+L 209.366758 54.523952 
+L 210.052261 45.988344 
+L 210.737765 35.071853 
+L 211.423269 20.583636 
+M 219.649313 218.256364 
+L 220.334816 203.768147 
+L 221.02032 192.851656 
+L 221.705824 184.316048 
+L 222.391328 177.446783 
+L 223.762335 167.039881 
+L 225.133342 159.486885 
+L 226.50435 153.71538 
+L 227.875357 149.129221 
+L 229.246364 145.370366 
+L 230.617372 142.210625 
+L 231.988379 139.497518 
+L 234.04489 136.042076 
+L 236.101401 133.118265 
+L 238.157912 130.570251 
+L 240.899927 127.578874 
+L 244.327445 124.260896 
+L 249.125971 120.012512 
+L 255.981008 113.942394 
+L 259.408527 110.54796 
+L 262.150541 107.454859 
+L 264.207052 104.795304 
+L 266.263563 101.714874 
+L 267.634571 99.342482 
+L 269.005578 96.629375 
+L 270.376586 93.469634 
+L 271.747593 89.710779 
+L 273.1186 85.12462 
+L 274.489608 79.353115 
+L 275.860615 71.800119 
+L 276.546119 67.050876 
+L 277.231622 61.393217 
+L 277.917126 54.523952 
+L 278.60263 45.988344 
+L 279.288133 35.071853 
+L 279.973637 20.583636 
+M 288.199681 218.256364 
+L 288.885185 203.768147 
+L 289.570689 192.851656 
+L 290.256192 184.316048 
+L 290.941696 177.446783 
+L 292.312703 167.039881 
+L 293.683711 159.486885 
+L 295.054718 153.71538 
+L 296.425726 149.129221 
+L 297.796733 145.370366 
+L 299.16774 142.210625 
+L 300.538748 139.497518 
+L 302.595259 136.042076 
+L 304.65177 133.118265 
+L 306.708281 130.570251 
+L 309.450296 127.578874 
+L 312.877814 124.260896 
+L 317.67634 120.012512 
+L 324.531377 113.942394 
+L 327.958895 110.54796 
+L 330.70091 107.454859 
+L 332.757421 104.795304 
+L 334.813932 101.714874 
+L 336.184939 99.342482 
+L 337.555947 96.629375 
+L 338.926954 93.469634 
+L 340.297961 89.710779 
+L 341.668969 85.12462 
+L 343.039976 79.353115 
+L 344.410984 71.800119 
+L 345.096487 67.050876 
+L 345.781991 61.393217 
+L 346.467495 54.523952 
+L 347.152998 45.988344 
+L 347.838502 35.071853 
+L 348.524006 20.583636 
+L 348.524006 20.583636 
+" style="fill:none;stroke:#1f77b4;stroke-linecap:square;stroke-width:1.5;"></path>
+</g>
+<g id="patch_3">
+<path d="M 28.942188 228.14 
+L 28.942188 10.7 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_4">
+<path d="M 363.742188 228.14 
+L 363.742188 10.7 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_5">
+<path d="M 28.942187 228.14 
+L 363.742188 228.14 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+<g id="patch_6">
+<path d="M 28.942187 10.7 
+L 363.742188 10.7 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"></path>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="pd3a8970eb1">
+<rect height="217.44" width="334.8" x="28.942188" y="10.7"></rect>
+</clippath>
+</defs>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+            <!-- /.entry-content -->
+<ul class="pager">
+    <li class="previous"><a href="https://www.peijun.me/network-programming.html">&larr; Network Programming</a></li>
+    <li class="next"><a href="https://www.peijun.me/windowsshe-zhi.html">Windows设置 &rarr;</a></li>
+</ul>    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'draw-with-connected-dots';
+                var disqus_url = 'https://www.peijun.me/draw-with-connected-dots.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+<script>
+    window.MathJax = {
+      tex: {
+        tags: 'ams',
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true,
+        processEnvironments: true,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script"
+async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">
+         <i class="fa fa-github fa-lg"></i> <a href="https://github.com/peijunz">peijunz</a><br><br>
+&copy; 2020 Peijun Zhu
+             &middot; Powered by <a href="https://github.com/peijunz/ipynb2pelican" target="_blank">ipynb2pelican</a>, <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<p>
+  <span id="busuanzi_container_site_pv"><small>
+  Total Views: <span id="busuanzi_value_site_pv"></span>,
+  Visitors: <span id="busuanzi_value_site_uv"></span>,
+  Current: <span id="busuanzi_value_page_pv"></span></small>
+  </span>
+<p>
+                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script type="text/javascript">
+    function changeThemeColor() {
+        var elements = document.getElementsByClassName('navbar-fixed-top');
+        if(elements){
+        	var theme_color = window.getComputedStyle(elements[0], null).color;
+            var metaThemeColor = document.querySelector("meta[name=theme-color]");
+            metaThemeColor.setAttribute("content", theme_color);
+        }
+    };
+    changeThemeColor();
+</script>
+<script src="https://www.peijun.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://www.peijun.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://www.peijun.me/theme/js/respond.min.js"></script>
+
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'peijunz'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-96594625-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+</body>
+</html>
