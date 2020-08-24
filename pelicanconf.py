@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
-from pyembed.rst import PyEmbedRst
-PyEmbedRst().register()
 
 AUTHOR = 'Peijun Zhu'
 SITETITLE = 'Peijun Zhu'
@@ -15,8 +13,6 @@ PATH = 'content'
 TIMEZONE = 'US/Eastern'
 
 DEFAULT_LANG = 'en'
-
-LOCALE = 'zh_CN.utf8'
 
 DATE_FORMATS = {
     'en': ((u'en_US', 'utf8'), u'%a, %d %b %Y',),
@@ -55,6 +51,7 @@ MENUITEMS = (('Archives', '/archives.html'),
              ('Categories', '/categories.html'),
              ('Tags', '/tags.html'),
 )
+DEFAULT_CATEGORY = 'General'
 DEFAULT_DATE = 'fs'
 PYGMENTS_STYLE = 'default'
 DEFAULT_PAGINATION = 10
@@ -77,7 +74,6 @@ JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 #RELATIVE_URLS = True
 IPYNB_SUMMARY_CELL = True
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'authors', 'archives', 'search')
-MARKUP = ('md', 'ipynb', 'rst')
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['render_math', 'ipynb2pelican', 'liquid_tags.include_code',
            'pelican-toc', 'i18n_subsites', 'tipue_search', 'neighbors']
@@ -97,3 +93,6 @@ PADDED_SINGLE_COLUMN_STYLE = True
 BUILD_STATUS = '<a href="https://travis-ci.org/peijunz/peijunz.github.io"><img alt="Build Status" src="https://travis-ci.org/peijunz/peijunz.github.io.svg?branch=src" style="max-width:100%;"></a>'
 SOURCE_LINK = 'https://github.com/peijunz/peijunz.github.io/tree/src/content'
 GITHUB_ID = "peijunz"
+MATHJAX_ENABLE = True
+SUMMARY_SIZE = 600
+CELL_PENALTY = 120
