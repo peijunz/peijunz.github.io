@@ -22,7 +22,7 @@ jobs:
         run: |
           sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
-          git clone git@github.com:peijunz/pelican-bootstrap3 themes/pelican-bootstrap3
+          git clone https://github.com/peijunz/pelican-bootstrap3 themes/pelican-bootstrap3
           git clone --depth=1 https://github.com/peijunz/pelican-plugins plugins && cd plugins
           git submodule update --init pelican-toc ipynb2pelican
       - name: Publish
