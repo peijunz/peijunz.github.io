@@ -17,18 +17,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
           git submodule update --init --recursive
           python -m pip install --upgrade pip
-          pip install pelican jinja2 py3babel babel beautifulsoup4 markdown nbconvert ipython pelican-alias ghp-import
-          mkdir themes plugins
+          pip install pelican beautifulsoup4 markdown nbconvert ghp-import
       - name: Download Source
         run: |
-          svn export https://github.com/peijunz/pelican-themes/trunk/pelican-bootstrap3 themes/pelican-bootstrap3 --quiet
-          git clone --depth=1 https://github.com/peijunz/pelican-plugins plugins
-          cd plugins
-          git submodule update --init pelican-toc
-          git submodule update --init ipynb2pelican
+          git clone git@github.com:peijunz/pelican-bootstrap3 themes/pelican-bootstrap3
+          git clone --depth=1 https://github.com/peijunz/pelican-plugins plugins && cd plugins
+          git submodule update --init pelican-toc ipynb2pelican
       - name: Publish
         run: |
           make publish
